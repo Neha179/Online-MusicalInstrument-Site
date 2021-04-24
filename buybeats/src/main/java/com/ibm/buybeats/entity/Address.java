@@ -1,23 +1,45 @@
 package com.ibm.buybeats.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table
 public class Address {
 	
+	@Id
+	@GeneratedValue
 	private int aid;
+	@Column(length = 15)
 	private String houseNumber;
+	@Column(length = 15)
 	private String street;
+	@Column(length = 15)
 	private String city;
+	@Column(length = 15)
 	private String state;
 	private int pinCode;
+	@Column(length = 15)
 	private String addressType;
 	
-	private int uid;
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "uid")
+	private User user;
 	
 	public Address() {
 
 	}
 
 	public Address(int aid, String houseNumber, String street, String city, String state, int pinCode,
-			String addressType, int uid) {
+			String addressType, User user) {
 		super();
 		this.aid = aid;
 		this.houseNumber = houseNumber;
@@ -26,7 +48,7 @@ public class Address {
 		this.state = state;
 		this.pinCode = pinCode;
 		this.addressType = addressType;
-		this.uid = uid;
+		this.user=user;
 	}
 
 	public int getAid() {
@@ -85,12 +107,14 @@ public class Address {
 		this.addressType = addressType;
 	}
 
-	public int getUid() {
-		return uid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUid(int uid) {
-		this.uid = uid;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+
 
 }
