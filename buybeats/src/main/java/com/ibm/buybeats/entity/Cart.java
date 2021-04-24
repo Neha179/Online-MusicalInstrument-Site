@@ -1,10 +1,22 @@
 package com.ibm.buybeats.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="Cart")
 public class Cart {
 	
+	@Id
+	@GeneratedValue
 	private int entryID;
+	
 	private int pid;
+	
 	private int quantity;
+	
 	private int uid;
 	
 	public Cart() {}

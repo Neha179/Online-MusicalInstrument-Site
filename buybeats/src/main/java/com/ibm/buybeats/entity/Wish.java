@@ -1,7 +1,16 @@
 package com.ibm.buybeats.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="WishList")
 public class Wish {
 	
+	@Id
+	@GeneratedValue
 	private int wishId;
 	
 	private int uid;
