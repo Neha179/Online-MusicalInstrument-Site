@@ -1,4 +1,4 @@
-package com.ibm.BuyBeats.Repository;
+package com.ibm.buybeats.repository;
 
 public interface UserRepository {
 

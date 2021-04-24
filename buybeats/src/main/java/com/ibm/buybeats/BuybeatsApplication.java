@@ -1,13 +1,13 @@
-package com.ibm.BuyBeats;
+package com.ibm.buybeats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OnlineMusicalInstrumentSiteApplication {
+public class BuybeatsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OnlineMusicalInstrumentSiteApplication.class, args);
+		SpringApplication.run(BuybeatsApplication.class, args);
 	}
 
 }

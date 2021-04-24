@@ -1,4 +1,4 @@
-package com.ibm.BuyBeats.Service;
+package com.ibm.buybeats.service;
 
 public interface UserService {
 

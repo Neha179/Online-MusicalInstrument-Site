@@ -1,10 +1,10 @@
-package com.ibm.OnlineMusicalInstrumentSite;
+package com.ibm.buybeats;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OnlineMusicalInstrumentSiteApplicationTests {
+class BuybeatsApplicationTests {
 
 	@Test
 	void contextLoads() {
