@@ -1,10 +1,18 @@
 package com.ibm.buybeats.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User {
@@ -27,7 +35,43 @@ public class User {
 
 	@Column(length = 50)
 	private String password;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Address> addresses = new ArrayList<Address>();
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<CardDetails> cards = new ArrayList<CardDetails>();
+	
+	public List<Address> getAddresses() {
+		return addresses;
+	}
 
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+
+	public List<CardDetails> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<CardDetails> cards) {
+		this.cards = cards;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Order> orders = new ArrayList<Order>();
+	
 	public User() {
 	}
 

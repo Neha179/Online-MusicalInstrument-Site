@@ -10,15 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int oid;
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "uid")
-	private User uid;
+	private User user;
 
 	private double totalAmount;
 
@@ -27,11 +30,23 @@ public class Order {
 	@Column(length = 10)
 	private String paymentStatus;
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "aid")
-	private Address aid;
+	private Address address;
 
 	public Order() {
+	}
+
+	public Order(int oid, User user, double totalAmount, LocalDateTime dateTime, String paymentStatus,
+			Address address) {
+		super();
+		this.oid = oid;
+		this.user = user;
+		this.totalAmount = totalAmount;
+		this.dateTime = dateTime;
+		this.paymentStatus = paymentStatus;
+		this.address = address;
 	}
 
 	public int getOid() {
@@ -42,12 +57,12 @@ public class Order {
 		this.oid = oid;
 	}
 
-	public User getUid() {
-		return uid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUid(User uid) {
-		this.uid = uid;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public double getTotalAmount() {
@@ -74,12 +89,13 @@ public class Order {
 		this.paymentStatus = paymentStatus;
 	}
 
-	public Address getAid() {
-		return aid;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAid(Address aid) {
-		this.aid = aid;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
+
 
 }

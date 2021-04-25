@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class CardDetails {
 	@Id
@@ -20,19 +22,20 @@ public class CardDetails {
 	@Column()
 	private LocalDate expDate;
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "uid")
-	private User uid;
+	private User user;
 
 	public CardDetails() {
 	}
 
-	public CardDetails(int cardNumber, int cvv, LocalDate expDate, User uid) {
+	public CardDetails(int cardNumber, int cvv, LocalDate expDate, User user) {
 		super();
 		this.cardNumber = cardNumber;
 		this.cvv = cvv;
 		this.expDate = expDate;
-		this.uid = uid;
+		this.user = user;
 	}
 
 	public int getCardNumber() {
@@ -59,12 +62,13 @@ public class CardDetails {
 		this.expDate = expDate;
 	}
 
-	public User getUid() {
-		return uid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUid(User uid) {
-		this.uid = uid;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 
 }
