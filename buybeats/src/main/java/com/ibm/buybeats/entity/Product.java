@@ -55,15 +55,15 @@ public class Product {
 	private String stringMaterial;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Wish> wishes = new ArrayList<Wish>();
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cart> carts = new ArrayList<Cart>();
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 	
 	public int getPid() {

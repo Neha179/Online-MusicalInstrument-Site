@@ -15,11 +15,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
+@Table(name="order_table")
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,11 +46,11 @@ public class Order {
 	
 	@JsonBackReference
 	@OneToOne
-	@JoinColumn(name = "uid")
+	@JoinColumn(name = "cid")
 	private Cart cart;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 
 	public int getOid() {

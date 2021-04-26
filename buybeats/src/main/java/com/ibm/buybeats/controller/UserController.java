@@ -19,8 +19,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private ShoppingService shoppingService;
+//	@Autowired
+//	private ShoppingService shoppingService;
 	
 	@GetMapping(name="/profile/{email}", produces="application/json")
 	public User viewProfile(User u) {
@@ -32,7 +32,7 @@ public class UserController {
 		return u;
 	}
 	
-	@PostMapping(value="/register" , produces="application/json" )
+	@PostMapping(value="/register" , consumes="application/json" )
 	public String addUser(@RequestBody User user) {
 		try {
 			User u=userService.saveUser(user);
