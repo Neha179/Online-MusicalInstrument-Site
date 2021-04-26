@@ -1,16 +1,23 @@
 package com.ibm.buybeats.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Order {
@@ -34,20 +41,15 @@ public class Order {
 	@ManyToOne
 	@JoinColumn(name = "aid")
 	private Address address;
-
-	public Order() {
-	}
-
-	public Order(int oid, User user, double totalAmount, LocalDateTime dateTime, String paymentStatus,
-			Address address) {
-		super();
-		this.oid = oid;
-		this.user = user;
-		this.totalAmount = totalAmount;
-		this.dateTime = dateTime;
-		this.paymentStatus = paymentStatus;
-		this.address = address;
-	}
+	
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name = "uid")
+	private Cart cart;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 
 	public int getOid() {
 		return oid;

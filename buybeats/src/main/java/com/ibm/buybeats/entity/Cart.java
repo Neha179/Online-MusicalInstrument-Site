@@ -3,7 +3,12 @@ package com.ibm.buybeats.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name ="Cart")
@@ -13,22 +18,17 @@ public class Cart {
 	@GeneratedValue
 	private int entryID;
 	
-	private int pid;
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "pid")
+	private Product product;
 	
 	private int quantity;
 	
-	private int uid;
-	
-	public Cart() {}
-	
-	
-	public Cart(int entryID, int pid, int quantity, int uid) {
-		this.entryID = entryID;
-		this.pid = pid;
-		this.quantity = quantity;
-		this.uid = uid;
-	}
-
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name = "uid")
+	private User user;
 
 	public int getEntryID() {
 		return entryID;
@@ -36,11 +36,12 @@ public class Cart {
 	public void setEntryID(int entryID) {
 		this.entryID = entryID;
 	}
-	public int getPid() {
-		return pid;
+	
+	public Product getProduct() {
+		return product;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -48,12 +49,15 @@ public class Cart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getUid() {
-		return uid;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUid(int uid) {
-		this.uid = uid;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 	
 
 }

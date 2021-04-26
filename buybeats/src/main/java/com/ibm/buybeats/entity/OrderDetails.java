@@ -1,6 +1,5 @@
 package com.ibm.buybeats.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,35 +7,27 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class OrderDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderDetailId;
 	
+	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name="oid")
-	private Order oid;
+	@JoinColumn(name = "oid")
+	private Order order;
 	
+	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name="pid")
-	private Product pid;
+	@JoinColumn(name = "pid")
+	private Product product;
 	
 	private double price;
 	
 	private int quantity;
-	
-	public OrderDetails() {
-	}
-
-	public OrderDetails(int orderDetailId, Order oid, Product pid, double price, int quantity) {
-		super();
-		this.orderDetailId = orderDetailId;
-		this.oid = oid;
-		this.pid = pid;
-		this.price = price;
-		this.quantity = quantity;
-	}
 
 	public int getOrderDetailId() {
 		return orderDetailId;
@@ -46,20 +37,20 @@ public class OrderDetails {
 		this.orderDetailId = orderDetailId;
 	}
 
-	public Order getOid() {
-		return oid;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setOid(Order oid) {
-		this.oid = oid;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
-	public Product getPid() {
-		return pid;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setPid(Product pid) {
-		this.pid = pid;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public double getPrice() {

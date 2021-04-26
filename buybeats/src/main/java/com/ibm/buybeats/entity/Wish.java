@@ -3,7 +3,12 @@ package com.ibm.buybeats.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name ="WishList")
@@ -13,19 +18,15 @@ public class Wish {
 	@GeneratedValue
 	private int wishId;
 	
-	private int uid;
+	@JsonBackReference
+	@OneToOne
+	@JoinColumn(name = "uid")
+	private User user;
 	
-	private int pid;
-	
-	public Wish() {}
-	
-	
-	public Wish(int wishId, int uid, int pid) {
-		this.wishId = wishId;
-		this.uid = uid;
-		this.pid = pid;
-	}
-
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "pid")
+	private Product product;
 
 	public int getWishId() {
 		return wishId;
@@ -35,22 +36,21 @@ public class Wish {
 		this.wishId = wishId;
 	}
 
-	public int getUid() {
-		return uid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUid(int uid) {
-		this.uid = uid;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public int getPid() {
-		return pid;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setPid(int pid) {
-		this.pid = pid;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
-	
-	
+
 
 }

@@ -27,17 +27,6 @@ public class CardDetails {
 	@JoinColumn(name = "uid")
 	private User user;
 
-	public CardDetails() {
-	}
-
-	public CardDetails(int cardNumber, int cvv, LocalDate expDate, User user) {
-		super();
-		this.cardNumber = cardNumber;
-		this.cvv = cvv;
-		this.expDate = expDate;
-		this.user = user;
-	}
-
 	public int getCardNumber() {
 		return cardNumber;
 	}
