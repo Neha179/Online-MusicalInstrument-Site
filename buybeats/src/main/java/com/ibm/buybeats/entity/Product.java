@@ -1,14 +1,18 @@
 package com.ibm.buybeats.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -49,9 +53,18 @@ public class Product {
 	@Column(length = 30)
 	private String stringMaterial;
 	
-	@JsonBackReference
-	@OneToMany
-	@JoinColumn(name = "oid")
+	@JsonManagedReference
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Wish> wishes = new ArrayList<Wish>();
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Cart> carts = new ArrayList<Cart>();
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
+	
 	public int getPid() {
 		return pid;
 	}
@@ -130,6 +143,30 @@ public class Product {
 	
 	public void setStringMaterial(String stringMaterial) {
 		this.stringMaterial = stringMaterial;
+	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
+
+	public List<Wish> getWishes() {
+		return wishes;
+	}
+
+	public void setWishes(List<Wish> wishes) {
+		this.wishes = wishes;
+	}
+
+	public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
 	}
 	
 	

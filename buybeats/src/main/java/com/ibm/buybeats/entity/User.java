@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -35,55 +36,18 @@ public class User {
 
 	@Column(length = 50)
 	private String password;
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Address> addresses = new ArrayList<Address>();
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<CardDetails> cards = new ArrayList<CardDetails>();
-	
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
-
-	public List<CardDetails> getCards() {
-		return cards;
-	}
-
-	public void setCards(List<CardDetails> cards) {
-		this.cards = cards;
-	}
-
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
+	private List<CardDetails> cardDetails = new ArrayList<CardDetails>();
 
 	@JsonManagedReference
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<Order>();
-	
-	public User() {
-	}
-
-	public User(int uid, String firstName, String lastName, String email, int phoneNumber, String password) {
-		super();
-		this.uid = uid;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.password = password;
-	}
 
 	public int getUid() {
 		return uid;
@@ -131,6 +95,30 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+
+	public List<CardDetails> getCards() {
+		return cardDetails;
+	}
+
+	public void setCards(List<CardDetails> cardDetails) {
+		this.cardDetails = cardDetails;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 }
