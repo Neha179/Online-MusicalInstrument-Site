@@ -19,23 +19,33 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private int pid;
+	
 	@Column(length = 20)
 	private String productName;
+	
 	@Column(length = 20)
 	private String brand;
+	
 	@Column
 	private double price;
+	
 	@Column
 	private int stock;
+	
 	private String images;
+	
 	@Column(length = 20)
 	private String category;
+	
 	@Column(length = 20)
 	private String colour;
+	
 	@Column
 	private float size;
+	
 	@Column(length = 30)
 	private String bodyMaterial;
+	
 	@Column(length = 30)
 	private String stringMaterial;
 	
