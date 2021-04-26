@@ -54,15 +54,15 @@ public class Product {
 	@Column(length = 30)
 	private String stringMaterial;
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "product-wish")
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Wish> wishes = new ArrayList<Wish>();
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "product-cart")
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cart> carts = new ArrayList<Cart>();
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "product-orderdetails")
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 	

@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.core.sym.Name;
 
@@ -20,7 +20,6 @@ import com.fasterxml.jackson.core.sym.Name;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "user_id")
 	private int uid;
 
 	@Column(length = 20)
@@ -38,15 +37,15 @@ public class User {
 	@Column(length = 50)
 	private String password;
 
-	@JsonManagedReference
+	@JsonManagedReference(value = "user-address")
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses = new ArrayList<Address>();
 
-	@JsonManagedReference
+	@JsonManagedReference(value = "user-carddetails")
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<CardDetails> cardDetails = new ArrayList<CardDetails>();
 
-	@JsonManagedReference
+	@JsonManagedReference(value = "user-order")
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<Order>();
 

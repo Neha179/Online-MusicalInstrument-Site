@@ -22,7 +22,7 @@ public class CardDetails {
 	@Column()
 	private LocalDate expDate;
 
-	@JsonBackReference()
+	@JsonBackReference(value = "user-carddetails")
 	@ManyToOne
 	@JoinColumn(name = "uid")
 	private User user;

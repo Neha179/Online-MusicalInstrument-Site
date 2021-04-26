@@ -27,7 +27,7 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int oid;
 
-	@JsonBackReference
+	@JsonBackReference(value = "user-order")
 	@ManyToOne
 	@JoinColumn(name = "uid")
 	private User user;
@@ -39,17 +39,17 @@ public class Order {
 	@Column(length = 10)
 	private String paymentStatus;
 
-	@JsonBackReference
+	@JsonBackReference(value = "address-order")
 	@ManyToOne
 	@JoinColumn(name = "aid")
 	private Address address;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "cart-order")
 	@OneToOne
 	@JoinColumn(name = "cid")
 	private Cart cart;
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "order-orderdetails")
 	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 

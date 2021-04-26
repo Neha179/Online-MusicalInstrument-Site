@@ -18,12 +18,12 @@ public class Wish {
 	@GeneratedValue
 	private int wishId;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "user-wish")
 	@OneToOne
 	@JoinColumn(name = "uid")
 	private User user;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "product-wish")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;
