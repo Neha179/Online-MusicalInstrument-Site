@@ -1,6 +1,7 @@
 package com.ibm.buybeats.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ibm.buybeats.entity.Address;
 import com.ibm.buybeats.entity.CardDetails;
@@ -8,6 +9,7 @@ import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepo;

@@ -42,7 +42,7 @@ public class Address {
 	private User user;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "address", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "address", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<Order>();
 
 	public int getAid() {

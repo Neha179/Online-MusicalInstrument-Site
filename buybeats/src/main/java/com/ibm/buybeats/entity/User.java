@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.core.sym.Name;
 
 @Entity
 public class User {
@@ -32,21 +33,21 @@ public class User {
 	private String email;
 
 	@Column(length = 10)
-	private int phoneNumber;
+	private String phoneNumber;
 
 	@Column(length = 50)
 	private String password;
 
 	@JsonManagedReference
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Address> addresses = new ArrayList<Address>();
 
 	@JsonManagedReference
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<CardDetails> cardDetails = new ArrayList<CardDetails>();
 
 	@JsonManagedReference
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<Order>();
 
 	public int getUid() {
@@ -81,11 +82,11 @@ public class User {
 		this.email = email;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
