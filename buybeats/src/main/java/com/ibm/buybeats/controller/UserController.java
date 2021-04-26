@@ -2,6 +2,7 @@ package com.ibm.buybeats.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
-import com.ibm.buybeats.service.ShoppingService;
 import com.ibm.buybeats.service.UserService;
 
 @RestController
@@ -22,25 +22,27 @@ public class UserController {
 //	@Autowired
 //	private ShoppingService shoppingService;
 	
-	@GetMapping(name="/profile/{email}", produces="application/json")
-	public User viewProfile(User u) {
+//	@GetMapping(name="/profile/{uid}", produces ="application/json")
+//	public User viewProfile(@PathVariable("uid") int uid) {
+//		User u = userService.viewProfile(uid);
+//		return u;
+//	}
+	
+	@GetMapping(value = "/profile/{email}", produces = "application/json")
+	public User viewProfile(@PathVariable("email") String email) {
+		User u = userService.viewProfile(email);
 		return u;
 	}
 	
-	@PostMapping(name="profile/update/{email}", produces = "application/json")
+	@PostMapping(value="profile/update/{email}", produces = "application/json")
 	public User updateProfile(@RequestBody User u) {
 		return u;
 	}
 	
 	@PostMapping(value="/register" , consumes="application/json" )
-	public String addUser(@RequestBody User user) {
-		try {
-			User u=userService.saveUser(user);
-			return u.getFirstName()+", Welcome to BuyBeats!!";
-		} catch (EmailAlreadyExistsException e) {
-			e.printStackTrace();
-			return "cannot save";
-		}
+	public String addUser(@RequestBody User user) throws EmailAlreadyExistsException {
+			User u = userService.saveUser(user);
+			return u.getFirstName() + ", Welcome to BuyBeats!!";
 	   
 	}
 	

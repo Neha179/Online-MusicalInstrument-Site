@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User viewProfile(String email) {
-		return null;
+		return userRepo.findByEmail(email);
 	}
 
 	@Override

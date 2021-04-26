@@ -18,14 +18,14 @@ public class Cart {
 	@GeneratedValue
 	private int entryID;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "product-cart")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;
 	
 	private int quantity;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "user-cart")
 	@OneToOne
 	@JoinColumn(name = "uid")
 	private User user;

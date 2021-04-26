@@ -15,12 +15,12 @@ public class OrderDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderDetailId;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "order-orderdetails")
 	@ManyToOne
 	@JoinColumn(name = "oid")
 	private Order order;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "product-orderdetails")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;
