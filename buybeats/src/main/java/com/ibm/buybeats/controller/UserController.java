@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
-import com.ibm.buybeats.service.ShoopingService;
+import com.ibm.buybeats.service.ShoppingService;
 import com.ibm.buybeats.service.UserService;
 
 @RestController
 @RequestMapping("/users/{name}")
 public class UserController {
 	@Autowired
-	private UserService uservice;
+	private UserService userService;
 	
 	@Autowired
-	private ShoopingService shopService;
+	private ShoppingService shopService;
 	
 	@GetMapping(name="/profile/{email}", produces="application/json")
 	public User viewProfile(User u) {
