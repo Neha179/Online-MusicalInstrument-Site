@@ -36,6 +36,7 @@ public class Product {
 	@Column
 	private int stock;
 	
+	//multiple images
 	private String images;
 	
 	@Column(length = 20)
