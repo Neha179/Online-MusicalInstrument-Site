@@ -19,7 +19,7 @@ public class UserController {
 	private UserService userService;
 	
 	@Autowired
-	private ShoppingService shopService;
+	private ShoppingService shoppingService;
 	
 	@GetMapping(name="/profile/{email}", produces="application/json")
 	public User viewProfile(User u) {
