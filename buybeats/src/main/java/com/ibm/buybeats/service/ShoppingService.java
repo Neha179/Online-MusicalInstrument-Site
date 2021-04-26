@@ -6,8 +6,7 @@ import com.ibm.buybeats.entity.Cart;
 import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.entity.Wish;
-import com.ibm.buybeats.exception.CartEmptyException;
-import com.ibm.buybeats.exception.*;
+import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.exception.WishAlreadyExistsException;
 import com.ibm.buybeats.exception.WishEmptyException;
 
