@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
+import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.service.ShoppingService;
 import com.ibm.buybeats.service.UserService;
 
 @RestController
-@RequestMapping("/users/{name}")
+@RequestMapping("/users")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -33,7 +34,14 @@ public class UserController {
 	
 	@PostMapping(value="/register" , produces="application/json" )
 	public String addUser(@RequestBody User user) {
-		return null;
+		try {
+			User u=userService.saveUser(user);
+			return u.getFirstName()+", Welcome to BuyBeats!!";
+		} catch (EmailAlreadyExistsException e) {
+			e.printStackTrace();
+			return "cannot save";
+		}
+	   
 	}
 	
 	@PostMapping(value="/login", produces="application/json")
