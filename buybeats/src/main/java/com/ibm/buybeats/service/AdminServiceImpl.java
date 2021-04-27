@@ -23,11 +23,8 @@ public class AdminServiceImpl implements AdminService {
 	private ProductRepository productRepo;
 
 	@Override
-	public Admin validateLogin(Login login)throws InvalidCredentialsException {
-		Admin admin = adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
-		if(admin != null) {
-			return admin;
-		}else throw new InvalidCredentialsException("Invalid Email ID or Password");
+	public Admin validateLogin(Login login){
+		return adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
 		
 	}
 
