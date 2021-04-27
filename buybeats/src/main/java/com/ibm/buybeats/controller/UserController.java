@@ -40,9 +40,16 @@ public class UserController {
 	}
 	
 	@PostMapping(value="/register" , consumes="application/json" )
-	public String addUser(@RequestBody User user) throws EmailAlreadyExistsException {
-			User u = userService.saveUser(user);
-			return u.getFirstName() + ", Welcome to BuyBeats!!";
+	public String addUser(@RequestBody User user) {
+		User u = null;
+		try {
+			u = userService.saveUser(user);
+		} catch (EmailAlreadyExistsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "User already exists. Please change your email..!";
+		}
+		return u.getFirstName() + ", Welcome to BuyBeats..!";
 	   
 	}
 	
