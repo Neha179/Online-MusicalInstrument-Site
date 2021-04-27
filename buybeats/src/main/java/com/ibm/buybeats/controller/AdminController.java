@@ -17,16 +17,5 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@PostMapping(value="/login", consumes = "application/jsom")
-	public  String adminLogin(@RequestBody User u) {
-		try {
-			adminService.login(u);
-			return "Welcome Admin";
-		} catch (EmailAlreadyExistsException e) {
-			e.printStackTrace();
-			return "Not valid Email ID";
-		}
-	}
 	
-
 }
