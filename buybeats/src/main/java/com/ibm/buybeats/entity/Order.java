@@ -46,7 +46,7 @@ public class Order {
 	
 	@JsonBackReference(value = "cart-order")
 	@OneToOne
-	@JoinColumn(name = "uid")
+	@JoinColumn(name = "cid")
 	private Cart cart;
 	
 	@JsonManagedReference(value = "order-orderdetails")
