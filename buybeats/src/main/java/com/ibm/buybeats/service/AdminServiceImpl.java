@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
-import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.repository.ProductRepository;
 import com.ibm.buybeats.repository.UserRepository;
@@ -21,7 +20,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public User validateLogin(Login login) {
-		return  userRepo.findByEmailAndPassword(login.getUsername(), login.getPassword());
+		return  userRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
 	}
 
 	@Override
