@@ -1,5 +1,6 @@
 package com.ibm.buybeats.service;
 
+import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Address;
 import com.ibm.buybeats.entity.CardDetails;
 import com.ibm.buybeats.entity.User;
@@ -13,11 +14,15 @@ public interface UserService {
 	
 	User viewProfile(String email);
 	
-	Address addAddress(User user);
+	Address addAddress(Address address, String email);
 	
-	CardDetails addCard(User user);
+	CardDetails addCard(CardDetails card, String email);
 	
-	User login(User user);
+	User login(Login login);
+	
+	
+	
+	
 	
 	
 }

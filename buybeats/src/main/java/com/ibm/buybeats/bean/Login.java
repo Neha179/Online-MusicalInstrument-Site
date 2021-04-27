@@ -1,6 +1,7 @@
 package com.ibm.buybeats.bean;
 
 public class Login {
+  
 	private String email;
 	private String password;
 	

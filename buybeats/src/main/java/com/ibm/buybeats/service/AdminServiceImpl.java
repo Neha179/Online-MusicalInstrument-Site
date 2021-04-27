@@ -10,6 +10,7 @@ import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Admin;
 import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
+
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
@@ -26,9 +27,13 @@ public class AdminServiceImpl implements AdminService {
 	private ProductRepository productRepo;
 
 	@Override
+	public User validateLogin(Login login) {
+		return  userRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
+
 	public String saveProduct(Product p) {
 		productRepo.save(p);
 		return "Product Added";
+
 	}
 
 	@Override
