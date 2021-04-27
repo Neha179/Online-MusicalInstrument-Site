@@ -1,12 +1,16 @@
 package com.ibm.buybeats.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.service.AdminService;
@@ -16,6 +20,11 @@ import com.ibm.buybeats.service.AdminService;
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
+	
+//	@PostMapping(value="/login", consumes = "application/json", produces="application/json")
+//	public ResponseEntity<?> validateLogin(@RequestBody Login login, HttpSession session){
+//		
+//	}
 	
 	
 }
