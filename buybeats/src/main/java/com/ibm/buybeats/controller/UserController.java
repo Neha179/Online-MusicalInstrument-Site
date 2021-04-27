@@ -34,9 +34,10 @@ public class UserController {
 		return u;
 	}
 	
-	@PostMapping(value="profile/update/{email}", produces = "application/json")
-	public User updateProfile(@RequestBody User u) {
-		return u;
+	@PostMapping(value="profile/update/{email}", consumes = "application/json")
+	public String updateProfile(@RequestBody User user) {
+		userService.updateUser(user);
+		return "Profile Updated";
 	}
 	
 	@PostMapping(value="/register" , consumes="application/json" )
