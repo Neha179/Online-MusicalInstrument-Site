@@ -45,7 +45,6 @@ public class UserController {
 		try {
 			u = userService.saveUser(user);
 		} catch (EmailAlreadyExistsException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "User already exists. Please change your email..!";
 		}
