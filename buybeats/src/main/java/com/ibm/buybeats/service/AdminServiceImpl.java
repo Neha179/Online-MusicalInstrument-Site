@@ -1,22 +1,18 @@
 package com.ibm.buybeats.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Admin;
 import com.ibm.buybeats.entity.Product;
-import com.ibm.buybeats.entity.User;
-
-import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.repository.AdminRepository;
 import com.ibm.buybeats.repository.ProductRepository;
-import com.ibm.buybeats.repository.UserRepository;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -27,8 +23,13 @@ public class AdminServiceImpl implements AdminService {
 	private ProductRepository productRepo;
 
 	@Override
-	public User validateLogin(Login login) {
-		return  userRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
+	public Admin validateLogin(Login login)throws InvalidCredentialsException {
+		Admin admin = adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
+		if(admin != null) {
+			return admin;
+		}else throw new InvalidCredentialsException("Invalid Email ID or Password");
+		
+	}
 
 	public String saveProduct(Product p) {
 		productRepo.save(p);
@@ -43,26 +44,32 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Product updateProduct(int pid) throws ProductNotFoundException {
+//		Optional<Product> p=productRepo.findById(pid);
+//		if(p ==null)
+//			throw new ProductNotFoundException("Product Not Found");
+//		else {
+//		
+//		}
 		return null;
 		
 	}
 
 	@Override
-	public Admin validateLogin(Login login) throws InvalidCredentialsException {
-		Admin admin = adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
-		if(admin!=null)
-			return admin;
-		else throw new InvalidCredentialsException("Invalid Credentials");
+	public Optional<Product> findProductById(int pid) throws ProductNotFoundException {
+		Optional<Product> product = productRepo.findById(pid);
+		if(product == null)
+			throw new ProductNotFoundException("Product Not Found");
+		else
+			return product;
 	}
 
 	@Override
-	public Product findByPid(int pid) {
-		return null;
-	}
-
-	@Override
-	public List<Product> findByName(String name) {
-		return null;
+	public Product findProductByName(String name)throws ProductNotFoundException {
+		Product p = productRepo.findByProductName(name);
+		if(p == null)
+			throw new ProductNotFoundException("Product Not Found");
+		else
+			return p;
 	}
 
 	
