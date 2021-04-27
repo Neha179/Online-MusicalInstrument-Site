@@ -36,8 +36,8 @@ public class Product {
 	@Column
 	private int stock;
 	
-	//multiple images
-	private String images;
+	@Column(name = "image_URL", nullable = false)
+	private List<String> image_urls = new ArrayList<>();
 	
 	@Column(length = 20)
 	private String category;
@@ -146,13 +146,13 @@ public class Product {
 		this.stringMaterial = stringMaterial;
 	}
 
-	public String getImages() {
-		return images;
-	}
-
-	public void setImages(String images) {
-		this.images = images;
-	}
+//	public String getImages() {
+//		return getImages();
+//	}
+//
+//	public void setImages(String images) {
+//		this.images = images;
+//	}
 
 	public List<Wish> getWishes() {
 		return wishes;
