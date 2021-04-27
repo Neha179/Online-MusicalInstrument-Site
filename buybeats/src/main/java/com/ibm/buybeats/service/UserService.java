@@ -7,17 +7,17 @@ import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 
 public interface UserService {
 	
-	User saveUser(User u) throws EmailAlreadyExistsException;
+	User saveUser(User user) throws EmailAlreadyExistsException;
 	
-	User updateUser(User uid);
+	User updateUser(User user);
 	
 	User viewProfile(String email);
 	
-	Address addAddress(User uid);
+	Address addAddress(User user);
 	
-	CardDetails addCard(User uid);
+	CardDetails addCard(User user);
 	
-	User login(User uid);
+	User login(User user);
 	
 	
 }

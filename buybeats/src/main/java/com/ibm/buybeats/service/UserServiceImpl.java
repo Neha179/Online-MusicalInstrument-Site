@@ -23,8 +23,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateUser(User uid) {
-		return null;
+	public User updateUser(User user) {
+		User u = userRepo.findByEmail(user.getEmail());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.setPhoneNumber(user.getPhoneNumber());
+		u.setPassword(user.getPassword());
+		return userRepo.save(u);
 	}
 
 	@Override
@@ -33,17 +38,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Address addAddress(User uid) {
+	public Address addAddress(User user) {
 		return null;
 	}
 
 	@Override
-	public CardDetails addCard(User uid) {
+	public CardDetails addCard(User user) {
 		return null;
 	}
 
 	@Override
-	public User login(User uid) {
+	public User login(User user) {
 		return null;
 	}
 
