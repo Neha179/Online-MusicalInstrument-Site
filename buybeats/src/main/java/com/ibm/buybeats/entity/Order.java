@@ -44,10 +44,10 @@ public class Order {
 	@JoinColumn(name = "aid")
 	private Address address;
 	
-	@JsonBackReference(value = "cart-order")
-	@OneToOne
-	@JoinColumn(name = "cid")
-	private Cart cart;
+//	@JsonBackReference(value = "cart-order")
+//	@OneToOne
+//	@JoinColumn(name = "cid")
+//	private Cart cart;
 	
 	@JsonManagedReference(value = "order-orderdetails")
 	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

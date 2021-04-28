@@ -10,16 +10,16 @@ import java.util.List;
 
 public interface AdminService {
 	
-	String saveProduct(Product p);
-	
-	List<Product> showProduct(Product p);
-	
-	Product findByPid(int pid);
-	
-	List<Product> findByName(String name);
-	
-	Product updateProduct(int pid) throws ProductNotFoundException;
+	 Product saveProduct(Product p);
+	    
+	    List<Product> showProduct(Product p);
+	    
+	    Product updateProduct(int pid) throws ProductNotFoundException;
 
-	Admin validateLogin(Login login) throws InvalidCredentialsException;
+	    Admin validateLogin(Login login);
+	    
+	    Product findProductById(int pid) throws ProductNotFoundException;
+	    
+	    List<Product> findProductByName(String productName) throws ProductNotFoundException;
 
 }

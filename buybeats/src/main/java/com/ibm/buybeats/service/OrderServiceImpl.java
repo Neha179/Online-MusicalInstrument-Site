@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ibm.buybeats.entity.Cart;
 import com.ibm.buybeats.entity.Order;
 import com.ibm.buybeats.entity.OrderDetails;
+import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.NoOrderFoundException;
 import com.ibm.buybeats.exception.StockNotAvaialble;
@@ -49,8 +50,8 @@ public class OrderServiceImpl implements OrderService {
 	private WishRepository wRepo;
 
 	@Override
-	public Order placeOrder(Cart cart) throws StockNotAvaialble {
-		
+	public OrderDetails placeOrder(Cart cart) throws StockNotAvaialble {
+
 		
 		return null;
 		
