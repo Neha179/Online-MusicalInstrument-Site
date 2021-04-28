@@ -10,11 +10,10 @@ import com.ibm.buybeats.exception.StockNotAvaialble;
 public interface OrderService {
 	
 
-	//OrderDetails placeOrder(Order oid) throws StockNotAvaialble;
-	
-	OrderDetails showOrders(User email) throws NoOrderFoundException;
+ 
+	OrderDetails placeOrder(Cart cart, User user) throws StockNotAvaialble;
 
-	OrderDetails placeOrder(Cart cart) throws StockNotAvaialble;
+	OrderDetails showOrders(int oid) throws NoOrderFoundException;
 
 	//Order placeOrder(Cart entryID) throws StockNotAvaialble;
 }

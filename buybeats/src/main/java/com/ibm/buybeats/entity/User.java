@@ -48,6 +48,12 @@ public class User {
 	@JsonManagedReference(value = "user-order")
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<Order>();
+	
+	@JsonManagedReference(value = "user-cart")
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Cart> cart = new ArrayList<Cart>();
+	
+	
 
 	public int getUid() {
 		return uid;
