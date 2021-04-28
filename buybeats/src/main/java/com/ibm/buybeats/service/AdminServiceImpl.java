@@ -41,20 +41,19 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Product updateProduct(int pid) throws ProductNotFoundException {
-//		Product p=productRepo.findProductId(pid);
-//		if(p ==null)
-//		throw new ProductNotFoundException("Product Not Found");
-//		else {
-//			p.setSize(p.getSize());
-//			p.setBodyMaterial(p.getBodyMaterial());
-//			p.setBrand(p.getBrand());
-//			p.setColour(p.getColour());
-//			p.setPrice(p.getPrice());
-//			p.setProductName(p.getProductName());
-//			p.setStock(p.getStock());
-//			p.setStringMaterial(p.getStringMaterial());
-//			return p;}
-			return null;
+		Product p=productRepo.getOne(pid);
+		if(p ==null)
+		throw new ProductNotFoundException("Product Not Found");
+		else {
+			p.setColour(p.getColour());
+			p.setBrand(p.getBrand());
+			p.setCategory(p.getCategory());
+			p.setPrice(p.getPrice());
+			p.setSize(p.getSize());
+			p.setStock(p.getStock());
+			return p;
+			}
+			//return null;
 		}
 		
 		
