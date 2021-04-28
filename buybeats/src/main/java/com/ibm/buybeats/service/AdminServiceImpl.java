@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Admin;
 import com.ibm.buybeats.entity.Product;
-import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.repository.AdminRepository;
 import com.ibm.buybeats.repository.ProductRepository;
@@ -23,17 +22,14 @@ public class AdminServiceImpl implements AdminService {
 	private ProductRepository productRepo;
 
 	@Override
-	public Admin validateLogin(Login login)throws InvalidCredentialsException {
-		Admin admin = adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
-		if(admin != null) {
-			return admin;
-		}else throw new InvalidCredentialsException("Invalid Email ID or Password");
+	public Admin validateLogin(Login login){
+		return adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
 		
 	}
 
-	public String saveProduct(Product p) {
-		productRepo.save(p);
-		return "Product Added";
+	public Product saveProduct(Product p) {
+		Product product =productRepo.save(p);
+		return product;
 
 	}
 
@@ -44,15 +40,22 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Product updateProduct(int pid) throws ProductNotFoundException {
-//		Optional<Product> p=productRepo.findById(pid);
-//		if(p ==null)
-//			throw new ProductNotFoundException("Product Not Found");
-//		else {
-//		
-//		}
-		return null;
+		Product p=productRepo.getOne(pid);
+		if(p ==null)
+		throw new ProductNotFoundException("Product Not Found");
+		else {
+			p.setColour(p.getColour());
+			p.setBrand(p.getBrand());
+			p.setCategory(p.getCategory());
+			p.setPrice(p.getPrice());
+			p.setSize(p.getSize());
+			p.setStock(p.getStock());
+			return p;
+			}
+			//return null;
+		}
 		
-	}
+		
 
 	@Override
 	public Optional<Product> findProductById(int pid) throws ProductNotFoundException {
@@ -64,8 +67,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Product findProductByName(String name)throws ProductNotFoundException {
-		Product p = productRepo.findByProductName(name);
+	public List<Product> findProductByName(String productName)throws ProductNotFoundException {
+		List<Product> p = productRepo.findByProductName(productName);
 		if(p == null)
 			throw new ProductNotFoundException("Product Not Found");
 		else
