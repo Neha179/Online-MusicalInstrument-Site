@@ -49,19 +49,30 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private WishRepository wRepo;
 
-	@Override
-	public OrderDetails placeOrder(Cart cart) throws StockNotAvaialble {
+	
+	//for one entry
+	
+	@Override                       
+	public OrderDetails placeOrder(Cart cart, User user) throws StockNotAvaialble {
 
+		Product p = cart.getProduct();
+		Order o = new Order();
+		OrderDetails od = new OrderDetails();
+		od.setPrice(od.getPrice()); // same do for all other details of product
+		
 		
 		return null;
 		
 		
 	}
 
+	
+	
 	@Override
-	public OrderDetails showOrders(User email) throws NoOrderFoundException {
+	public Order showOrders(int oid) throws NoOrderFoundException //fetch all the orders history of the user {
 		
-		return null;
+		
+		return oRepo.findById(oid).get();
 	}
 	
 	
