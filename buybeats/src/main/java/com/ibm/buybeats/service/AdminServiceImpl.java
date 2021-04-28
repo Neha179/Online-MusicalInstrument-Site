@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Admin;
 import com.ibm.buybeats.entity.Product;
-import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.repository.AdminRepository;
 import com.ibm.buybeats.repository.ProductRepository;
