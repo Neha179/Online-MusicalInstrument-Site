@@ -28,9 +28,9 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
-	public String saveProduct(Product p) {
-		productRepo.save(p);
-		return "Product Added";
+	public Product saveProduct(Product p) {
+		Product product =productRepo.save(p);
+		return product;
 
 	}
 
@@ -41,15 +41,23 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Product updateProduct(int pid) throws ProductNotFoundException {
-//		Optional<Product> p=productRepo.findById(pid);
+//		Product p=productRepo.findProductId(pid);
 //		if(p ==null)
-//			throw new ProductNotFoundException("Product Not Found");
+//		throw new ProductNotFoundException("Product Not Found");
 //		else {
-//		
-//		}
-		return null;
+//			p.setSize(p.getSize());
+//			p.setBodyMaterial(p.getBodyMaterial());
+//			p.setBrand(p.getBrand());
+//			p.setColour(p.getColour());
+//			p.setPrice(p.getPrice());
+//			p.setProductName(p.getProductName());
+//			p.setStock(p.getStock());
+//			p.setStringMaterial(p.getStringMaterial());
+//			return p;}
+			return null;
+		}
 		
-	}
+		
 
 	@Override
 	public Optional<Product> findProductById(int pid) throws ProductNotFoundException {
@@ -61,8 +69,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Product findProductByName(String name)throws ProductNotFoundException {
-		Product p = productRepo.findByProductName(name);
+	public List<Product> findProductByName(String productName)throws ProductNotFoundException {
+		List<Product> p = productRepo.findByProductName(productName);
 		if(p == null)
 			throw new ProductNotFoundException("Product Not Found");
 		else
