@@ -1,5 +1,7 @@
 package com.ibm.buybeats.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ import com.ibm.buybeats.repository.OrderRepository;
 import com.ibm.buybeats.repository.ProductRepository;
 import com.ibm.buybeats.repository.UserRepository;
 import com.ibm.buybeats.repository.WishRepository;
+
+
 
 @Service
 @Transactional
@@ -53,27 +57,29 @@ public class OrderServiceImpl implements OrderService {
 	//for one entry
 	
 	@Override                       
-	public OrderDetails placeOrder(Cart cart, User user) throws StockNotAvaialble {
-
-		Product p = cart.getProduct();
-		Order o = new Order();
-		OrderDetails od = new OrderDetails();
-		od.setPrice(od.getPrice()); // same do for all other details of product
+	public Order placeOrder(Order order,int uid) throws StockNotAvaialble {
 		
-		
-		return null;
+		User user = userRepo.findById(uid).get();
+		order.setUser(user);
+		return oRepo.save(order);
 		
 		
 	}
 
-	
-	
 	@Override
-	public Order showOrders(int oid) throws NoOrderFoundException //fetch all the orders history of the user {
+	public List<Order> showOrders(int uid) throws NoOrderFoundException {
 		
-		
-		return oRepo.findById(oid).get();
+		List<Order> orders = oRepo.findAllByUserUid(uid);
+		return orders;
 	}
+	
+	
+	
+	
+	
+	
+
+	
 	
 	
 	

@@ -127,4 +127,21 @@ public class User {
 		this.orders = orders;
 	}
 
+	public List<CardDetails> getCardDetails() {
+		return cardDetails;
+	}
+
+	public void setCardDetails(List<CardDetails> cardDetails) {
+		this.cardDetails = cardDetails;
+	}
+
+	public List<Cart> getCart() {
+		return cart;
+	}
+
+	public void setCart(List<Cart> cart) {
+		this.cart = cart;
+	}
+	
+
 }
