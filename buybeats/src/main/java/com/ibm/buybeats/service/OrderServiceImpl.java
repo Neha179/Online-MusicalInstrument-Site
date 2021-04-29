@@ -60,19 +60,20 @@ public class OrderServiceImpl implements OrderService {
 	public Order placeOrder(Order order,int uid) throws StockNotAvaialble {
 		
 		User user = userRepo.findById(uid).get();
-		List<Cart> orderedProducts = user.getCart();
-		
 		order.setUser(user);
 		return oRepo.save(order);
+		
 		
 	}
 
 	@Override
 	public List<Order> showOrders(int uid) throws NoOrderFoundException {
 		
-		List<Order> orders = oRepo.findAllByUserId(uid);
+		List<Order> orders = oRepo.findAllByUserUid(uid);
 		return orders;
 	}
+	
+	
 	
 	
 	

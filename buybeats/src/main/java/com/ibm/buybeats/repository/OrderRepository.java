@@ -8,6 +8,6 @@ import com.ibm.buybeats.entity.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Integer>{
 
-	List<Order> findAllByUserId(int oid);
+	List<Order> findAllByUserUid(int oid);
 
 }
