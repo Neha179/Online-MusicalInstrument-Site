@@ -1,6 +1,6 @@
 package com.ibm.buybeats.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.ibm.buybeats.entity.Cart;
 import com.ibm.buybeats.entity.Product;
@@ -11,23 +11,28 @@ import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.exception.WishAlreadyExistsException;
 import com.ibm.buybeats.exception.WishEmptyException;
 
-
 public interface ShoppingService {
 
 	Product findProductById(int pid) throws ProductNotFoundException;
 
-	Product findProductByName(String productName) throws ProductNotFoundException;
+	List<Product> findProductByName(String productName) throws ProductNotFoundException;
 
-	String addToCart(Cart cart, User user);
+	Cart addToCart(Cart cart, int pid, int uid);
 
-	String addToWish(Wish wish, User user) throws WishAlreadyExistsException;
+	Wish addToWish(int pid, int uid) throws WishAlreadyExistsException;
 
-	String removeFromCart(Cart cart, User user);
+	boolean removeFromCart(User user, int pid);
 
-	String removeFromWish(Wish wish, User user);
+	boolean removeFromWish(User user, int pid);
 
-	Collection <Cart> showCart(Cart cart, User user) throws CartEmptyException;
+	List<Cart> showCart(int uid) throws CartEmptyException;
 
-    Collection <Wish> showWish(Wish wish, User user) throws WishEmptyException;
+	List<Wish> showWish(User user) throws WishEmptyException;
+
+	Cart addWishToCart(Cart cart, int wid);
+
+	
+
+	
 
 }

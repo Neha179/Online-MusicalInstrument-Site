@@ -5,24 +5,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name ="WishList")
+@Table(name = "WishList")
 public class Wish {
-	
+
 	@Id
 	@GeneratedValue
 	private int wishId;
-	
+
 	@JsonBackReference(value = "user-wish")
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "uid")
 	private User user;
-	
+
 	@JsonBackReference(value = "product-wish")
 	@ManyToOne
 	@JoinColumn(name = "pid")
@@ -51,6 +50,5 @@ public class Wish {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
 
 }
