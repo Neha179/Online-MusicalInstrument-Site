@@ -12,9 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.core.sym.Name;
 
 @Entity
 public class User {
@@ -48,12 +49,14 @@ public class User {
 	@JsonManagedReference(value = "user-order")
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Order> orders = new ArrayList<Order>();
-	
+
 	@JsonManagedReference(value = "user-cart")
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Cart> cart = new ArrayList<Cart>();
-	
-	
+
+	@JsonManagedReference(value = "user-wish")
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Wish> wish = new ArrayList<Wish>();
 
 	public int getUid() {
 		return uid;
@@ -102,7 +105,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public List<Address> getAddresses() {
 		return addresses;
 	}
@@ -142,6 +145,13 @@ public class User {
 	public void setCart(List<Cart> cart) {
 		this.cart = cart;
 	}
-	
+
+	public List<Wish> getWish() {
+		return wish;
+	}
+
+	public void setWish(List<Wish> wish) {
+		this.wish = wish;
+	}
 
 }
