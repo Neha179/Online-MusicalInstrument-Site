@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,17 +34,32 @@ public class UserController {
 //		User u = userService.viewProfile(uid);
 //		return u;
 //	}
+	@PostMapping(value="/login", consumes = "application/json", produces="application/json")
+	public ResponseEntity<?> login(@RequestBody Login login, HttpSession session) {
+		User user = userService.login(login);
+		if(user!=null) {
+			session.setAttribute("USER", user);
+			return new ResponseEntity<User>(HttpStatus.OK);
+		} else
+			return new ResponseEntity<String>("Invalid Username or Password", HttpStatus.NOT_FOUND);
+	}
+	
 	
 	@GetMapping(value = "/profile/{email}", produces = "application/json")
-	public User viewProfile(@PathVariable("email") String email) {
-		User u = userService.viewProfile(email);
-		return u;
+	public ResponseEntity<?> viewProfile(@PathVariable("email") String email, HttpSession session) {
+		if(session.getAttribute("USER")!=null) {
+			return new ResponseEntity<User>(userService.viewProfile(email),HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping(value="profile/update/{email}", consumes = "application/json")
-	public String updateProfile(@RequestBody User user) {
-		userService.updateUser(user);
-		return "Profile Updated";
+	public ResponseEntity<?> updateProfile(@RequestBody User user, HttpSession session) {
+		if(session.getAttribute("USER")!=null) 
+			return new ResponseEntity<User>(userService.updateUser(user),HttpStatus.OK);
+		else
+			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping(value="/register" , consumes="application/json" )
@@ -59,15 +75,7 @@ public class UserController {
 	   
 	}
 	
-	@PostMapping(value="/login", consumes = "application/json", produces="application/json")
-	public ResponseEntity<?> login(@RequestBody Login login, HttpSession session) {
-		User user = userService.login(login);
-		if(user!=null) {
-			session.setAttribute("USER", user);
-			return new ResponseEntity<User>(HttpStatus.OK);
-		} else
-			return new ResponseEntity<String>("Invalid Username or Password", HttpStatus.NOT_FOUND);
-	}
+	
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
@@ -76,16 +84,20 @@ public class UserController {
 	}
 	
 	@PostMapping(value = "/addAddress/{email}", consumes = "application/json")
-	public String addAddress(@RequestBody Address address, @PathVariable("email") String email) {
-		userService.addAddress(address, email);
-		return "Address added successfully";
+	public ResponseEntity<?> addAddress(@RequestBody Address address, @PathVariable("email") String email,HttpSession session) {
+		if(session.getAttribute("USER")!=null) 
+			return new ResponseEntity<Address>(userService.addAddress(address, email),HttpStatus.OK);
+		else
+			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
 	}
 	
 	@PostMapping(value = "/addCard/{email}", consumes = "application/json")
-	public String addCard(@RequestBody CardDetails card, @PathVariable("email") String email) {
-		userService.addCard(card, email);
-		return "Card added successfully";
+	public ResponseEntity<?> addCard(@RequestBody CardDetails card, @PathVariable("email") String email,HttpSession session) {
+		if(session.getAttribute("USER")!=null) 
+			return new ResponseEntity<CardDetails>(userService.addCard(card, email),HttpStatus.OK);
+		else
+			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
+	}
 	}
 
-	
-}
+
