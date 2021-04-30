@@ -14,7 +14,7 @@ public interface AdminService {
 	    
 	    List<Product> showProduct(Product p);
 	    
-	    Product updateProduct(int pid) throws ProductNotFoundException;
+	    Product updateProduct(Product product) throws ProductNotFoundException;
 
 	    Admin validateLogin(Login login);
 	    

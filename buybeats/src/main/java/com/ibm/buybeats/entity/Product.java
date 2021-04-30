@@ -36,8 +36,8 @@ public class Product {
 	@Column
 	private int stock;
 	
-	
-	private String images;
+//	@Column
+//	private String images;
 	
 	@Column(length = 20)
 	private String category;
@@ -54,17 +54,17 @@ public class Product {
 	@Column(length = 30)
 	private String stringMaterial;
 	
-	@JsonManagedReference(value = "product-wish")
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Wish> wishes = new ArrayList<Wish>();
-	
-	@JsonManagedReference(value = "product-cart")
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Cart> carts = new ArrayList<Cart>();
-	
-	@JsonManagedReference(value = "product-orderdetails")
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
+//	@JsonManagedReference(value = "product-wish")
+//	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<Wish> wishes = new ArrayList<Wish>();
+//	
+//	@JsonManagedReference(value = "product-cart")
+//	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<Cart> carts = new ArrayList<Cart>();
+//	
+//	@JsonManagedReference(value = "product-orderdetails")
+//	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 	
 	public int getPid() {
 		return pid;
@@ -146,29 +146,29 @@ public class Product {
 		this.stringMaterial = stringMaterial;
 	}
 
-	public String getImages() {
-		return getImages();
-	}
+//	public String getImages() {
+//		return getImages();
+//	}
+//
+//	public void setImages(String images) {
+//		this.images = images;
+//	}
 
-	public void setImages(String images) {
-		this.images = images;
-	}
-
-	public List<Wish> getWishes() {
-		return wishes;
-	}
-
-	public void setWishes(List<Wish> wishes) {
-		this.wishes = wishes;
-	}
-
-	public List<Cart> getCarts() {
-		return carts;
-	}
-
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
-	}
+//	public List<Wish> getWishes() {
+//		return wishes;
+//	}
+//
+//	public void setWishes(List<Wish> wishes) {
+//		this.wishes = wishes;
+//	}
+//
+//	public List<Cart> getCarts() {
+//		return carts;
+//	}
+//
+//	public void setCarts(List<Cart> carts) {
+//		this.carts = carts;
+//	}
 	
 	
 
