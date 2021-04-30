@@ -23,57 +23,71 @@ import com.ibm.buybeats.service.AdminService;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
-    private AdminService adminService;
+	@Autowired
+	private AdminService adminService;
 
-    @PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> validateLogin(@RequestBody Login login, HttpSession session) {
-        Admin admin = adminService.validateLogin(login);
-        if (admin != null) {
-            session.setAttribute("ADMIN", admin);
-            return new ResponseEntity<Admin>(HttpStatus.OK);
-        } else
-            return new ResponseEntity<String>("Invalid Credentilas", HttpStatus.NOT_FOUND);
+	
+	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
+	public ResponseEntity<?> validateLogin(@RequestBody Login login, HttpSession session) {
+		Admin admin = adminService.validateLogin(login);
+		if (admin != null) {
+			session.setAttribute("ADMIN", admin);
+			return new ResponseEntity<Admin>(HttpStatus.OK);
+		} else
+			return new ResponseEntity<String>("Invalid Credentials", HttpStatus.NOT_FOUND);
+	}
 
-    }
+	
+	
+	@PostMapping(value = "/add/product", consumes = "application/json")
+	public ResponseEntity<?> addProduct(@RequestBody Product product, HttpSession session) {
+		if (session.getAttribute("ADMIN")!=null) {
+			return new ResponseEntity<Product>(adminService.saveProduct(product),HttpStatus.OK);
+		} else
+			return new ResponseEntity<String>("Admin not logined",HttpStatus.NOT_FOUND);
+	}
 
-    @PostMapping(value = "/add/Product", consumes = "application/json")
-    public String addProduct(@RequestBody Product product) {
-        Product p = adminService.saveProduct(product);
-        return "Product " + p.getProductName() + " added with " + p.getPid();
+	
+	
+	@PostMapping(value = "/update/product", consumes = "application/json" ,produces = "application/json")
+	public ResponseEntity<?> updateProduct(@RequestBody Product p, HttpSession session) {
+		if (session.getAttribute("ADMIN")!=null) {
+			try {
+				return new ResponseEntity<Product>(adminService.updateProduct(p),HttpStatus.OK);
+			} catch (ProductNotFoundException e) {
+				return new ResponseEntity<String>("Product not found",HttpStatus.OK);
+			}
+		} else
+			return new ResponseEntity<String>("Admin not found",HttpStatus.NOT_FOUND);
+	}
 
-    }
+	
+	
+	@GetMapping(value = "/search/product/{pid}", produces = "application/json")
+	public ResponseEntity<?> searchProduct(@PathVariable int pid, HttpSession session) {
+		if (session.getAttribute("ADMIN") != null) {
+			try {
+				return new ResponseEntity<Product>(adminService.findProductById(pid), HttpStatus.OK);
+			} catch (ProductNotFoundException e) {
+				e.printStackTrace();
+				return new ResponseEntity<String>("Product not found", HttpStatus.OK);
+			}
+		} else
+			return new ResponseEntity<String>("Admin not logined", HttpStatus.NOT_FOUND);
+}
 
-    @PostMapping(value="/update/product/{pid}", consumes = "application/json" )    
-    public String updateProduct(@PathVariable int pid, @RequestBody Product p) {
-        try {
-            adminService.updateProduct(pid);
-            return "Product is updated";
-        } catch (ProductNotFoundException e) {
-            e.printStackTrace();
-            return " PRoduct not found";
-        }
-    }
-
-    @GetMapping(value = "/search/product/{pid}", produces = "application/json")
-    public Product searchProduct(@PathVariable int pid) {
-        try {
-            return adminService.findProductById(pid);
-        } catch (ProductNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-    }
-    
-    @GetMapping(value = "/search/product/name/{name}", produces = "application/json")
-    public List<Product> findProductByName(@PathVariable("name") String productName) {
-        try {
-            return adminService.findProductByName(productName);
-        } catch (ProductNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
+	
+	
+	@GetMapping(value = "/search/product/name/{name}", produces = "application/json")
+	public ResponseEntity<?> findProductByName(@PathVariable("name") String productName, HttpSession session) {
+		if (session.getAttribute("ADMIN") != null) {
+			try {
+				return new ResponseEntity<List<Product>>(adminService.findProductByName(productName), HttpStatus.OK);
+			} catch (ProductNotFoundException e) {
+				e.printStackTrace();
+				return new ResponseEntity<String>("Product not found", HttpStatus.OK);
+			}
+		} else
+			return new ResponseEntity<String>("Admin not logined", HttpStatus.NOT_FOUND);
+	}
 }
