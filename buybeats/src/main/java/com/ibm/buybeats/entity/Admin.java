@@ -8,6 +8,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Admin {
+	
 	@Column(length = 50)
 	@Id
 	private String email;

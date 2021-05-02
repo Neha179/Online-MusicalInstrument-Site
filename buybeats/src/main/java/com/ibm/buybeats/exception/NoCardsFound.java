@@ -1,17 +1,16 @@
 package com.ibm.buybeats.exception;
 
-public class NoOrderFoundException extends Exception {
+public class NoCardsFound extends Exception {
 
-	public NoOrderFoundException() {
+	public NoCardsFound() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public NoOrderFoundException(String message) {
+	public NoCardsFound(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
+	
 }
