@@ -44,13 +44,8 @@ public class Order {
 	@JoinColumn(name = "aid")
 	private Address address;
 	
-//	@JsonBackReference(value = "cart-order")
-//	@OneToOne
-//	@JoinColumn(name = "cid")
-//	private Cart cart;
-	
 	@JsonManagedReference(value = "order-orderdetails")
-	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<OrderDetails> orderDetails = new ArrayList<OrderDetails>();
 
 	public int getOid() {
@@ -101,5 +96,13 @@ public class Order {
 		this.address = address;
 	}
 
+
+	public List<OrderDetails> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetails> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
 
 }

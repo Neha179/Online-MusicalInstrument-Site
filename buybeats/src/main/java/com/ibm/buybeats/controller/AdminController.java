@@ -32,7 +32,7 @@ public class AdminController {
 		Admin admin = adminService.validateLogin(login);
 		if (admin != null) {
 			session.setAttribute("ADMIN", admin);
-			return new ResponseEntity<Admin>(HttpStatus.OK);
+			return new ResponseEntity<String>("Logged in successfully..! ",HttpStatus.OK);
 		} else
 			return new ResponseEntity<String>("Invalid Credentials", HttpStatus.NOT_FOUND);
 	}

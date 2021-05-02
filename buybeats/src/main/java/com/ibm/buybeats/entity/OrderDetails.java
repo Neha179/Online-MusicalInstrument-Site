@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class OrderDetails {
@@ -20,7 +21,7 @@ public class OrderDetails {
 	@JoinColumn(name = "oid")
 	private Order order;
 	
-	@JsonBackReference(value = "product-orderdetails")
+	@JsonManagedReference(value = "product-orderdetails")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;

@@ -1,10 +1,13 @@
 package com.ibm.buybeats.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,76 +41,102 @@ public class ShoppingController {
 	
 
 	@GetMapping(value="/search/{name}", produces="application/json")
-	public List<Product> searchByName(@PathVariable("name") String productName) {
-		
-		try {
-            return shoppingService.findProductByName(productName);
-        } catch (ProductNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-		
+	public ResponseEntity<?> searchByName(@PathVariable("name") String productName,HttpSession session) {
+		if(session.getAttribute("USER")!=null) {
+			try {
+	            return new ResponseEntity<List<Product>>(shoppingService.findProductByName(productName),HttpStatus.OK);
+	        } catch (ProductNotFoundException e) {
+	            e.printStackTrace();
+	            return new ResponseEntity<String>("Product not found", HttpStatus.OK);
+	        }
+		}
+		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
 	@GetMapping(value="/wish",produces = "application/json")
-    public List<Wish> showWish(HttpSession session) throws WishEmptyException {
+    public ResponseEntity<?> showWish(HttpSession session){
         User user = (User) session.getAttribute("USER");
-        return shoppingService.showWish(user); 
+        if(user!=null) {
+        	 try {
+				return new ResponseEntity<Set<Wish>>(shoppingService.showWish(user.getUid()),HttpStatus.OK);
+			} catch (WishEmptyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return new ResponseEntity<String>("Wish List is empty!", HttpStatus.OK);
+			} 
+        }
+        return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+       
     }
 	
 	@PostMapping(value="/wish/add/{pid}", produces = "application/json")
-	public Wish addToWish(@PathVariable int pid, HttpSession session) {
-		  User user = (User) session.getAttribute("USER");
-		  
-		  
-		try {
-			return shoppingService.addToWish(pid, user.getUid());
-		} catch (WishAlreadyExistsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+	public ResponseEntity<?> addToWish(@PathVariable int pid, HttpSession session) {
+		 User user = (User) session.getAttribute("USER");
+		 if(user!=null) {
+			try {
+				return new ResponseEntity<Wish>(shoppingService.addToWish(pid, user.getUid()),HttpStatus.OK);
+			} catch (WishAlreadyExistsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return new ResponseEntity<String>("Wish already exist..!",HttpStatus.BAD_REQUEST);
+			}
+		 }
+		 return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping(value="/wish/remove/{pid}", produces = "application/text")
-    public String removeFromWish(@PathVariable int pid, HttpSession session ) {
+	@PostMapping(value="/wish/remove/{wid}", produces = "application/text")
+    public ResponseEntity<?> removeFromWish(@PathVariable int wid, HttpSession session ) {
         User user = (User) session.getAttribute("USER");
-        if(shoppingService.removeFromWish(user, pid))
-            return "Product removed...!";
-        else
-            return "No product removed...!";
+        if(user!=null) {
+	        if(shoppingService.removeFromWish(user, wid))
+	            return  new ResponseEntity<String>("Product removed...!",HttpStatus.OK);
+	        else
+	            return new ResponseEntity<String>("No product removed...!",HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
     }
 	
 	
 	@GetMapping(value="/cart", produces = "application/json")
-    public List<Cart> showCart(HttpSession session) throws CartEmptyException {
+    public ResponseEntity<?> showCart(HttpSession session) {
         User user = (User) session.getAttribute("USER");
-        return shoppingService.showCart(user.getUid());
+        if(user!=null) {
+        	try {
+				return new ResponseEntity<Set<Cart>>(shoppingService.showCart(user.getUid()), HttpStatus.OK);
+			} catch (CartEmptyException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return new ResponseEntity<String>("Cart is Empty",HttpStatus.BAD_REQUEST);
+			}
+        }
+        return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
     }
 	
 	@PostMapping(value="/cart/add/{pid}", produces = "application/json")
-	public Cart addToCart(@RequestBody Cart cart,@PathVariable int pid, HttpSession session) {
+	public ResponseEntity<?> addToCart(@RequestBody Cart cart,@PathVariable int pid, HttpSession session) {
 		User user = (User) session.getAttribute("USER");
-		
-		
-		
-		
-		return shoppingService.addToCart(cart, pid, user.getUid());
+		if(user!=null)
+			return new ResponseEntity<Cart>(shoppingService.addToCart(cart, pid, user.getUid()),HttpStatus.OK);
+		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping(value="/cart/remove/{pid}", produces = "application/json")
-	public String removeFromCart(@PathVariable int pid,HttpSession session) {
+	@PostMapping(value="/cart/remove/{entryId}", produces = "application/json")
+	public ResponseEntity<?> removeFromCart(@PathVariable int entryId,HttpSession session) {
 		User user = (User) session.getAttribute("USER");
-		
-		 if(shoppingService.removeFromCart(user, pid))
-			 return "product is removed from cart";
-		 else
-			 return "product is not removed from cart";
+		if(user!=null) {
+			 if(shoppingService.removeFromCart(user, entryId))
+				 return new ResponseEntity<String>("Product removed from cart", HttpStatus.OK);
+			 else
+				 return new ResponseEntity<String>("Product is not removed from cart", HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
 	@PostMapping(value="/wish/cart/{wid}", produces = "application/json", consumes = "application/json")
-    public Cart addWishToCart(@RequestBody Cart cart, @PathVariable int wid) {
-        return shoppingService.addWishToCart(cart, wid);
+    public ResponseEntity<?> addWishToCart(@RequestBody Cart cart, @PathVariable int wid, HttpSession session) {
+		if(session.getAttribute("USER")!=null)
+			return new ResponseEntity<Cart>(shoppingService.addWishToCart(cart, wid),HttpStatus.OK);
+		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
     }
 	
 }

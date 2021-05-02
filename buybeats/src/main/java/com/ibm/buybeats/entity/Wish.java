@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "WishList")
@@ -22,7 +23,7 @@ public class Wish {
 	@JoinColumn(name = "uid")
 	private User user;
 
-	@JsonBackReference(value = "product-wish")
+	@JsonManagedReference(value = "product-wish")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;

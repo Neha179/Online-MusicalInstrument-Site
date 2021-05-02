@@ -1,7 +1,9 @@
 package com.ibm.buybeats.entity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,12 +53,12 @@ public class User {
 	private List<Order> orders = new ArrayList<Order>();
 
 	@JsonManagedReference(value = "user-cart")
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Cart> cart = new ArrayList<Cart>();
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, orphanRemoval = true)
+	private Set<Cart> cart = new HashSet<Cart>();
 
 	@JsonManagedReference(value = "user-wish")
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Wish> wish = new ArrayList<Wish>();
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, orphanRemoval = true)
+	private Set<Wish> wish = new HashSet<Wish>();
 
 	public int getUid() {
 		return uid;
@@ -138,19 +140,19 @@ public class User {
 		this.cardDetails = cardDetails;
 	}
 
-	public List<Cart> getCart() {
+	public Set<Cart> getCart() {
 		return cart;
 	}
 
-	public void setCart(List<Cart> cart) {
+	public void setCart(Set<Cart> cart) {
 		this.cart = cart;
 	}
 
-	public List<Wish> getWish() {
+	public Set<Wish> getWish() {
 		return wish;
 	}
 
-	public void setWish(List<Wish> wish) {
+	public void setWish(Set<Wish> wish) {
 		this.wish = wish;
 	}
 

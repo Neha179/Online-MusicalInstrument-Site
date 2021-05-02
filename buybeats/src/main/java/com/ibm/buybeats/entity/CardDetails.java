@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,8 +14,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 public class CardDetails {
 	@Id
+	@GeneratedValue
+	private int cid;
+	
 	@Column(length = 16)
-	private int cardNumber;
+	private String cardNumber;
 
 	@Column(length = 3)
 	private int cvv;
@@ -27,11 +31,11 @@ public class CardDetails {
 	@JoinColumn(name = "uid")
 	private User user;
 
-	public int getCardNumber() {
+	public String getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(int cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 

@@ -1,6 +1,7 @@
 package com.ibm.buybeats.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.ibm.buybeats.entity.Cart;
 import com.ibm.buybeats.entity.Product;
@@ -19,17 +20,19 @@ public interface ShoppingService {
 
 	Cart addToCart(Cart cart, int pid, int uid);
 
-	Wish addToWish(int pid, int uid) throws WishAlreadyExistsException;
-
 	boolean removeFromCart(User user, int pid);
 
 	boolean removeFromWish(User user, int pid);
 
-	List<Cart> showCart(int uid) throws CartEmptyException;
-
-	List<Wish> showWish(User user) throws WishEmptyException;
+	Set<Cart> showCart(int uid) throws CartEmptyException;
 
 	Cart addWishToCart(Cart cart, int wid);
+
+//	Wish addToWish(Wish wish, int pid, int uid) throws WishAlreadyExistsException;
+
+	Set<Wish> showWish(int uid) throws WishEmptyException;
+
+	Wish addToWish(int pid, int uid) throws WishAlreadyExistsException;
 
 	
 

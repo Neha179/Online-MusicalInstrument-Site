@@ -1,6 +1,7 @@
 package com.ibm.buybeats.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,20 +70,16 @@ public class ShoppingServiceImpl implements ShoppingService {
 	public Wish addToWish(int pid, int uid) throws WishAlreadyExistsException {
 		Wish wish = new Wish();
 		User user = userRepo.findById(uid).get();
-		List<Wish> wishes = user.getWish();
+		wish.setUser(user);
 		Product product = productRepo.findById(pid).get();
-		for (Wish w : wishes) {
+		for (Wish w : user.getWish()) {
 			if (w.getProduct() == product) {
 				throw new WishAlreadyExistsException("Product is already added to wishlist");
 			}
 
 		}
 		wish.setProduct(product);
-
-		wish.setUser(user);
-
-		wishes.add(wish);
-
+		user.getWish().add(wish);
 		return wishRepo.save(wish);
 	}
 
@@ -91,42 +88,48 @@ public class ShoppingServiceImpl implements ShoppingService {
 	// so make sure make an entry in order first before remove from cart
 
 	@Override
-	public boolean removeFromCart(User user, int pid) {
+	public boolean removeFromCart(User user, int entryId) {
 
-		for (Cart c : user.getCart()) {
-			System.out.println("cart's product_id : " + c.getProduct().getPid());//commment this
-			if (pid == c.getProduct().getPid()) {
-
-				user.getCart().remove(c);
-
-				cartRepo.delete(c);
-
-				return true;
-
-			}
-
-		}
-
-		return false;
+//		for (Cart c : user.getCart()) {
+//			System.out.println("cart's product_id : " + c.getProduct().getPid());//commment this
+//			if (pid == c.getProduct().getPid()) {
+//
+//				user.getCart().remove(c);
+//
+//				cartRepo.delete(c);
+//
+//				return true;
+//
+//			}
+//
+//		}
+//
+//		return false;
+		Cart cart = cartRepo.findById(entryId).get();
+		user.getCart().remove(cart);
+		cartRepo.delete(cart);
+		return true;
 	}
 
 	@Override
-	public boolean removeFromWish(User user, int pid) {
+	public boolean removeFromWish(User user, int wid) {
 		// TODO Auto-generated method stub
 		// List<Wish> wishes = user.getWish();
-		for (Wish w : user.getWish()) {
-			if (pid == w.getProduct().getPid()) {
-				System.out.println("wish's productId: "+w.getProduct().getPid());//comment this
-				user.getWish().remove(w);
-				wishRepo.delete(w);
-				return true;
-			}
-		}
-		return false;
+//		for (Wish w : user.getWish()) {
+//			if (pid == w.getProduct().getPid()) {
+//				System.out.println("wish's productId: "+w.getProduct().getPid());//comment this
+//				user.getWish().remove(w);
+//				wishRepo.delete(w);
+//				return true;
+//			}
+		Wish wish= wishRepo.findById(wid).get();
+		user.getWish().remove(wish);
+		wishRepo.delete(wish);
+		return true;
 	}
 
 	@Override
-	public List<Cart> showCart(int uid) throws CartEmptyException {
+	public Set<Cart> showCart(int uid) throws CartEmptyException {
 		// TODO Auto-generated method stub
 		User user = userRepo.findById(uid).get();
 		if (user.getCart().isEmpty())
@@ -135,8 +138,9 @@ public class ShoppingServiceImpl implements ShoppingService {
 	}
 
 	@Override
-	public List<Wish> showWish(User user) throws WishEmptyException {
+	public Set<Wish> showWish(int uid) throws WishEmptyException {
 		// TODO Auto-generated method stub
+		User user = userRepo.findById(uid).get();
 		if (user.getWish().isEmpty())
 			throw new WishEmptyException("Wish List is Empty..!");
 		return user.getWish();

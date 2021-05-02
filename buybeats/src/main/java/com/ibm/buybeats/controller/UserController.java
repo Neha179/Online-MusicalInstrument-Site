@@ -25,21 +25,13 @@ import com.ibm.buybeats.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
-//	@Autowired
-//	private ShoppingService shoppingService;
-	
-//	@GetMapping(name="/profile/{uid}", produces ="application/json")
-//	public User viewProfile(@PathVariable("uid") int uid) {
-//		User u = userService.viewProfile(uid);
-//		return u;
-//	}
+
 	@PostMapping(value="/login", consumes = "application/json", produces="application/json")
 	public ResponseEntity<?> login(@RequestBody Login login, HttpSession session) {
 		User user = userService.login(login);
 		if(user!=null) {
 			session.setAttribute("USER", user);
-			return new ResponseEntity<User>(HttpStatus.OK);
+			return new ResponseEntity<String>("Logged in successfully",HttpStatus.OK);
 		} else
 			return new ResponseEntity<String>("Invalid Username or Password", HttpStatus.NOT_FOUND);
 	}
@@ -51,7 +43,7 @@ public class UserController {
 			return new ResponseEntity<User>(userService.viewProfile(email),HttpStatus.OK);
 		}
 		else
-			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}
 	
 	@PostMapping(value="profile/update/{email}", consumes = "application/json")
@@ -59,7 +51,7 @@ public class UserController {
 		if(session.getAttribute("USER")!=null) 
 			return new ResponseEntity<User>(userService.updateUser(user),HttpStatus.OK);
 		else
-			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}
 	
 	@PostMapping(value="/register" , consumes="application/json" )
@@ -71,7 +63,7 @@ public class UserController {
 			e.printStackTrace();
 			return "User already exists. Please change your email..!";
 		}
-		return u.getFirstName() + ", Welcome to BuyBeats..!";
+		return u.getFirstName() + ", Welcome to BuyBeats..! Login to continue..";
 	   
 	}
 	
@@ -88,7 +80,7 @@ public class UserController {
 		if(session.getAttribute("USER")!=null) 
 			return new ResponseEntity<Address>(userService.addAddress(address, email),HttpStatus.OK);
 		else
-			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}
 	
 	@PostMapping(value = "/addCard/{email}", consumes = "application/json")
@@ -96,8 +88,8 @@ public class UserController {
 		if(session.getAttribute("USER")!=null) 
 			return new ResponseEntity<CardDetails>(userService.addCard(card, email),HttpStatus.OK);
 		else
-			return new ResponseEntity<String>("User not logined", HttpStatus.NOT_FOUND);
+			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}
-	}
+}
 
 
