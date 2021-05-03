@@ -89,7 +89,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> showOrders(int uid) throws NoOrderFoundException {
 		
-		return userRepo.findById(uid).get().getOrders();
+		List<Order> orders = userRepo.findById(uid).get().getOrders();
+		if(orders.size()==0)
+			throw new NoOrderFoundException("No orders found..!");
+		else
+			return orders;
 	}
 
 

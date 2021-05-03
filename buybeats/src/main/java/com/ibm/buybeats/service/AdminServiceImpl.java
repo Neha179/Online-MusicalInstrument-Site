@@ -40,9 +40,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Product updateProduct(Product product) throws ProductNotFoundException {
-        Product p=productRepo.findById(product.getPid()).get();
-        if(p ==null)
-        throw new ProductNotFoundException("Product Not Found");
+        Product p = productRepo.findById(product.getPid()).get();
+        if(p == null)
+        	throw new ProductNotFoundException("Product Not Found");
         else {
             p.setColour(product.getColour());
             p.setBrand(product.getBrand());
@@ -51,9 +51,8 @@ public class AdminServiceImpl implements AdminService {
             p.setSize(product.getSize());
             p.setStock(product.getStock());
             return productRepo.save(p);
-            }
-            //return null;
         }
+    }
         
         
 
