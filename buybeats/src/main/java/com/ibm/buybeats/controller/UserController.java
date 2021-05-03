@@ -37,16 +37,17 @@ public class UserController {
 	}
 	
 	
-	@GetMapping(value = "/profile/{email}", produces = "application/json")
-	public ResponseEntity<?> viewProfile(@PathVariable("email") String email, HttpSession session) {
-		if(session.getAttribute("USER")!=null) {
-			return new ResponseEntity<User>(userService.viewProfile(email),HttpStatus.OK);
+	@GetMapping(value = "/profile", produces = "application/json")
+	public ResponseEntity<?> viewProfile( HttpSession session) {
+		User user = (User) session.getAttribute("USER");
+		if(user !=null) {
+			return new ResponseEntity<User>(userService.viewProfile(user.getEmail()),HttpStatus.OK);
 		}
 		else
 			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping(value="profile/update/{email}", consumes = "application/json")
+	@PostMapping(value="profile/update", consumes = "application/json")
 	public ResponseEntity<?> updateProfile(@RequestBody User user, HttpSession session) {
 		if(session.getAttribute("USER")!=null) 
 			return new ResponseEntity<User>(userService.updateUser(user),HttpStatus.OK);
@@ -75,18 +76,20 @@ public class UserController {
 		return "Logged out successfully";
 	}
 	
-	@PostMapping(value = "/addAddress/{email}", consumes = "application/json")
-	public ResponseEntity<?> addAddress(@RequestBody Address address, @PathVariable("email") String email,HttpSession session) {
-		if(session.getAttribute("USER")!=null) 
-			return new ResponseEntity<Address>(userService.addAddress(address, email),HttpStatus.OK);
+	@PostMapping(value = "/addAddress", consumes = "application/json")
+	public ResponseEntity<?> addAddress(@RequestBody Address address,HttpSession session) {
+		User user = (User) session.getAttribute("USER");
+		if(user !=null) 
+			return new ResponseEntity<Address>(userService.addAddress(address, user.getEmail()),HttpStatus.OK);
 		else
 			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping(value = "/addCard/{email}", consumes = "application/json")
-	public ResponseEntity<?> addCard(@RequestBody CardDetails card, @PathVariable("email") String email,HttpSession session) {
-		if(session.getAttribute("USER")!=null) 
-			return new ResponseEntity<CardDetails>(userService.addCard(card, email),HttpStatus.OK);
+	@PostMapping(value = "/addCard", consumes = "application/json")
+	public ResponseEntity<?> addCard(@RequestBody CardDetails card,HttpSession session) {
+		User user = (User) session.getAttribute("USER");
+		if(user !=null) 
+			return new ResponseEntity<CardDetails>(userService.addCard(card, user.getEmail()),HttpStatus.OK);
 		else
 			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}

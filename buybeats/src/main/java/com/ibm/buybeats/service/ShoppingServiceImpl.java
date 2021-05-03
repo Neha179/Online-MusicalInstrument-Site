@@ -48,7 +48,7 @@ public class ShoppingServiceImpl implements ShoppingService {
 	@Override
 	public List<Product> findProductByName(String productName) throws ProductNotFoundException {
 		List<Product> p = productRepo.findByProductName(productName);
-		if (p == null)
+		if (p.size() == 0)
 			throw new ProductNotFoundException("Product Not Found");
 		else
 			return p;
