@@ -46,7 +46,7 @@ public class OrderController {
 		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
-	@GetMapping(value = "/placeOrder", produces = "application/json")
+	@GetMapping(value = "/placeOrder/{aid}", produces = "application/json")
 	public ResponseEntity<?> placeOrder(@PathVariable int aid,HttpSession session){
 		User user = (User) session.getAttribute("USER");
 		if(user!=null) {
