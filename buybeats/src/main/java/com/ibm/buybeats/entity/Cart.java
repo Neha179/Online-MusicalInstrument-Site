@@ -20,7 +20,7 @@ public class Cart {
 	@GeneratedValue
 	private int entryID;
 	
-	@JsonManagedReference(value = "product-cart")
+//	@JsonManagedReference(value = "product-cart")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;

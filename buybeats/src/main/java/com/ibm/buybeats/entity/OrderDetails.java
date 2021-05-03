@@ -21,7 +21,7 @@ public class OrderDetails {
 	@JoinColumn(name = "oid")
 	private Order order;
 	
-	@JsonManagedReference(value = "product-orderdetails")
+//	@JsonManagedReference(value = "product-orderdetails")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;

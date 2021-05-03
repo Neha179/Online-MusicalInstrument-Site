@@ -23,7 +23,7 @@ public class Wish {
 	@JoinColumn(name = "uid")
 	private User user;
 
-	@JsonManagedReference(value = "product-wish")
+//	@JsonManagedReference(value = "product-wish")
 	@ManyToOne
 	@JoinColumn(name = "pid")
 	private Product product;
