@@ -1,6 +1,7 @@
 package com.ibm.buybeats.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpSession;
 
@@ -54,7 +55,7 @@ public class AdminController {
 		if (session.getAttribute("ADMIN")!=null) {
 			try {
 				return new ResponseEntity<Product>(adminService.updateProduct(p),HttpStatus.OK);
-			} catch (ProductNotFoundException e) {
+			} catch (NoSuchElementException | ProductNotFoundException e) {
 				return new ResponseEntity<String>("Product not found",HttpStatus.OK);
 			}
 		} else
@@ -68,7 +69,7 @@ public class AdminController {
 		if (session.getAttribute("ADMIN") != null) {
 			try {
 				return new ResponseEntity<Product>(adminService.findProductById(pid), HttpStatus.OK);
-			} catch (ProductNotFoundException e) {
+			} catch (NoSuchElementException | ProductNotFoundException e) {
 				e.printStackTrace();
 				return new ResponseEntity<String>("Product not found", HttpStatus.OK);
 			}
