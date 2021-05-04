@@ -13,9 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.data.annotation.Persistent;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -39,6 +41,9 @@ public class User {
 
 	@Column(length = 50)
 	private String password;
+	
+	
+	private static int verficationCode;
 
 	@JsonManagedReference(value = "user-address")
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -155,5 +160,15 @@ public class User {
 	public void setWish(Set<Wish> wish) {
 		this.wish = wish;
 	}
+
+	public int getVerficationCode() {
+		return verficationCode;
+	}
+
+	public void setVerficationCode(int verficationCode) {
+		this.verficationCode = verficationCode;
+	}
+	
+	
 
 }

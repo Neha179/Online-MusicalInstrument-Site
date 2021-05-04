@@ -25,4 +25,6 @@ public interface OrderService {
 	List<Address> viewAddress(int uid) throws NoAddressFound;
 	
 	List<CardDetails> viewCard(int uid) throws NoCardsFound;
+
+	String confirmOrder(int oid, int code);
 }
