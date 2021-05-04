@@ -12,6 +12,13 @@ import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.exception.WishAlreadyExistsException;
 import com.ibm.buybeats.exception.WishEmptyException;
 
+/**
+ * This interface has services for Shopping
+ * @author Darshan Kansara
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 public interface ShoppingService {
 
 	Product findProductById(int pid) throws ProductNotFoundException;

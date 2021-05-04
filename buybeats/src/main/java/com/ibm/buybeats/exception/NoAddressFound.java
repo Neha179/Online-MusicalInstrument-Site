@@ -1,5 +1,11 @@
 package com.ibm.buybeats.exception;
 
+/**
+ * This class provides exception for no address found
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 public class NoAddressFound extends Exception {
 
 	public NoAddressFound() {

@@ -1,5 +1,11 @@
 package com.ibm.buybeats.exception;
 
+/**
+ * This class provides exception for duplicate wish
+ * @author Monalisa
+ * @version 1.0
+ */
+
 public class WishAlreadyExistsException extends Exception {
 
 	public WishAlreadyExistsException() {

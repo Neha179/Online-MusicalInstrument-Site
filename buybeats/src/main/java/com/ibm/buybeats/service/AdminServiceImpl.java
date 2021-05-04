@@ -13,6 +13,12 @@ import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.repository.AdminRepository;
 import com.ibm.buybeats.repository.ProductRepository;
 
+/**
+ * This class provides services for Admin
+ * @author Aakansha Arora
+ * @version 1.0
+ */
+
 @Service
 public class AdminServiceImpl implements AdminService {
 	@Autowired

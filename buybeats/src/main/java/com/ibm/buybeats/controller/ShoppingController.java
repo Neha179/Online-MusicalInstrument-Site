@@ -1,5 +1,12 @@
 package com.ibm.buybeats.controller;
 
+/**
+ * This class represents controller for Shopping
+ * @author Darshan Kansara
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 import java.util.List;
 import java.util.Set;
 

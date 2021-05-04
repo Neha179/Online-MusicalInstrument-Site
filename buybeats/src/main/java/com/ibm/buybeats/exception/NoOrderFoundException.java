@@ -1,5 +1,11 @@
 package com.ibm.buybeats.exception;
 
+/**
+ * This class provides exception for no order found
+ * @author Darshan Kansara
+ * @version 1.0
+ */
+
 public class NoOrderFoundException extends Exception {
 
 	public NoOrderFoundException() {

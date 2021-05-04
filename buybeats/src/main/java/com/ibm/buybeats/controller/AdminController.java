@@ -21,6 +21,14 @@ import com.ibm.buybeats.entity.Product;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.service.AdminService;
 
+/**
+ * This class represents controller for Admin
+ * @author Aakansha Arora 
+ * @author Monalisa
+ * @version 1.0
+ */
+
+
 @RestController
 @RequestMapping("/admin")
 public class AdminController {

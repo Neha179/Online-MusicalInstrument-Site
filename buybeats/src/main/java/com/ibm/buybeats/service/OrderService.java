@@ -13,6 +13,13 @@ import com.ibm.buybeats.exception.NoCardsFound;
 import com.ibm.buybeats.exception.NoOrderFoundException;
 import com.ibm.buybeats.exception.StockNotAvaialble;
 
+/**
+ * This interface has services for Order
+ * @author Arya P Menon
+ * @author Darshan Kansara
+ * @author Neha
+ * @version 1.0
+ */
 
 public interface OrderService {
 

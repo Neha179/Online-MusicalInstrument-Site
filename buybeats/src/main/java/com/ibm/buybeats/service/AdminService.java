@@ -7,6 +7,11 @@ import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import java.util.List;
 
+/**
+ * This interface has services for Admin
+ * @author Aakansha Arora
+ * @version 1.0
+ */
 
 public interface AdminService {
 	
