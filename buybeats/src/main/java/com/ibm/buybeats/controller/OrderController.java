@@ -78,7 +78,6 @@ public class OrderController {
 		try {
 			return new ResponseEntity<List<Address>>(orderService.viewAddress(user.getUid()),HttpStatus.OK);
 		} catch (NoAddressFound e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ResponseEntity<String>("No Address found. Add one!", HttpStatus.BAD_REQUEST);
 		}
@@ -92,7 +91,6 @@ public class OrderController {
 			try {
 				return new ResponseEntity<List<CardDetails>>(orderService.viewCard(user.getUid()),HttpStatus.OK);
 			} catch (NoCardsFound e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return new ResponseEntity<String>("No Card found. Add one!", HttpStatus.BAD_REQUEST);
 			}

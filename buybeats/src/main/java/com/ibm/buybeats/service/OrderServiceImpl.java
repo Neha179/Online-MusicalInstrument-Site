@@ -109,16 +109,22 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<Address> viewAddress(int uid) throws NoAddressFound{
-		// TODO Auto-generated method stub
-		return userRepo.findById(uid).get().getAddresses();
+		List<Address> addresses = userRepo.findById(uid).get().getAddresses();
+		if(addresses.size()==0)
+			throw new NoAddressFound("No address found..!");
+		else
+			return addresses;
 	}
 
 
 
 	@Override
 	public List<CardDetails> viewCard(int uid) throws NoCardsFound{
-		// TODO Auto-generated method stub
-		return userRepo.findById(uid).get().getCardDetails();
+		List<CardDetails> cards = userRepo.findById(uid).get().getCardDetails();
+		if(cards.size()==0)
+			throw new NoCardsFound("No cards found..!");
+		else
+			return cards;
 	}
 
 
