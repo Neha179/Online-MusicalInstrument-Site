@@ -109,6 +109,12 @@ public class Address {
 		this.user = user;
 	}
 
+	@Override
+	public String toString() {
+		return houseNumber + ",\n" + street + ",\n" + city + ",\n" + state
+				+ ",\nPin Code:" + pinCode;
+	}
+
 
 
 }

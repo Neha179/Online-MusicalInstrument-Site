@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.buybeats.entity.Address;
@@ -51,8 +52,8 @@ public class OrderController {
 		User user = (User) session.getAttribute("USER");
 		if(user!=null) {
 			try {
-				orderService.placeOrder(user.getUid(), aid);
-				return new ResponseEntity<String>("Order Successfull", HttpStatus.OK);
+				orderService.placeOrder(user.getUid(), aid);				
+				return new ResponseEntity<String>("Order is placed, verfication code sent.", HttpStatus.OK);
 			} catch (StockNotAvaialble e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -97,4 +98,14 @@ public class OrderController {
 		}
 		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
+	
+	@PostMapping(value="/confirmOrder/{oid}",produces="application/json")
+	public ResponseEntity<?> confirmOrder(@PathVariable int oid,@RequestParam int code,HttpSession session){
+		User user = (User) session.getAttribute("USER");
+		if(user!=null)
+			return new ResponseEntity<String>(orderService.confirmOrder(oid, code), HttpStatus.OK);
+		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+	}
+	
+	
 }
