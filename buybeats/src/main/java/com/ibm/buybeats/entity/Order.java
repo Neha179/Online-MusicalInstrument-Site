@@ -20,6 +20,14 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+/**
+ * This class represents Order
+ * @author Arya P Menon
+ * @author Darshan Kansara
+ * @author Aakansha Arora
+ * @version 1.0
+ */
+
 @Entity
 @Table(name="order_table")
 public class Order {

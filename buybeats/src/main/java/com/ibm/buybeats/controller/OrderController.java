@@ -26,6 +26,15 @@ import com.ibm.buybeats.exception.NoOrderFoundException;
 import com.ibm.buybeats.exception.StockNotAvaialble;
 import com.ibm.buybeats.service.OrderService;
 
+/**
+ * This class represents controller for Order
+ * @author Arya P Menon
+ * @author Darshan Kansara
+ * @author Monalisa
+ * @version 1.0
+ */
+
+
 @RestController
 @RequestMapping("/order")
 public class OrderController {

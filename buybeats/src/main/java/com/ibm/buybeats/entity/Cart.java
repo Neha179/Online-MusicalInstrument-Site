@@ -12,6 +12,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+/**
+ * This class represents Cart
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 @Entity
 @Table(name ="Cart")
 public class Cart {

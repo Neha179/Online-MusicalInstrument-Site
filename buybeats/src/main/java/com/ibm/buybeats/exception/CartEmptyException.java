@@ -1,5 +1,11 @@
 package com.ibm.buybeats.exception;
 
+/**
+ * This class provides exception for empty cart
+ * @author Darshan Kansara
+ * @version 1.0
+ */
+
 public class CartEmptyException extends Exception{
 
 	public CartEmptyException() {

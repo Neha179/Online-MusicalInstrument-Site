@@ -20,6 +20,13 @@ import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 import com.ibm.buybeats.service.UserService;
 
+/**
+ * This class represents controller for User
+ * @author Arya P Menon
+ * @author Aakansha Arora
+ * @version 1.0
+ */
+
 @RestController
 @RequestMapping("/users")
 public class UserController {

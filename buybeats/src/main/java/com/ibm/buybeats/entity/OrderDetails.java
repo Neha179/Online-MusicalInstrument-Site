@@ -10,6 +10,14 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+/**
+ * This class represents Order Details
+ * @author Aakansha Arora
+ * @author Darshan Kansara
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 @Entity
 public class OrderDetails {
 	@Id

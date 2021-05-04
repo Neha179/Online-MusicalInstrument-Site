@@ -12,6 +12,12 @@ import com.ibm.buybeats.repository.AddressRepository;
 import com.ibm.buybeats.repository.CardDetailsRepository;
 import com.ibm.buybeats.repository.UserRepository;
 
+/**
+ * This class provides services for User
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired

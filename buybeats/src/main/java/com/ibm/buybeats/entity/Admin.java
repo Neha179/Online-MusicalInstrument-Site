@@ -6,6 +6,13 @@ import javax.persistence.Id;
 
 import com.sun.istack.NotNull;
 
+/**
+ * This class represents Admin
+ * @author Aakansha Arora
+ * @version 1.0
+ */
+
+
 @Entity
 public class Admin {
 	

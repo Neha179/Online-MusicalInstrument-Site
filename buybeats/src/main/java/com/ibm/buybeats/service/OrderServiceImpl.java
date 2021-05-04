@@ -25,6 +25,14 @@ import com.ibm.buybeats.repository.OrderDetailsRepository;
 import com.ibm.buybeats.repository.OrderRepository;
 import com.ibm.buybeats.repository.UserRepository;
 
+/**
+ * This class provides services for Order
+ * @author Darshan Kansara
+ * @author Arya P Menon
+ * @author Neha
+ * @version 1.0
+ */
+
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {

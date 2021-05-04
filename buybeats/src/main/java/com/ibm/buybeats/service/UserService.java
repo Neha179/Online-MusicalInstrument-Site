@@ -6,6 +6,12 @@ import com.ibm.buybeats.entity.CardDetails;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
 
+/**
+ * This interface has services for User
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 public interface UserService {
 	
 	User saveUser(User user) throws EmailAlreadyExistsException;

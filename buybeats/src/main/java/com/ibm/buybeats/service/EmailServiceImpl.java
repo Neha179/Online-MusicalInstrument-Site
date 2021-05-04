@@ -16,6 +16,12 @@ import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.repository.OrderDetailsRepository;
 import com.ibm.buybeats.repository.OrderRepository;
 
+/**
+ * This class provides services for Email
+ * @author Darshan Kansara
+ * @version 1.0
+ */
+
 @Service
 public class EmailServiceImpl implements EmailService {
 	

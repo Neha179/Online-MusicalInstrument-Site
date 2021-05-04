@@ -11,6 +11,12 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+/**
+ * This class represents Card
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 @Entity
 public class CardDetails {
 	@Id

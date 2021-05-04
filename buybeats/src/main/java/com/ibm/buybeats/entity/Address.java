@@ -17,6 +17,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+/**
+ * This class represents Address
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 @Entity
 @Table
 public class Address {

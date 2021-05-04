@@ -14,7 +14,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-
+/**
+ * This class represents Product
+ * @author Neha
+ * @author Arya P Menon
+ * @version 1.0
+ */
 
 @Entity
 @Table(name = "product")

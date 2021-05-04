@@ -21,6 +21,12 @@ import org.springframework.data.annotation.Persistent;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+/**
+ * This class represents User
+ * @author Arya P Menon
+ * @version 1.0
+ */
+
 @Entity
 public class User {
 	@Id

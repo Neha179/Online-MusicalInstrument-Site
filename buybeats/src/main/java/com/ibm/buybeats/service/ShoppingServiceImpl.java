@@ -19,6 +19,14 @@ import com.ibm.buybeats.repository.ProductRepository;
 import com.ibm.buybeats.repository.UserRepository;
 import com.ibm.buybeats.repository.WishRepository;
 
+/**
+ * This class provides services for shopping
+ * @author Darshan Kansara
+ * @author Arya P Menon
+ * @author Monalisa
+ * @version 1.0
+ */
+
 @Service
 public class ShoppingServiceImpl implements ShoppingService {
 

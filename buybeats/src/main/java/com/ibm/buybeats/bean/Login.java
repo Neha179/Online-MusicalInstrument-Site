@@ -1,5 +1,12 @@
 package com.ibm.buybeats.bean;
 
+/**
+ * This class represents login bean
+ * @author Aakansha Arora
+ * @version 1.0
+ */
+
+
 public class Login {
   
 	private String email;
