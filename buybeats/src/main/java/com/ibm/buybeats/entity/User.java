@@ -45,7 +45,7 @@ public class User {
 	@Column(length = 10)
 	private String phoneNumber;
 
-	@Column(length = 50)
+	@Column
 	private String password;
 	
 	

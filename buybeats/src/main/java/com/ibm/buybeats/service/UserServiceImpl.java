@@ -1,5 +1,7 @@
 package com.ibm.buybeats.service;
 
+import org.jasypt.util.text.BasicTextEncryptor;
+import org.jasypt.util.text.TextEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,10 @@ import com.ibm.buybeats.repository.UserRepository;
 /**
  * This class provides services for User
  * @author Arya P Menon
+ * @author Darshan Kansara
  * @version 1.0
  */
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,10 +32,15 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private CardDetailsRepository cardRepo;
+	
 
 	@Override
 	public User saveUser(User u) throws EmailAlreadyExistsException {
 		User user = userRepo.findByEmail(u.getEmail());
+		BasicTextEncryptor key = new BasicTextEncryptor();
+		key.setPassword("BuyBeats");
+		String encryptedPassword = key.encrypt(u.getPassword());
+		u.setPassword(encryptedPassword);
 		if(user==null)
 			return userRepo.save(u);
 		else throw new EmailAlreadyExistsException("User already exists. Change your email!");
@@ -43,7 +52,10 @@ public class UserServiceImpl implements UserService {
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
 		u.setPhoneNumber(user.getPhoneNumber());
-		u.setPassword(user.getPassword());
+		BasicTextEncryptor key = new BasicTextEncryptor();
+		key.setPassword("BuyBeats");
+		String encryptedPassword = key.encrypt(user.getPassword());
+		u.setPassword(encryptedPassword);
 		return userRepo.save(u);
 	}
 
@@ -70,7 +82,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User login(Login login) {
-		return userRepo.findByEmailAndPassword(login.getEmail(),login.getPassword());
+		User user = userRepo.findByEmail(login.getEmail());
+		if(user!=null) {
+			BasicTextEncryptor key = new BasicTextEncryptor();
+			key.setPassword("BuyBeats");
+			String decryptedPassword = key.decrypt(user.getPassword());
+			if(decryptedPassword.equals(login.getPassword()))
+				return user;
+		}
+		return null;
 	}
 	
 
