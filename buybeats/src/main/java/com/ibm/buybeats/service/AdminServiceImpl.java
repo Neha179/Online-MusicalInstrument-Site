@@ -80,6 +80,11 @@ public class AdminServiceImpl implements AdminService {
             return p;
     }
 
+	@Override
+	public List<Product> getProducts() {
+		return productRepo.findAll();
+	}
+
 
 	
 
