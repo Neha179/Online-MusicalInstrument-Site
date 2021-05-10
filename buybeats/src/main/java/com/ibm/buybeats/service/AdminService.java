@@ -26,5 +26,7 @@ public interface AdminService {
 	    Product findProductById(int pid) throws ProductNotFoundException;
 	    
 	    List<Product> findProductByName(String productName) throws ProductNotFoundException;
+	    
+	    List<Product> getProducts();
 
 }

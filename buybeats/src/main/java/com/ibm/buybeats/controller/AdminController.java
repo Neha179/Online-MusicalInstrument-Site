@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,7 @@ import com.ibm.buybeats.service.AdminService;
  * @version 1.0
  */
 
-
+@CrossOrigin()
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -98,5 +99,12 @@ public class AdminController {
 			}
 		} else
 			return new ResponseEntity<String>("Admin not logined", HttpStatus.NOT_FOUND);
+	}
+	
+	@GetMapping(value="/home", produces="application/json")
+	public ResponseEntity<?> getAlProducts() {
+		
+			return new ResponseEntity<List<Product>>(adminService.getProducts(), HttpStatus.OK);
+		
 	}
 }
