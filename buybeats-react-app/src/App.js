@@ -1,10 +1,10 @@
 import './App.css';
-import ShowProduct from './Components/ShowProduct.js';
+import AdminLogin from './Components/AdminLogin.js';
 
 function App() {
   return (
     <div className="App">
-      <ShowProduct/>
+      <AdminLogin/>
     </div>
   );
 }
