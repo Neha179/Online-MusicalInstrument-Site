@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.ibm.buybeats.entity.Address;
 import com.ibm.buybeats.entity.CardDetails;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
+import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.service.UserService;
 
 /**
@@ -27,6 +29,7 @@ import com.ibm.buybeats.service.UserService;
  * @version 1.0
  */
 
+@CrossOrigin()
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -34,13 +37,12 @@ public class UserController {
 	private UserService userService;
 
 	@PostMapping(value="/login", consumes = "application/json", produces="application/json")
-	public ResponseEntity<?> login(@RequestBody Login login, HttpSession session) {
+	public String login(@RequestBody Login login) throws InvalidCredentialsException {
 		User user = userService.login(login);
-		if(user!=null) {
-			session.setAttribute("USER", user);
-			return new ResponseEntity<String>("Logged in successfully",HttpStatus.OK);
+		if(user != null) {
+			return "Logged in successfully";
 		} else
-			return new ResponseEntity<String>("Invalid Username or Password", HttpStatus.NOT_FOUND);
+			throw new InvalidCredentialsException("Invalid Username or Password");
 	}
 	
 	
@@ -63,15 +65,12 @@ public class UserController {
 	}
 	
 	@PostMapping(value="/register" , consumes="application/json" )
-	public String addUser(@RequestBody User user) {
-		User u = null;
-		try {
-			u = userService.saveUser(user);
-		} catch (EmailAlreadyExistsException e) {
-			e.printStackTrace();
-			return "User already exists. Please change your email..!";
-		}
-		return u.getFirstName() + ", Welcome to BuyBeats..! Login to continue..";
+	public String addUser(@RequestBody User user) throws EmailAlreadyExistsException {
+		User u = userService.saveUser(user);
+		if(u != null)
+			return u.getFirstName() + ", Welcome to BuyBeats..! Login to continue..";
+		else
+			throw new EmailAlreadyExistsException("User already exists. Please change your email..!");
 	   
 	}
 	

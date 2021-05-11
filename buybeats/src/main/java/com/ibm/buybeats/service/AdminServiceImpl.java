@@ -34,7 +34,7 @@ public class AdminServiceImpl implements AdminService {
     	if(a!=null)
     		return a;
     	else
-    		throw new InvalidCredentialsException("Invalid credentials");
+    		throw new InvalidCredentialsException("Invalid Credentials");
         
     }
 
