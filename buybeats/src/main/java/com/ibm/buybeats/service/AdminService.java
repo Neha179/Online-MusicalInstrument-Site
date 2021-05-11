@@ -21,7 +21,7 @@ public interface AdminService {
 	    
 	    Product updateProduct(Product product) throws ProductNotFoundException;
 
-	    Admin validateLogin(Login login);
+	    Admin validateLogin(Login login) throws InvalidCredentialsException;
 	    
 	    Product findProductById(int pid) throws ProductNotFoundException;
 	    
