@@ -10,6 +10,7 @@ import com.ibm.buybeats.entity.Address;
 import com.ibm.buybeats.entity.CardDetails;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
+import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.repository.AddressRepository;
 import com.ibm.buybeats.repository.CardDetailsRepository;
 import com.ibm.buybeats.repository.UserRepository;
@@ -24,6 +25,7 @@ import com.ibm.buybeats.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
 	private UserRepository userRepo;
 	
@@ -81,7 +83,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User login(Login login) {
+	public User login(Login login) throws InvalidCredentialsException {
 		User user = userRepo.findByEmail(login.getEmail());
 		if(user!=null) {
 			BasicTextEncryptor key = new BasicTextEncryptor();
@@ -90,7 +92,7 @@ public class UserServiceImpl implements UserService {
 			if(decryptedPassword.equals(login.getPassword()))
 				return user;
 		}
-		return null;
+		throw new InvalidCredentialsException("Invalid Credentials");
 	}
 	
 

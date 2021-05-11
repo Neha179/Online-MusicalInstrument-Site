@@ -5,6 +5,7 @@ import com.ibm.buybeats.entity.Address;
 import com.ibm.buybeats.entity.CardDetails;
 import com.ibm.buybeats.entity.User;
 import com.ibm.buybeats.exception.EmailAlreadyExistsException;
+import com.ibm.buybeats.exception.InvalidCredentialsException;
 
 /**
  * This interface has services for User
@@ -24,7 +25,7 @@ public interface UserService {
 	
 	CardDetails addCard(CardDetails card, String email);
 	
-	User login(Login login);
+	User login(Login login) throws InvalidCredentialsException;
 	
 	
 	

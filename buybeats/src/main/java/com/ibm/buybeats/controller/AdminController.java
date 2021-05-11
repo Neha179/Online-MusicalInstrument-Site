@@ -44,7 +44,7 @@ public class AdminController {
 		if (admin != null) {
 			return "Logged in successfully..! ";
 		} else
-			return "Invalid Credentials";
+			throw new InvalidCredentialsException("Invalid Credentials");
 	}
 
 	
