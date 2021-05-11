@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 
-function AdminLogin(props) {
+function UserLogin(props) {
   const [loading, setLoading] = useState(false);
   const email = useFormInput('');
   const password = useFormInput('');
   const [error, setError] = useState(null);
 
-  const handleLogin = () => {
+  const Login = () => {
     setError(null);
     setLoading(true);
-    axios.post('http://localhost:8870/admin/login', { email:email.value, password:password.value}).then((response) => {
+    axios.post('http://localhost:8870/users/login', { email:email.value, password:password.value}).then((response) => {
     console.log("Response :" +response.data);
       setLoading(false);
       setUserSession(response.data.token, response.data.email);
@@ -34,20 +34,20 @@ function AdminLogin(props) {
         <input type="password" {...password} autoComplete="new-password" />
       </div>
       {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-      <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
+      <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={Login} disabled={loading} /><br />
     </div>
   );
 }
 const useFormInput = initialValue => {
   const [value, setValue] = useState(initialValue);
 
-  const handleChange = e => {
+  const userChange = e => {
     setValue(e.target.value);
   }
   return {
     value,
-    onChange: handleChange
+    onChange: userChange
   }
 }
 
-export default AdminLogin;
+export default UserLogin;
