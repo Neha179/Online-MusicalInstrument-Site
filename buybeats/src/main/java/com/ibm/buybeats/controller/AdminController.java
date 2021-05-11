@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Admin;
 import com.ibm.buybeats.entity.Product;
+import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.service.AdminService;
 
@@ -38,13 +39,12 @@ public class AdminController {
 
 	
 	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
-	public ResponseEntity<?> validateLogin(@RequestBody Login login, HttpSession session) {
+	public String validateLogin(@RequestBody Login login) throws InvalidCredentialsException {
 		Admin admin = adminService.validateLogin(login);
 		if (admin != null) {
-			session.setAttribute("ADMIN", admin);
-			return new ResponseEntity<String>("Logged in successfully..! ",HttpStatus.OK);
+			return "Logged in successfully..! ";
 		} else
-			return new ResponseEntity<String>("Invalid Credentials", HttpStatus.NOT_FOUND);
+			return "Invalid Credentials";
 	}
 
 	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ibm.buybeats.bean.Login;
 import com.ibm.buybeats.entity.Admin;
 import com.ibm.buybeats.entity.Product;
+import com.ibm.buybeats.exception.InvalidCredentialsException;
 import com.ibm.buybeats.exception.ProductNotFoundException;
 import com.ibm.buybeats.repository.AdminRepository;
 import com.ibm.buybeats.repository.ProductRepository;
@@ -28,8 +29,12 @@ public class AdminServiceImpl implements AdminService {
     private ProductRepository productRepo;
 
     @Override
-    public Admin validateLogin(Login login){
-        return adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
+    public Admin validateLogin(Login login)throws InvalidCredentialsException{
+    	Admin a = adminRepo.findByEmailAndPassword(login.getEmail(), login.getPassword());
+    	if(a!=null)
+    		return a;
+    	else
+    		throw new InvalidCredentialsException("Invalid credentials");
         
     }
 
