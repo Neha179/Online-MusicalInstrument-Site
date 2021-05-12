@@ -7,16 +7,10 @@ import Button from './Components/Button'
 function App() {
   return (
     <div className="App">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <Button buttonStyle={"btn--green--solid"}
-      buttonSize={"btn--medium"}
-      onClick={() => console.log("Thanks  for clicking me")}>
+    <UserLogin/>
+    <AdminLogin/>
+    <UserRegistration/>
 
-        Click me!
-      </Button>
     </div>
   );
 }
