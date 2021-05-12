@@ -6,16 +6,19 @@ const STYLES=[
   "btn--green--solid",
   "btn--danger--solid",
   "btn--success--solid",
+  "btn--grey--solid",
   "btn--primary--outline",
   "btn--green--outline",
   "btn--danger--outline",
-  "btn--success--outline"
+  "btn--success--outline",
+  "btn--grey--outline"
 ];
 
 const SIZES =[
 "btn--large",
 "btn--medium",
-"btn--small"
+"btn--small",
+"btn--mini"
 ];
 
  const Button =({
@@ -30,7 +33,7 @@ const checkButtonStyle = STYLES.includes(buttonStyle)?
 buttonStyle : STYLES[0];
 
 const checkButtonSize = SIZES.includes(buttonSize)?
-buttonSize : SIZES[0];
+buttonSize : SIZES[1];
 
   return(
     <button className ={`btn ${checkButtonStyle} ${checkButtonSize}`}onClick = {onClick}

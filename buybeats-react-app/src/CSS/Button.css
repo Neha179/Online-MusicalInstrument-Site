@@ -5,13 +5,14 @@
   --success:#75fa83;
   --dark:#181717;
   --white:#fdfdfd;
+  --grey:#a9a9a9;
 
 }
 
 .btn{
-  font-family: sans-serif;
+  font-family: Crimson sans-serif;
   font-weight: 500;
-  border-radius: 10px;
+  border-radius: 70px;
   cursor: pointer;
   transition: transform 0.3s ease;
 
@@ -24,7 +25,7 @@
 /Button colors and style/
 .btn--primary--solid{
   background: var(--primary);
-  color: var(--black);
+  color: var(--white);
   border:none;
 }
 
@@ -43,6 +44,12 @@
 .btn--success--solid{
   background: var(--success);
   color: var(--white);
+  border:none;
+}
+
+.btn--grey--solid{
+  background: var(--grey);
+  color: var(--black);
   border:none;
 }
 
@@ -70,6 +77,12 @@
   border: 2px solid var(--success);
 }
 
+.btn--grey--outline{
+  background-color: transparent;
+  color: var(--grey);
+  border: 2px solid var(--grey);
+}
+
 /* Button sizes*/
 
 .btn--medium{
@@ -82,7 +95,12 @@
   font-size: 20 px;
 }
 
-  .btn--small{
-    padding: 5px 10px;
+.btn--small{
+    padding: 5px 5px;
     font-size: 16 px;
+}
+
+.btn--mini{
+  padding: 2px 2px;
+  font-size: 14 px;
 }
