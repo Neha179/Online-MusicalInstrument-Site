@@ -11,7 +11,7 @@ function AdminLogin(props) {
   const handleLogin = () => {
     setError(null);
     setLoading(true);
-    axios.post('http://localhost:8870/admin/login', { email:email.value, password:password.value}).then((response) => {
+  axios.post('http://localhost:8870/admin/login', { email:email.value, password:password.value}).then((response) => {
     console.log("Response :" +response.data);
       setLoading(false);
       setUserSession(response.data.token, response.data.email);
@@ -23,6 +23,7 @@ function AdminLogin(props) {
     });
   }
   return (
+  < div>
     <div>
       Login<br /><br />
       <div>
@@ -36,6 +37,7 @@ function AdminLogin(props) {
       {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
       <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
     </div>
+  </div>
   );
 }
 const useFormInput = initialValue => {
