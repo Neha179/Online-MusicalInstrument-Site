@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 import '../CSS/RegistrationForm.css';
+import Button from '../Components/Button';
 
 function UserRegistration(props) {
   const [loading, setLoading] = useState(false);
@@ -30,34 +31,39 @@ function UserRegistration(props) {
   }
   return (
     <div className="form-container">
-      <form className="form">
+      <form className="form" >
         <h1>Welcome to BuyBeats...!!!</h1><br />
-      <div className='form-inputs-1'>
-          <label className='form-label'>First Name</label>
-        <input className='form-input' type="text" {...firstName} autoComplete="new-password" placeholder="Enter your first name"/>
-      </div>
-      <div className='form-inputs-1'>
-          <label className='form-label'>Last Name</label>
-        <input  className='form-input' type="text" {...lastName} autoComplete="new-password" placeholder="Enter your last name" />
-      </div>
-      <div className='form-inputs-1'>
-          <label className='form-label'>Email</label>
-        <input  className='form-input' type="text" {...email} autoComplete="new-password" placeholder="Enter your email" />
-      </div>
-      <div className='form-inputs-1'>
-          <label className='form-label'>Phone Number</label>
-        <input  className='form-input' type="text" {...phoneNumber} autoComplete="new-password" placeholder="Enter your Phone number"/>
-      </div>
-      <div className='form-inputs-1'>
-          <label className='form-label'>Password</label>
-        <input  className='form-input' type="password" {...password} autoComplete="new-password" placeholder="Enter your Password"/>
-      </div>
-      <div className='form-inputs-1'>
-          <label className='form-label'>Confirm Password</label>
-        <input  className='form-input' type="text" {...confirmPassword} autoComplete="new-password" placeholder="Confirm your Password"/>
-      </div>
+      <table>
+        <tr>
+        <td><label className='form-label'>First Name :</label></td>
+        <td><input className='form-input' type="text" {...firstName} autoComplete="new-password" placeholder="Enter your first name" /></td>
+        </tr>
+      <tr>
+         <td><label className='form-label'>Last Name :</label></td>
+        <td><input  className='form-input'  type="text" {...lastName} autoComplete="new-password" placeholder="Enter your last name"/></td> 
+      </tr>
+      <tr>
+        <td><label className='form-label'>Email :</label></td>
+        <td><input  className='form-input'  type="text" {...email} autoComplete="new-password" placeholder="Enter your email"  /></td>
+      </tr>
+      <tr>
+        <td><label className='form-label'>Phone Number :</label></td>
+        <td><input  className='form-input'  type="text" {...phoneNumber} autoComplete="new-password" placeholder="Enter your Phone number"/></td>
+      </tr>
+      <tr>
+        <td><label className='form-label'>Password :</label></td>
+        <td><input  className='form-input'  type="password" {...password} autoComplete="new-password" placeholder="Enter your Password"/></td>
+      </tr>
+      <tr>
+         <td><label className='form-label'>Confirm Password :</label></td>
+          <td><input  className='form-input' type="text" {...confirmPassword} autoComplete="new-password" placeholder="Confirm your Password" /></td>
+      </tr>
+      </table>
       {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-      <input className='form-input-btn' type="button" value={loading ? 'Loading...' : 'SignUp'} onClick={SignUp} disabled={loading} /><br />
+      <Button buttonStyle={"btn--submit--solid"}
+      buttonSize={"btn--large"} value={loading ? 'Loading...' : 'SignUp'} onClick={SignUp} disabled={loading}>
+        Sign Up
+      </Button>
     </form>
     </div>
   );

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
+import '../CSS/RegistrationForm.css';
+import Button from '../Components/Button';
 
 function UserLogin(props) {
   const [loading, setLoading] = useState(false);
@@ -23,19 +25,27 @@ function UserLogin(props) {
     });
   }
   return (
-    <div>
-      Login<br /><br />
-      <div>
-        Username<br />
-        <input type="text" {...email} autoComplete="new-password" />
-      </div>
-      <div style={{ marginTop: 10 }}>
-        Password<br />
-        <input type="password" {...password} autoComplete="new-password" />
-      </div>
+    <div className="form-container">
+    <form className="form">
+    <h1>Welcome Back to BuyBeats...!!!</h1><br />
+      <table>
+        <tr>
+        <td><label className='form-label'>Email :</label></td>
+        <td><input  className='form-input-1' type="text" {...email} autoComplete="new-password" placeholder="Enter your email" /></td>
+      </tr>
+      <br />
+      <tr>
+        <td><label className='form-label'>Password :</label></td>
+        <td><input  className='form-input-1' type="password" {...password} autoComplete="new-password" placeholder="Enter your password" /></td>
+      </tr>
+    </table>
       {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-      <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={Login} disabled={loading} /><br />
-    </div>
+      <Button buttonStyle={"btn--submit--solid"}
+      buttonSize={"btn--large"} value={loading ? 'Loading...' : 'Login'} onClick={Login} disabled={loading}>
+        Login
+      </Button>
+      </form>
+      </div>
   );
 }
 const useFormInput = initialValue => {

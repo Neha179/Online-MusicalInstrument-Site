@@ -5,6 +5,7 @@
   --success:#75fa83;
   --dark:#181717;
   --white:#fdfdfd;
+  --submit: #006666;
 
 }
 
@@ -21,11 +22,18 @@
   transform: translateY(-3px);
 }
 
-/Button colors and style/
+/*Button colors and style*/
 .btn--primary--solid{
   background: var(--primary);
   color: var(--black);
   border:none;
+  font-family: crimson sans-serif;
+  font-size: 15px;
+}
+.btn--submit--solid{
+  background: var(--submit);
+  color: var(--white);
+  border: none;
 }
 
 .btn--green--solid{

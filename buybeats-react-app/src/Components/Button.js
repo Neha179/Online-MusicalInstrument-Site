@@ -6,6 +6,7 @@ const STYLES=[
   "btn--green--solid",
   "btn--danger--solid",
   "btn--success--solid",
+  "btn--submit--solid",
   "btn--primary--outline",
   "btn--green--outline",
   "btn--danger--outline",
