@@ -1,0 +1,88 @@
+:root{
+  --primary:#667eea;
+  --green:#4f7942;
+  --danger:#a50021;
+  --success:#75fa83;
+  --dark:#181717;
+  --white:#fdfdfd;
+
+}
+
+.btn{
+  font-family: sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+}
+
+.btn:hover{
+  transform: translateY(-3px);
+}
+
+/Button colors and style/
+.btn--primary--solid{
+  background: var(--primary);
+  color: var(--black);
+  border:none;
+}
+
+.btn--green--solid{
+  background: var(--green);
+  color: var(--white);
+  border:none;
+}
+
+.btn--danger--solid{
+  background: var(--danger);
+  color: var(--white);
+  border:none;
+}
+
+.btn--success--solid{
+  background: var(--success);
+  color: var(--white);
+  border:none;
+}
+
+.btn--primary--outline{
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn--green--outline{
+  background-color: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.btn--danger--outline{
+  background-color: transparent;
+  color: var(--danger);
+  border: 2px solid var(--danger);
+}
+
+.btn--success--outline{
+  background-color: transparent;
+  color: var(--success);
+  border: 2px solid var(--success);
+}
+
+/* Button sizes*/
+
+.btn--medium{
+  padding: 10px 20px;
+  font-size: 18 px;
+}
+
+.btn--large{
+  padding: 15px 30px;
+  font-size: 20 px;
+}
+
+  .btn--small{
+    padding: 5px 10px;
+    font-size: 16 px;
+}
