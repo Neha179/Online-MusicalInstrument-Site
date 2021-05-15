@@ -1,0 +1,160 @@
+@HOW TO USE NOTIFICATION POPUPS while using Button components inside your components
+
+==>DEPENDENCIES TO DOWNLOAD:
+
+-> npm install react-notifications-component --save
+-> npm install animate.css --save
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+==>IMPORTS TO HAVE ON THE PAGE U WANT NOTIFICATIONS:
+
+import 'react-notifications-component/dist/theme.css';
+
+import { store } from 'react-notifications-component';
+
+import ReactNotifications from 'react-notifications-component';
+
+import 'animate.css';
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+IMPORTANT METHOD WHICH WILL USE TO SET THE CONTENT OF NOTIFICATION:
+
+
+store.addNotification({
+      title: ' ',   //dont remove this as the library req it
+      message: 'Login', //the message to do be displayed on notification
+      type:'success',  //color of the notification you can only have values like 'default', 'success', 'info', 'warning'
+      container: 'bottom-right',                // where to position the notifications
+      animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+      animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+      
+      dismiss: {
+        duration: 3000
+      }
+    })
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+==>BUILT-IN COMPONENT WHICH WILL USE TO SHOW NOTIFICATION:
+
+
+<ReactNotifications />
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+==>DEMO EXAMPLE:
+
+AdminLogin.js COMPONENT
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { setUserSession } from '../Utils/Common.js';
+import axios from 'axios';
+import '../CSS/AdminLogin.css'
+import Button from './Button'
+
+import 'react-notifications-component/dist/theme.css';
+
+import { store } from 'react-notifications-component';
+
+import ReactNotifications from 'react-notifications-component';
+
+import 'animate.css';
+
+function AdminLogin(props) {
+  const [loading, setLoading] = useState(false);
+  const email = useFormInput('');
+  const password = useFormInput('');
+  const [error, setError] = useState(null);
+
+  const handleLogin = () => {
+    setError(null);
+    setLoading(true);
+  axios.post('http://localhost:8870/admin/login', { email:email.value, password:password.value}).then((response) => {
+      setLoading(false);
+      setUserSession(response.data.token, response.data.email);
+    }).catch(error => {
+      setLoading(false);
+      if (error.response.status === 401) setError(error.response.data.message);
+      else setError("Invalid credentials ");
+    });
+         
+
+		// WE ARE COMBINING OUR NOTIFICATION METHOD WITH THE METHOD WHICH IS CALLED ON ONCLICK EVENT SO THAT WHEN BUTTON IS CLICK NOTY WILL COM
+
+    
+	store.addNotification({
+      title: ' ',   //dont remove this as the library req it
+      message: 'Login', //the message to do be displayed on notification
+      type:'success',  //color of the notification you can only have values like 'default', 'success', 'info', 'warning'
+      container: 'bottom-right',                // where to position the notifications
+      animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+      animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+      
+      dismiss: {
+        duration: 3000
+      }
+    })
+
+  }
+  return (
+  < div className='adminlogin'>
+      <span className="centre">
+            <table className="tableitems">
+            <tr ><th colspan="2" className="centreit">Welcome To BuyBeats</th></tr><br/>
+            <tr ><th colspan="2" className="centreit">Admin Login</th></tr><br/>
+                <tr>
+                    <td><label className="labels">Email Id:</label></td>
+                    <td><input className="inputs" type="text" {...email} autoComplete="new-password" /></td>
+                </tr>
+                <tr>
+                    <td><label className="labels">Password:</label></td>
+                    <td><input type="password" {...password} autoComplete="new-password" /></td>
+                </tr>
+                <tr>
+                  <td colspan="2" className="centreit">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br /></td>
+                </tr>
+                <tr>
+                      <td colspan="2" className="centreit">
+                     
+                                   <Button buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}
+                                                           value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading}>
+                                                               Login
+                                    </Button></td>
+              </tr>
+    </table>
+                       
+    </span>                                                {/** HERE IS THE NOTIFICATION COMPONENT WHICH WILL DISPLAY NOTY */}
+
+                                                                      <div>    <ReactNotifications className='centreit'/>    </div> 
+									
+						{/**here  I used className='centreit' defined in Admin's css, its just to adjust notification according to css of the page */}
+  
+
+
+
+</div>
+  );
+}
+const useFormInput = initialValue => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = e => {
+    setValue(e.target.value);
+  }
+  return {
+    value,
+    onChange: handleChange
+  }
+}
+
+export default AdminLogin;
+
+
+
