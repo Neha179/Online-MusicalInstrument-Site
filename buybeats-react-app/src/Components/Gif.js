@@ -1,12 +1,12 @@
 import React from "react";
-import logo from '../assets/load.gif'
-
-
-
-export default class Gif extends React.Component {
-    render() {
+import logo from "../Animation/home.gif";
+const Gif = () => {
         return(
-            <img src={logo} alt="loading..." />
+            
+            <div>
+                <img src={logo} alt="***" />
+            </div>
         );
     }
-}
+
+    export default Gif;
