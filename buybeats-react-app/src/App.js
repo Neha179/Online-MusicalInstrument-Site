@@ -1,18 +1,13 @@
 import './App.css';
-import AdminLogin from './Components/AdminLogin.js';
-import UserLogin from './Components/UserLogin';
-import UserRegistration from './Components/UserRegistration';
-import Button from './Components/Button'
+import R from './Components/Routing'
+import GIF from './Components/Gif.js'
 
 
 
 function App() {
   return (
-    <div className="App">
-    <UserLogin/>
-    <AdminLogin/>
-    <UserRegistration/>
-    
+    <div>
+    <R/>
     </div>
   );
 }
