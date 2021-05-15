@@ -6,101 +6,114 @@
   --dark:#181717;
   --white:#fdfdfd;
   --grey:#a9a9a9;
+  --pink:#c11b66;
 
 }
 
 .btn{
-  font-family: Crimson sans-serif;
-  font-weight: 500;
-  border-radius: 70px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  font-family: Crimson sans-serif !important ;
+  font-weight: 500  !important;
+  border-radius: 70px  !important;
+  cursor: pointer  !important;
+  transition: transform 0.3s ease  !important;
 
 }
 
 .btn:hover{
-  transform: translateY(-3px);
+  transform: translateY(-3px)  !important;
 }
 
-/Button colors and style/
+
 .btn--primary--solid{
-  background: var(--primary);
-  color: var(--white);
-  border:none;
+  background: var(--primary)  !important;
+  color: var(--white)  !important;
+  border:none  !important;
 }
 
 .btn--green--solid{
-  background: var(--green);
-  color: var(--white);
-  border:none;
+  background: var(--green)  !important;
+  color: var(--white)  !important;
+  border:none  !important;
 }
 
 .btn--danger--solid{
-  background: var(--danger);
-  color: var(--white);
-  border:none;
+  background: var(--danger)  !important;
+  color: var(--white)  !important;
+  border:none  !important;
 }
 
 .btn--success--solid{
-  background: var(--success);
-  color: var(--white);
-  border:none;
+  background: var(--success)  !important;
+  color: var(--white)  !important;
+  border:none  !important;
 }
 
 .btn--grey--solid{
-  background: var(--grey);
-  color: var(--black);
-  border:none;
+  background: var(--grey)  !important;
+  color: var(--black)  !important;
+  border:none  !important;
+}
+
+.btn--grey--solid{
+  background: var(--pink)  !important;
+  color: var(--black)  !important;
+  border:none  !important;
 }
 
 .btn--primary--outline{
-  background-color: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  background-color: transparent  !important;
+  color: var(--primary)  !important;
+  border: 2px solid var(--primary)  !important;
 }
 
 .btn--green--outline{
-  background-color: transparent;
-  color: var(--green);
-  border: 2px solid var(--green);
+  background-color: transparent  !important;
+  color: var(--green)  !important;
+  border: 2px solid var(--green)  !important;
 }
 
 .btn--danger--outline{
-  background-color: transparent;
-  color: var(--danger);
-  border: 2px solid var(--danger);
+  background-color: transparent  !important;
+  color: var(--danger)  !important;
+  border: 2px solid var(--danger)  !important;
 }
 
 .btn--success--outline{
-  background-color: transparent;
-  color: var(--success);
-  border: 2px solid var(--success);
+  background-color: transparent  !important;
+  color: var(--success)  !important;
+  border: 2px solid var(--success)  !important;
 }
 
 .btn--grey--outline{
-  background-color: transparent;
-  color: var(--grey);
-  border: 2px solid var(--grey);
+  background-color: transparent  !important;
+  color: var(--grey)  !important;
+  border: 2px solid var(--grey)  !important;
 }
 
-/* Button sizes*/
+.btn--pink--outline{
+  background-color: transparent  !important;
+  color: var(--pink)  !important;
+  border: 2px solid var(--pink)  !important;
+}
+
+
 
 .btn--medium{
-  padding: 10px 20px;
-  font-size: 18 px;
+  padding: 10px 20px  !important;
+  font-size: 18 px  !important;
 }
 
 .btn--large{
-  padding: 15px 30px;
-  font-size: 20 px;
+  padding: 15px 30px  !important;
+  font-size: 20 px  !important;
 }
 
 .btn--small{
-    padding: 5px 5px;
-    font-size: 16 px;
+    padding: 5px 5px  !important;
+    font-size: 16 px  !important;
 }
 
 .btn--mini{
-  padding: 2px 2px;
-  font-size: 14 px;
+  padding: 2px 2px  !important;
+  font-size: 14 px  !important;
 }

@@ -7,11 +7,13 @@ const STYLES=[
   "btn--danger--solid",
   "btn--success--solid",
   "btn--grey--solid",
+  "btn--pink--solid",
   "btn--primary--outline",
   "btn--green--outline",
   "btn--danger--outline",
   "btn--success--outline",
-  "btn--grey--outline"
+  "btn--grey--outline",
+  "btn--pink--outline"
 ];
 
 const SIZES =[
@@ -26,7 +28,9 @@ const SIZES =[
   type,
   onClick,
   buttonStyle,
-  buttonSize
+  buttonSize,
+  value,
+  disabled
 }) => {
 
 const checkButtonStyle = STYLES.includes(buttonStyle)?
@@ -37,7 +41,7 @@ buttonSize : SIZES[1];
 
   return(
     <button className ={`btn ${checkButtonStyle} ${checkButtonSize}`}onClick = {onClick}
-    type={type}>
+    type={type} value={value} disabled={disabled}>
       {children}
     </button>
   )
