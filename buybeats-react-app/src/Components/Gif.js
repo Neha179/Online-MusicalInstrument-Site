@@ -3,7 +3,12 @@ import logo from "../Animation/home.gif";
 const Gif = () => {
         return(
             
-            <div>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                
                 <img src={logo} alt="***" />
             </div>
         );
