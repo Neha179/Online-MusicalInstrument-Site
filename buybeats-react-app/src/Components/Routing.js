@@ -4,6 +4,7 @@ import PR from './ProtectedRoute'
 import UserRegistration from './UserRegistration'
 import AdminLogin from './AdminLogin'
 import Home from './Home'
+import Navbar from './Navbar'
 import Thank from './Thank'
 export default class Routing extends React.Component {
   render(){
@@ -11,11 +12,11 @@ export default class Routing extends React.Component {
       <div>
       <BrowserRouter>
       <Switch>
-      <Route  exact path="/" >
+      <Route  exact path="/thank" >
         <Thank />
       </Route>
-      <Route exact path="/home" >
-        <Home />
+      <Route exact path="/" >
+        <Navbar />
       </Route>
 
       </Switch>

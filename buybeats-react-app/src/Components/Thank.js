@@ -11,7 +11,7 @@ function Thank(props){
     let history = useHistory();
 
     const redirect = () => {
-        history.push('/home')
+        history.push('/')
     }
 
         return(
