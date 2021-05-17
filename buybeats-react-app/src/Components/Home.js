@@ -1,7 +1,8 @@
 import React,{ Component } from "react";
+import Navbar from "./Navbar";
 import Searchbar from "./Searchbar";
 import Gif from "./Gif";
-import NavbarWithoutHome from "./NavbarWithoutHome";
+import "../CSS/Home.css"
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -12,8 +13,8 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div>
-                <NavbarWithoutHome />
+            <div className=".home">
+                {/* <Navbar /> */}
                 <br />
                 <Searchbar />
                 <br />

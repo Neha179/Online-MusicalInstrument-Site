@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../CSS/Navbar.css'
+import '../CSS/Navbar.css';
+import Home from './Home';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 
@@ -82,11 +83,6 @@ export default class Navbar extends Component {
     }
 }
 
-function Home() {
-    return(
-        <h2>Home Component</h2>
-    );
-}
 
 function ViewProfile() {
     return (
