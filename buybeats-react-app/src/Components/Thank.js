@@ -1,18 +1,36 @@
 import React from "react";
 import Navbar from "./Navbar";
 import thanks from "../Images/thanks.jpg";
-import button from "../CSS/Button.css";
+import Button from "./Button";
+import  { Redirect  } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+import Home from "./Home";
 
-export default class Thank extends React.Component {
-    render() {
+function Thank(props){
+
+    let history = useHistory();
+
+    const redirect = () => {
+        history.push('/home')
+    }
+
         return(
-            <div >
+            <div centered={false}>
                 <Navbar />
                 <br />
                 <center><img src={thanks} height="450" width="550" alt="Thank you for your purchase" /></center>  
-                <button />
-            </div>
+                <br />
+                <br />
+                <center><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--large"}
+                         onClick={redirect}  >
+                                Click    
+                        </Button>
+                </center>
+                        
+                
+                </div>
 
         );
     }
-}
+
+export default Thank;
