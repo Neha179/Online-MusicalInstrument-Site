@@ -37,10 +37,10 @@ public class UserController {
 	private UserService userService;
 
 	@PostMapping(value="/login", consumes = "application/json", produces="application/json")
-	public String login(@RequestBody Login login) throws InvalidCredentialsException {
+	public ResponseEntity<?> login(@RequestBody Login login) throws InvalidCredentialsException {
 		User user = userService.login(login);
 		if(user != null) {
-			return "Logged in successfully";
+			return new ResponseEntity<User>(user,HttpStatus.OK);
 		} else
 			throw new InvalidCredentialsException("Invalid Username or Password");
 	}
