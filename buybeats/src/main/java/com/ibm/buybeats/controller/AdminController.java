@@ -74,31 +74,29 @@ public class AdminController {
 	
 	
 	@GetMapping(value = "/search/product/{pid}", produces = "application/json")
-	public ResponseEntity<?> searchProduct(@PathVariable int pid, HttpSession session) {
-		if (session.getAttribute("ADMIN") != null) {
+	public ResponseEntity<?> searchProduct(@PathVariable int pid) {
+		
 			try {
-				return new ResponseEntity<Product>(adminService.findProductById(pid), HttpStatus.OK);
+				return new ResponseEntity<Product>(adminService.findProductById(pid),HttpStatus.OK);
 			} catch (NoSuchElementException | ProductNotFoundException e) {
 				e.printStackTrace();
-				return new ResponseEntity<String>("Product not found", HttpStatus.OK);
+				return new ResponseEntity<String>("Product not found",HttpStatus.OK);
 			}
-		} else
-			return new ResponseEntity<String>("Admin not logined", HttpStatus.NOT_FOUND);
+		
 }
 
 	
 	
 	@GetMapping(value = "/search/product/name/{name}", produces = "application/json")
-	public ResponseEntity<?> findProductByName(@PathVariable("name") String productName, HttpSession session) {
-		if (session.getAttribute("ADMIN") != null) {
-			try {
-				return new ResponseEntity<List<Product>>(adminService.findProductByName(productName), HttpStatus.OK);
-			} catch (ProductNotFoundException e) {
-				e.printStackTrace();
-				return new ResponseEntity<String>("Product not found", HttpStatus.OK);
-			}
-		} else
-			return new ResponseEntity<String>("Admin not logined", HttpStatus.NOT_FOUND);
+	public ResponseEntity<?> findProductByName(@PathVariable("name") String productName) {
+		
+		try {
+			return new ResponseEntity <List<Product>>(adminService.findProductByName(productName),HttpStatus.OK);
+		} catch (NoSuchElementException | ProductNotFoundException e) {
+			e.printStackTrace();
+			return new ResponseEntity<String>("Product not found",HttpStatus.OK);
+		}
+		
 	}
 	
 	@GetMapping(value="/home", produces="application/json")
