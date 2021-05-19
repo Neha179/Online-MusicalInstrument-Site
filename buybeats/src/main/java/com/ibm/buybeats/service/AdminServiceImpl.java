@@ -55,12 +55,15 @@ public class AdminServiceImpl implements AdminService {
         if(p == null)
         	throw new ProductNotFoundException("Product Not Found");
         else {
+        	p.setProductName(product.getProductName());
             p.setColour(product.getColour());
             p.setBrand(product.getBrand());
             p.setCategory(product.getCategory());
             p.setPrice(product.getPrice());
             p.setSize(product.getSize());
             p.setStock(product.getStock());
+            p.setStringMaterial(product.getStringMaterial());
+            p.setBodyMaterial(product.getBodyMaterial());
             return productRepo.save(p);
         }
     }

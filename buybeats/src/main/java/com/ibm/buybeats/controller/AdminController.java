@@ -50,24 +50,23 @@ public class AdminController {
 	
 	
 	@PostMapping(value = "/add/product", consumes = "application/json")
-	public ResponseEntity<?> addProduct(@RequestBody Product product, HttpSession session) {
-		
-			return new ResponseEntity<Product>(adminService.saveProduct(product),HttpStatus.OK);
-		
+	public ResponseEntity<?> addProduct(@RequestBody Product product) {
+		Product p = adminService.saveProduct(product);
+		if (product!=null) {
+			return new ResponseEntity<Product>(p,HttpStatus.OK);
+		} else
+			return new ResponseEntity<String>("Admin not logined",HttpStatus.NOT_FOUND);
 	}
 
 	
 	
 	@PostMapping(value = "/update/product", consumes = "application/json" ,produces = "application/json")
-	public ResponseEntity<?> updateProduct(@RequestBody Product p, HttpSession session) {
-		if (session.getAttribute("ADMIN")!=null) {
-			try {
-				return new ResponseEntity<Product>(adminService.updateProduct(p),HttpStatus.OK);
-			} catch (NoSuchElementException | ProductNotFoundException e) {
-				return new ResponseEntity<String>("Product not found",HttpStatus.OK);
-			}
-		} else
-			return new ResponseEntity<String>("Admin not found",HttpStatus.NOT_FOUND);
+	public ResponseEntity<?> updateProduct(@RequestBody Product p) throws ProductNotFoundException {
+		Product product = adminService.updateProduct(p);
+		if (product !=null)
+				return new ResponseEntity<Product>(product,HttpStatus.OK);
+		else
+			throw new ProductNotFoundException("Product not found");
 	}
 
 	

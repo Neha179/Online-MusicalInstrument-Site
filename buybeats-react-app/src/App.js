@@ -14,8 +14,7 @@ import AdminFullSearch from './Components/AdminFullSearch'
 function App() {
   return (
     <div>
-      <Show/>
-      {/* <Thank /> */}
+      <R />
     </div>
   );
 }
