@@ -10,11 +10,13 @@
     border-collapse: collapse;
   text-align: centre !important;
   padding: 10px;
+  color: black !important;
 }
 
 .header{
   border: 1px solid black;
     border-collapse: collapse;
   height: 50px;
+  color: black !important
 
 }

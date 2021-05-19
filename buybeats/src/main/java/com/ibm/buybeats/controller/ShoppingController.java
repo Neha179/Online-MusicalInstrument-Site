@@ -50,16 +50,16 @@ public class ShoppingController {
 	
 
 	@GetMapping(value="/search/{name}", produces="application/json")
-	public ResponseEntity<?> searchByName(@PathVariable("name") String productName,HttpSession session) {
-		if(session.getAttribute("USER")!=null) {
+	public ResponseEntity<?> searchByName(@PathVariable("name") String productName) {
+		 
 			try {
 	            return new ResponseEntity<List<Product>>(shoppingService.findProductByName(productName),HttpStatus.OK);
 	        } catch (ProductNotFoundException e) {
 	            e.printStackTrace();
 	            return new ResponseEntity<String>("Product not found", HttpStatus.OK);
 	        }
-		}
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+		
+		
 	}
 	
 	@GetMapping(value="/wish",produces = "application/json")

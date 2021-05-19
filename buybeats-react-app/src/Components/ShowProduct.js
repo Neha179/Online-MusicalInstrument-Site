@@ -14,25 +14,10 @@ class ShowProduct extends React.Component{
 
 
     }
-      this.handleVisibility = this.handleVisibility.bind(this);
-  }
-
-  handleInput=(e)=>{
-    this.setState({
-      selectedRowId:e.target.value
-    })
-    console.log(this.state.selectedRowId)
-  }
-
-
-
-  handleVisibility=(e)=>{
-
-    this.setState({
-      visibility:!this.state.visibility
-    })
 
   }
+
+
   componentDidMount(){
     AdminService.getProducts().then((response) => {
       console.log(response.data);
@@ -47,7 +32,6 @@ class ShowProduct extends React.Component{
         <table className='tableitems'>
           <thead>
             <tr>
-              <th className='header'>..</th>
               <th className='header'>ID</th>
               <th className='header'>Name</th>
               <th className='header'>Price</th>
@@ -57,8 +41,8 @@ class ShowProduct extends React.Component{
               <th className='header'>Brand</th>
               <th className='header'>Size</th>
               <th className='header'>Body Material</th>
-              <th className='header'>String Material</th>
-              <th className='header'>..</th>
+              <th className='header'>Material</th>
+              <th className='header'>Update</th>
             </tr>
           </thead>
             <tbody>
@@ -67,8 +51,6 @@ class ShowProduct extends React.Component{
               this.state.products.map(
                 prod =>
                 <tr >
-                <td className='data'><input type="radio" name="toUpdate" onClick={this.handleVisibility}  value={prod.pid}/></td>
-                <td className='data'>{prod.pid}</td>
                 <td className='data'>{prod.productName}</td>
                 <td className='data'>{prod.price}</td>
                 <td className='data'>{prod.stock}</td>
@@ -78,13 +60,14 @@ class ShowProduct extends React.Component{
                 <td className='data'>{prod.size}</td>
                 <td className='data'>{prod.bodyMaterial}</td>
                 <td className='data'>{prod.stringMaterial}</td>
+                <td><Button>Update</Button></td>
 
                 </tr>
               )
             }
             </tbody>
         </table>
-          {this.state.visibility&&(<td className='data'><Button>Update</Button></td>)}
+
         <h1>{this.selectedRowId}</h1>
         </form>
       </>

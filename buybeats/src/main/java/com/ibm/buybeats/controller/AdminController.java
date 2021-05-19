@@ -51,10 +51,9 @@ public class AdminController {
 	
 	@PostMapping(value = "/add/product", consumes = "application/json")
 	public ResponseEntity<?> addProduct(@RequestBody Product product, HttpSession session) {
-		if (session.getAttribute("ADMIN")!=null) {
+		
 			return new ResponseEntity<Product>(adminService.saveProduct(product),HttpStatus.OK);
-		} else
-			return new ResponseEntity<String>("Admin not logined",HttpStatus.NOT_FOUND);
+		
 	}
 
 	
