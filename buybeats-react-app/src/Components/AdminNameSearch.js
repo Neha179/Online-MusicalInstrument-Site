@@ -69,7 +69,6 @@ class AdminNameSearch extends Component {
     <td>{products.category}</td>
     <td>{products.brand}</td>
     <td>{products.stock}</td>
-    <td><Button >update</Button></td>
     </tr>
   )
 }

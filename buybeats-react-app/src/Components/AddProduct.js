@@ -32,12 +32,12 @@ function AddProduct() {
             stringMaterial:stringMaterial.value
         };
 
-       const [error, setError] = useState(null);
+       const [msg, setMsg] = useState(null);
 
        let history = useHistory();
 
         const redirect = () => {
-            history.push('/showProduct')
+            history.push('/adminHome')
         }
 
 
@@ -45,36 +45,39 @@ function AddProduct() {
 
         const Add = (e) => {
           e.preventDefault();
-          setError(null);
+          setMsg(null);
           axios.post('http://localhost:8870/admin/add/product',product).then((response) => {
               setTimeout(() => history.push('/showProduct'), 3000);
+                setMsg("Product added..!");
+              store.addNotification({
+                title: ' ',   //dont remove this as the library req it
+                message: "Product added! Back to product list.", //the message to do be displayed on notification
+                type:'success',  //color of the notification you can only have values like 'default', 'success', 'info', 'warning'
+                container: 'bottom-left',                // where to position the notifications
+                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+    
+                dismiss: {
+                  duration: 3000
+                }
+              });
+
           }).catch(error => {
-            if (error.response.status === 401) setError(error.response.data.message);
-            else setError("Adding product failed ");
+            if (error.response.status === 401) setMsg(error.response.data.message);
+            else setMsg("Adding product failed ");
           });
 
 
-          store.addNotification({
-            title: ' ',   //dont remove this as the library req it
-            message: "Product added! Back to product list.", //the message to do be displayed on notification
-            type:'success',  //color of the notification you can only have values like 'default', 'success', 'info', 'warning'
-            container: 'bottom-right',                // where to position the notifications
-            animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
-            animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-
-            dismiss: {
-              duration: 3000
-            }
-          })
+          
 
 
 
         }
         return (
           <div>
-            <form onSubmit={Add} className="centre">
+            <form onSubmit={Add} className="fcentre">
               <table >
-                <tr><td colspan="2" className="centreit">New Product</td></tr><br />
+                <tr><td colspan="2" className="fcentreit">New Product</td></tr><br />
               <tr>
                 <td ><label className="labels">Name:</label></td>
                 <td><input id="productName" type="text" {...productName} 
@@ -115,15 +118,17 @@ function AddProduct() {
                   <td><label className="labels" >String Material:</label></td>
                 <td><input  id="stringMaterial" type="text" {...stringMaterial} required/></td>
               </tr>
-              <tr><td colspan="2">{error && <><small style={{ color: 'Green' }}>{error}</small><br /></>}
+              <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
               </td></tr>
               <tr>
-            <td colspan="2" className="centreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 
+              <td className="centreit"> <Button buttonStyle={"btn--danger--solid"} 
+            buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
+            <td className="centreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 
             buttonSize={"btn--medium"}>Add Product</Button></td>
+           
             </tr><br/>
             </table>
-            <td className="centreit"> <Button buttonStyle={"btn--danger--solid"} type={"submit"} 
-            buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
+            
             </form>
 
             <div>    <ReactNotifications className='centreit'/>    </div> 

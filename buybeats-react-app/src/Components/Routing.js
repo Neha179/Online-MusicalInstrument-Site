@@ -31,6 +31,9 @@ export default class Routing extends React.Component {
       <Route exact path="/addProduct">
         <AddProduct />
       </Route>
+      <Route exact path="/adminLogin">
+        <AdminLogin />
+      </Route>
 
       </Switch>
 

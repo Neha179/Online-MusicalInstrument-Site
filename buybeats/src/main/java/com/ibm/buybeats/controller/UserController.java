@@ -82,11 +82,11 @@ public class UserController {
 		return "Logged out successfully";
 	}
 	
-	@PostMapping(value = "/addAddress", consumes = "application/json")
-	public ResponseEntity<?> addAddress(@RequestBody Address address,HttpSession session) {
-		User user = (User) session.getAttribute("USER");
-		if(user !=null) 
-			return new ResponseEntity<Address>(userService.addAddress(address, user.getEmail()),HttpStatus.OK);
+	@PostMapping(value = "/addAddress/{email}", consumes = "application/json")
+	public ResponseEntity<?> addAddress(@RequestBody Address address,@PathVariable String email) {
+//		User user = (User) session.getAttribute("USER");
+		if(email !=null) 
+			return new ResponseEntity<Address>(userService.addAddress(address, email),HttpStatus.OK);
 		else
 			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);
 	}

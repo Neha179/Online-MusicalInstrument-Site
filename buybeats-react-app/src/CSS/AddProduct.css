@@ -1,20 +1,21 @@
-.centreit{
+.fcentreit{
     align-items: center !important;
     text-align: center !important;
+    left: 50%;
     color: rgb(102, 154, 233);
     font-weight: bold;
     font-size: 30px;
   }
 
 
-  .centre{
+  .fcentre{
     align-items: center !important;
-    position: fixed;
+    position: relative;
     left: 50% !important;
-    top: 5% !important;
+    /* padding-top: 100px; */
     transform: translate(-50%, 0);
     border:1px solid white;
-    padding: 3rem;
+    /* padding: 3rem; */
     background-color: rgb(238, 238, 238);
   }
 
