@@ -6,7 +6,7 @@ import Button from './Button.js'
 import { store } from 'react-notifications-component';
 import { useHistory } from "react-router-dom";
 import ReactNotifications from 'react-notifications-component';
-import 'animate.css';
+// import 'animate.css';
 import 'react-notifications-component/dist/theme.css';
 
 function AddProduct() {

@@ -9,7 +9,9 @@ import Thank from './Thank'
 import UserLogin from './UserLogin'
 import AdminFullSearch from './AdminFullSearch';
 import ShowProduct from './ShowProduct.js';
-import AddProduct from './AddProduct.js';
+// import AddProduct from './AddProduct.js';
+import ViewAddress from './ViewAddress.js';
+
 export default class Routing extends React.Component {
   render(){
     return(
@@ -17,10 +19,13 @@ export default class Routing extends React.Component {
       <BrowserRouter>
       <Switch>
       <Route  exact path="/" >
+        <UserRegistration/>
+      </Route>
+      <Route  exact path="/login" >
         <UserLogin/>
       </Route>
-      <Route exact path="/check" >
-        <Home />
+      <Route exact path="/viewAddress" >
+        <ViewAddress />
       </Route>
       <Route exact path = "/adminHome">
         <AdminFullSearch />
@@ -28,9 +33,9 @@ export default class Routing extends React.Component {
       <Route exact path="/showProduct">
         <ShowProduct/>
       </Route>
-      <Route exact path="/addProduct">
+      {/* <Route exact path="/addProduct">
         <AddProduct />
-      </Route>
+      </Route> */}
 
       </Switch>
 
