@@ -39,12 +39,22 @@ public class AdminController {
 
 	
 	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
-	public String validateLogin(@RequestBody Login login) throws InvalidCredentialsException {
-		Admin admin = adminService.validateLogin(login);
-		if (admin != null) {
-			return "Logged in successfully..! ";
-		} else
-			throw new InvalidCredentialsException("Invalid Credentials");
+	public String validateLogin(@RequestBody Login login)  {
+		Admin admin;
+		try {
+			admin = adminService.validateLogin(login);
+			if (admin != null) 
+				return "Logged in successfully..! ";
+		} catch (InvalidCredentialsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "Invalid Credentials";
+		}
+		return "Invalid Credentials";
+		
+		
+//		} else
+//			throw new InvalidCredentialsException("Invalid Credentials");
 	}
 
 	

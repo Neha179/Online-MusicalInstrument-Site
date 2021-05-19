@@ -82,17 +82,12 @@ public class OrderController {
 		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
-	@GetMapping(value = "/viewAddress", produces = "application/json")
-	public ResponseEntity<?> viewAddress(HttpSession session){
-		User user = (User) session.getAttribute("USER");
-		if(user!=null)
-		try {
-			return new ResponseEntity<List<Address>>(orderService.viewAddress(user.getUid()),HttpStatus.OK);
-		} catch (NoAddressFound e) {
-			e.printStackTrace();
-			return new ResponseEntity<String>("No Address found. Add one!", HttpStatus.BAD_REQUEST);
-		}
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+	@GetMapping(value = "/viewAddress/{uid}", produces = "application/json")
+	public ResponseEntity<?> viewAddress(@PathVariable int uid) throws NoAddressFound{
+		List<Address> addresses = orderService.viewAddress(uid);
+		if(addresses!=null)
+			return new ResponseEntity<List<Address>>(addresses,HttpStatus.OK);
+		throw new NoAddressFound("No Address found. Add one!");
 	}
 	
 	@GetMapping(value = "/viewCards", produces = "application/json")

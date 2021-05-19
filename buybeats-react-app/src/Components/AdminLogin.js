@@ -3,6 +3,7 @@ import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 import '../CSS/AdminLogin.css'
 import Button from './Button'
+import { useHistory } from 'react-router';
 
 function AdminLogin(props) {
   const [loading, setLoading] = useState(false);
@@ -10,12 +11,15 @@ function AdminLogin(props) {
   const password = useFormInput('');
   const [error, setError] = useState(null);
 
+  let history = useHistory();
+
   const handleLogin = () => {
     setError(null);
     setLoading(true);
   axios.post('http://localhost:8870/admin/login', { email:email.value, password:password.value}).then((response) => {
       setLoading(false);
       setUserSession(response.data.token, response.data.email);
+      setTimeout(() => history.push('/adminHome'), 1000);
     }).catch(error => {
       setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);
