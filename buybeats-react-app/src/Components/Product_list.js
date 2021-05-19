@@ -80,7 +80,7 @@ export default class Product_list extends React.Component {
           { this.state.prod_list.map(prod => (
                
               
-              <Card imgsrc="./images/piano.jpg"
+              <Card 
               title={prod.category}
               pname={prod.productName} //productName is the coming from backend entity
               link=""

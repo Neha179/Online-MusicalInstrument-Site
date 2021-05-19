@@ -13,7 +13,7 @@ function Card(props){
 
 <article className="card">
 <picture className="thumbnail">    
-          <img className="category__01" src={props.imgsrc} alt="noimg"  />
+          <img className="category__01" src={`./images/${props.pname}${props.pid}}.jpg`} alt="noimg"  />
          </picture>
          <div className="card-content">
       <p className="category category__01">₹ {props.price}</p>
