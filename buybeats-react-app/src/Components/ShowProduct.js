@@ -41,8 +41,7 @@ class ShowProduct extends React.Component{
               <th className='header'>Brand</th>
               <th className='header'>Size</th>
               <th className='header'>Body Material</th>
-              <th className='header'>Material</th>
-              <th className='header'>Update</th>
+              <th className='header'>String Material</th>
             </tr>
           </thead>
             <tbody>
@@ -51,16 +50,16 @@ class ShowProduct extends React.Component{
               this.state.products.map(
                 prod =>
                 <tr >
+                <td className='data'>{prod.pid}</td>
                 <td className='data'>{prod.productName}</td>
                 <td className='data'>{prod.price}</td>
                 <td className='data'>{prod.stock}</td>
                 <td className='data'>{prod.category}</td>
-                <td className='data'>{prod.color}</td>
+                <td className='data'>{prod.colour}</td>
                 <td className='data'>{prod.brand}</td>
                 <td className='data'>{prod.size}</td>
                 <td className='data'>{prod.bodyMaterial}</td>
                 <td className='data'>{prod.stringMaterial}</td>
-                <td><Button>Update</Button></td>
 
                 </tr>
               )

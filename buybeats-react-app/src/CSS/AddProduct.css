@@ -1,0 +1,28 @@
+.centreit{
+    align-items: center !important;
+    text-align: center !important;
+    color: rgb(102, 154, 233);
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+
+  .centre{
+    align-items: center !important;
+    position: fixed;
+    left: 50% !important;
+    top: 5% !important;
+    transform: translate(-50%, 0);
+    border:1px solid white;
+    padding: 3rem;
+    background-color: rgb(238, 238, 238);
+  }
+
+  .labels{
+      color: rgb(133, 46, 46);
+  }
+
+  .link {
+    text-decoration: inherit;
+    color: black;
+  }

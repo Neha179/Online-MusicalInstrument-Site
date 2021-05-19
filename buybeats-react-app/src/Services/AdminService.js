@@ -15,6 +15,11 @@ class AdminService{
     getProductByPid(pid){
         return axios.get(ADMIN_HOME_REST_API_URL+"/search/product/"+pid);
       }
+
+    updateProduct(product) {
+      return axios.post(ADMIN_HOME_REST_API_URL+"/update/product",product);
+    }
+
 }
 
 export default new AdminService()
