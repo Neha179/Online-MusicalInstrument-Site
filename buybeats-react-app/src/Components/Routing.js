@@ -24,7 +24,7 @@ export default class Routing extends React.Component {
       <Route exact path="/search" >
         <Product_list />
       </Route>
-      <Route exact path="/ProductDetails" render={(pros)=> <ProductDetails {...this.prop}/>} >
+      <Route exact path="/ProductDetails" >
         <ProductDetails />
       </Route>
 

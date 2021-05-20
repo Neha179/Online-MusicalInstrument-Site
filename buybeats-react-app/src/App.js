@@ -15,7 +15,7 @@ import Try from './Components/TryError'
 function App() {
   return (
     <div>
-      <R/>
+      <Product/>
       {/* <Thank /> */}
     </div>
   );
