@@ -10,6 +10,7 @@ import UserLogin from './UserLogin'
 import AdminFullSearch from './AdminFullSearch';
 import ShowProduct from './ShowProduct.js';
 import AddProduct from './AddProduct.js';
+import ViewUserProfile from './ViewUserProfile';
 export default class Routing extends React.Component {
   render(){
     return(
@@ -33,6 +34,13 @@ export default class Routing extends React.Component {
       </Route>
       <Route exact path="/adminLogin">
         <AdminLogin />
+      </Route>
+
+      <Route exact path="/viewProfile">
+        <ViewUserProfile />
+      </Route>
+      <Route exact path="/register">
+        <UserRegistration />
       </Route>
 
       </Switch>

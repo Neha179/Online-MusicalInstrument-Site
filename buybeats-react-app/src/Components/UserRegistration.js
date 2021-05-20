@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 import '../CSS/RegistrationForm.css';
-import Button from './Button.js'
+import Button from './Button.js';
+import {Link} from 'react-router-dom';
 
 function UserRegistration(props) {
   const [loading, setLoading] = useState(false);
@@ -73,7 +74,7 @@ function UserRegistration(props) {
         Sign Up</Button>
     </td>
     </tr><br/>
-    <tr><td className="centreit" colspan="2">Already have account?Login here</td></tr>
+    <tr><td className="centreit" colspan="2">Already have account?<Link to="/">Login here</Link></td></tr>
     </table>
     </form>
     </div>

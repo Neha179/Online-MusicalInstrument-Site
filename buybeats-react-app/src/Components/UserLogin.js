@@ -4,6 +4,7 @@ import axios from 'axios';
 import Button from './Button.js'
 import '../CSS/UserLogin.css'
 import auth from './Auth';
+import {Link} from 'react-router-dom';
 
 function UserLogin(props) {
   //const [loading, setLoading] = useState(false);
@@ -66,7 +67,8 @@ function UserLogin(props) {
     <tr>
       <td colspan="2" className="centreit"><Button  onClick={Login}
       buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}>Login</Button></td>
-    </tr>
+    </tr><br />
+    <tr><td className="centreit" colspan="2">Don't have an account?<Link to="/register">SignUp</Link></td></tr>
     </table>
   </span>
     </div>
