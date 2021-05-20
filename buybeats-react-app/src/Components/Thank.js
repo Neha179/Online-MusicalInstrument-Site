@@ -16,18 +16,17 @@ function Thank(props){
 
         return(
             <div centered={false}>
-                <Navbar />
                 <br />
-                <center><img src={thanks} height="450" width="550" alt="Thank you for your purchase" /></center>  
+                <center><img src={thanks} height="450" width="550" alt="Thank you for your purchase" /></center>
                 <br />
                 <br />
                 <center><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--large"}
                          onClick={redirect}  >
-                                Click    
+                                Click
                         </Button>
                 </center>
-                        
-                
+
+
                 </div>
 
         );

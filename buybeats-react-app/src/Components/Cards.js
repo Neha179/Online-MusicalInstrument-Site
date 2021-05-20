@@ -26,7 +26,7 @@ localStorage.setItem("pid",this.props.pid);
 localStorage.setItem("pname", this.props.pname);
 localStorage.setItem("price", this.props.price);
 localStorage.setItem("brand", this.props.brand);
-localStorage.setItem("color", this.props.color);
+localStorage.setItem("colour", this.props.colour);
 localStorage.setItem("size", this.props.size);
 localStorage.setItem("category", this.props.title);
 localStorage.setItem("bodyMaterial", this.props.bodyMaterial);

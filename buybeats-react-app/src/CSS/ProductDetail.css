@@ -4,7 +4,7 @@
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: 90;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -18,7 +18,7 @@
 /* Control the right side */
 .right {
   right: 0;
-  background-color: #ffe6ff
+  background-color: #f2f2f2
 
 }
 
@@ -32,7 +32,46 @@
 }
 
 /* Style the image inside the centered container, if needed */
-.centered img {
-  width: 150px;
-  border-radius: 50%;
+.centered {
+  align-items: centre;
+
+}
+
+.box{
+  border: 1px solid black;
+}
+
+.img{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  left:20%;
+
+}
+
+
+.tableitems{
+  font-family: Crimson sans-serif !important ;
+  color: black !important;
+  text-align: left;
+}
+
+.datas{
+  padding-right: 40px;
+  font-family: Crimson sans-serif !important ;
+  align-items: left !important;
+  padding-bottom: 10px;
+  column-width: 300px;
+}
+
+.data{
+  font-family: Crimson sans-serif !important ;
+  align-items: left !important;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.inputbar{
+  box-sizing: border-box;
+  width:70px;
 }
