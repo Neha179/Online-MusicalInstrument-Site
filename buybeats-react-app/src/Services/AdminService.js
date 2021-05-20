@@ -12,7 +12,7 @@ class AdminService{
       return axios.get(ADMIN_HOME_REST_API_URL+"/search/product/name/"+prodName);
     }
 
-    getProductByPid(pid){
+     getProductByPid(pid){
         return axios.get(ADMIN_HOME_REST_API_URL+"/search/product/"+pid);
       }
 }

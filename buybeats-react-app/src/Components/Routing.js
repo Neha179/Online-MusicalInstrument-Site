@@ -7,6 +7,8 @@ import Home from './Home'
 import Navbar from './Navbar'
 import Thank from './Thank'
 import UserLogin from './UserLogin'
+import Product_list from './Product_list'
+import ProductDetails from './ProductDetails'
 export default class Routing extends React.Component {
   render(){
     return(
@@ -19,6 +21,13 @@ export default class Routing extends React.Component {
       <Route exact path="/check" >
         <Home />
       </Route>
+      <Route exact path="/search" >
+        <Product_list />
+      </Route>
+      <Route exact path="/ProductDetails" render={(pros)=> <ProductDetails {...this.prop}/>} >
+        <ProductDetails />
+      </Route>
+
 
       </Switch>
 

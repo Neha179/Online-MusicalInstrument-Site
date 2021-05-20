@@ -30,7 +30,8 @@ const SIZES =[
   buttonStyle,
   buttonSize,
   value,
-  disabled
+  disabled,
+  key
 }) => {
 
 const checkButtonStyle = STYLES.includes(buttonStyle)?
@@ -41,7 +42,7 @@ buttonSize : SIZES[1];
 
   return(
     <button className ={`btn ${checkButtonStyle} ${checkButtonSize}`}onClick = {onClick}
-    type={type} value={value} disabled={disabled}>
+    type={type} value={value} disabled={disabled} key={key}>
       {children}
     </button>
   )
