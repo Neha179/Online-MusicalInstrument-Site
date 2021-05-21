@@ -7,6 +7,7 @@ const Gif = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                
             }}>
                 
                 <img src={logo} alt="***" />

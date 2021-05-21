@@ -11,17 +11,19 @@ import AdminFullSearch from './AdminFullSearch';
 import ShowProduct from './ShowProduct.js';
 import AddProduct from './AddProduct.js';
 import ViewUserProfile from './ViewUserProfile';
+import UpdateProduct from './UpdateProduct';
+import UpdateProfile from './UpdateProfile';
 export default class Routing extends React.Component {
   render(){
     return(
       <div>
       <BrowserRouter>
       <Switch>
-      <Route  exact path="/" >
+      <Route  exact path="/login" >
         <UserLogin/>
       </Route>
-      <Route exact path="/check" >
-        <Home />
+      <Route exact path="/" >
+        <Navbar />
       </Route>
       <Route exact path = "/adminHome">
         <AdminFullSearch />
@@ -36,11 +38,17 @@ export default class Routing extends React.Component {
         <AdminLogin />
       </Route>
 
-      <Route exact path="/viewProfile">
+      <Route path="/profile">
         <ViewUserProfile />
       </Route>
+      {/* <Route path="/updateProfile">
+        <UpdateProfile />
+      </Route> */}
       <Route exact path="/register">
         <UserRegistration />
+      </Route>
+      <Route exact path="/thank">
+        <Thank />
       </Route>
 
       </Switch>

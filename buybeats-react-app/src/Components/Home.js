@@ -17,7 +17,6 @@ export default class Home extends Component {
                 {/* <Navbar /> */}
                 <br />
                 <Searchbar />
-                <h1>{localStorage.getItem("email")}</h1>
                 <br />
                 <Gif />
         </div>
