@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from "./Button.js";
+import '../CSS/ProductSearch.css';
 
 export default class UpdateProduct extends React.Component {
     constructor(props) {
@@ -28,6 +29,9 @@ export default class UpdateProduct extends React.Component {
 
     }
 
+    onCancel() {
+        this.props.onCancel();
+    }
 
     onUpdate() {
         this.props.onSubmit(this.state);
@@ -37,16 +41,16 @@ export default class UpdateProduct extends React.Component {
         return (
             // <table>
                <tr>
-                <td><input name="pid" value={this.state.pid} required readOnly /></td>
-                <td><input name="productName" value={this.state.productName} required onChange={this.handleInput}/></td>
-                <td><input name="category" value={this.state.category} required onChange={this.handleInput}/></td>
-                <td><input name="brand" value={this.state.brand} required onChange={this.handleInput}/></td>
-                <td><input name="stock" type="number" value={this.state.stock} required onChange={this.handleInput}/></td>
-                <td><input name="price" type="number" value={this.state.price} required onChange={this.handleInput}/></td>
-                <td><input name="size" type="number" value={this.state.size} required onChange={this.handleInput}/></td>
-                <td><input name="colour" value={this.state.colour} required onChange={this.handleInput}/></td>
-                <td><input name="bodyMaterial" value={this.state.bodyMaterial} required onChange={this.handleInput}/></td>
-                <td><input name="stringMaterial" value={this.state.stringMaterial} required onChange={this.handleInput}/></td>
+                <td><input className="input" name="pid" value={this.state.pid} required readOnly /></td>
+                <td><input className="inputs-1" name="productName" value={this.state.productName} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="category" value={this.state.category} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="brand" value={this.state.brand} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="stock" type="number" value={this.state.stock} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="price" type="number" value={this.state.price} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="size" type="number" value={this.state.size} required onChange={this.handleInput}/></td>
+                <td><input  className="inputs-1" name="colour" value={this.state.colour} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="bodyMaterial" value={this.state.bodyMaterial} required onChange={this.handleInput}/></td>
+                <td><input className="inputs-1"  name="stringMaterial" value={this.state.stringMaterial} required onChange={this.handleInput}/></td>
                 <td><Button onClick={() => this.onUpdate()} >Update</Button></td>
                 </tr>
             // </table>
