@@ -40,12 +40,28 @@ function AddProduct() {
             history.push('/adminHome')
         }
 
+
+        // const timeOutId = setTimeout(() => setDisplayMessage(query), 500);
+
         const Add = (e) => {
           e.preventDefault();
           setMsg(null);
           axios.post('http://localhost:8870/admin/add/product',product).then((response) => {
               setTimeout(() => history.push('/showProduct'), 3000);
                 setMsg("Product added..!");
+              store.addNotification({
+                title: ' ',   //dont remove this as the library req it
+                message: "Product added! Back to product list.", //the message to do be displayed on notification
+                type:'success',  //color of the notification you can only have values like 'default', 'success', 'info', 'warning'
+                container: 'bottom-left',                // where to position the notifications
+                animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+    
+                dismiss: {
+                  duration: 3000
+                }
+              });
+
           }).catch(error => {
             if (error.response.status === 401) setMsg(error.response.data.message);
             else setMsg("Adding product failed ");
@@ -101,14 +117,14 @@ function AddProduct() {
               <tr>
                   <td><label className="labels" >String Material:</label></td>
                 <td><input  id="stringMaterial" type="text" {...stringMaterial} required/></td>
-              </tr>
+              </tr><br />
               <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
               </td></tr>
-              <tr>
+              <tr> 
               <td className="centreit"> <Button buttonStyle={"btn--danger--solid"} 
-                buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
+            buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
             <td className="centreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 
-                buttonSize={"btn--medium"}>Add Product</Button></td>
+            buttonSize={"btn--medium"}>Add Product</Button></td>
            
             </tr><br/>
             </table>
