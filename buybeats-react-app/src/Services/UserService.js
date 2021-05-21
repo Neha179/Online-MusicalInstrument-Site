@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const User_REST_API_URL="http://localhost:8870/users";
+const USER_REST_API_URL="http://localhost:8870/users";
 
 class UserService{
 
-    // login(){
-    //   return axios.post(User_REST_API_URL+"/login");
-    // }
+    updateProfile(user) {
+        return axios.post(USER_REST_API_URL+"/profile/update",user);
+      }
 }
 
 export default new UserService()
