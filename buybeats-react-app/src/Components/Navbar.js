@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import '../CSS/Navbar.css';
 import Home from './Home';
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
-
+import ViewUserProfile from './ViewUserProfile';
+import UpdateProfile from './UpdateProfile';
+import {useHistory} from "react-router-dom";
+import UserLogin from './UserLogin';
 
 export default class Navbar extends Component {
     // constructor(props){
@@ -58,10 +61,9 @@ export default class Navbar extends Component {
                         <div class="dropdown" onClick={this.handleClick}>
                             <ul>
                                 <li><Link to="/profile" className="link" >View Profile</Link></li>
-                                <li><Link to="/order" className="link" >Order</Link></li>
                                 <li><Link to="/cart" className="link" >Cart</Link></li>
-                                <li><Link to="/wish" className="link" >Wish</Link></li>
-                                <li><Link to="/logout" className="link" >Logout</Link></li>
+                                <li><Link to="/order" className="link" >Order</Link></li>
+                                <li><Link to="/login" className="link" >Logout</Link></li>
                             </ul>
                         </div>
                     )}  
@@ -70,11 +72,12 @@ export default class Navbar extends Component {
 
                     <Switch>
                         <Route exact path="/"><Home/></Route>
-                        <Route path="/profile"><ViewProfile/></Route>
+                        <Route path="/profile"><ViewUserProfile/></Route>
+                        <Route path="/userprofile"><ViewUserProfile/></Route>
                         <Route path="/order"><Order/></Route>
                         <Route path="/cart"><Cart/></Route>
-                        <Route path="/wish"><Wish/></Route>
-                        <Route path="/logout"><Logout/></Route>
+                        <Route path="/login"><UserLogin /></Route>
+                        <Route path="/updateprofile"><UpdateProfile/></Route>
                     </Switch>
                 </Router>
             
@@ -84,11 +87,6 @@ export default class Navbar extends Component {
 }
 
 
-function ViewProfile() {
-    return (
-        <h2>Profile Component</h2>
-    );
-}
 
 function Order() {
 
@@ -103,15 +101,4 @@ function Cart() {
     );
 }
 
-function Wish() {
-    return (
-        <h2>Wish Component</h2>
-    );
-}
 
-function Logout() {
-
-    return (
-        <h2>Logout Component</h2>
-    )
-}

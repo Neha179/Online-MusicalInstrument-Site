@@ -54,10 +54,12 @@ public class UserServiceImpl implements UserService {
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
 		u.setPhoneNumber(user.getPhoneNumber());
-		BasicTextEncryptor key = new BasicTextEncryptor();
-		key.setPassword("BuyBeats");
-		String encryptedPassword = key.encrypt(user.getPassword());
-		u.setPassword(encryptedPassword);
+		if(!(user.getPassword().equals(u.getPassword()))){
+			BasicTextEncryptor key = new BasicTextEncryptor();
+			key.setPassword("BuyBeats");
+			String encryptedPassword = key.encrypt(user.getPassword());
+			u.setPassword(encryptedPassword);
+		}
 		return userRepo.save(u);
 	}
 

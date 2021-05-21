@@ -28,9 +28,6 @@ export default class UpdateProduct extends React.Component {
 
     }
 
-    onCancel() {
-        this.props.onCancel();
-    }
 
     onUpdate() {
         this.props.onSubmit(this.state);

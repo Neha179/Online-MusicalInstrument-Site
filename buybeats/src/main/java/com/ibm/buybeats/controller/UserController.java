@@ -47,8 +47,7 @@ public class UserController {
 	
 	
 	@GetMapping(value = "/profile", produces = "application/json")
-	public ResponseEntity<?> viewProfile( HttpSession session) {
-		User user = (User) session.getAttribute("USER");
+	public ResponseEntity<?> viewProfile(@RequestBody User user) {
 		if(user !=null) {
 			return new ResponseEntity<User>(userService.viewProfile(user.getEmail()),HttpStatus.OK);
 		}
@@ -57,8 +56,8 @@ public class UserController {
 	}
 	
 	@PostMapping(value="profile/update", consumes = "application/json")
-	public ResponseEntity<?> updateProfile(@RequestBody User user, HttpSession session) {
-		if(session.getAttribute("USER")!=null) 
+	public ResponseEntity<?> updateProfile(@RequestBody User user) {
+		if(user!=null) 
 			return new ResponseEntity<User>(userService.updateUser(user),HttpStatus.OK);
 		else
 			return new ResponseEntity<String>("User not logined", HttpStatus.BAD_REQUEST);

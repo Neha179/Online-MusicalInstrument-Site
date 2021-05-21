@@ -4,7 +4,7 @@ import axios from 'axios';
 import Button from './Button.js'
 import '../CSS/UserLogin.css'
 import auth from './Auth';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 function UserLogin(props) {
   //const [loading, setLoading] = useState(false);
@@ -13,36 +13,20 @@ function UserLogin(props) {
   const [error, setError] = useState(null);
   const[user, setUser]=useState(null);
 
+  let history = useHistory();
+
   const Login = () => {
     setError(null);
     //etLoading(true);
     axios.post('http://localhost:8870/users/login', { email:email.value, password:password.value}).then((response) => {
-    //console.log("Response :" +response.data);
-    //setLoading(false);
-      //setUserSession(response.data.token, response.data.email);
       setUser( response.data);
       console.log(user);
-      //auth.login(() =>{
-      //  props.history.push("/check");
-      //})
-      // if(user ){
-      //   localStorage.setItem("user",response.data.user);
-      //   props.history.push("/check");
-      // }
-      localStorage.setItem("email",response.data.email);
-      localStorage.setItem("password",response.data.password);
-      localStorage.setItem("Fname",response.data.firstName);
-      localStorage.setItem("Lname",response.data.lastName);
-      localStorage.setItem("phoneNumber",response.data.phoneNumber);
-      localStorage.setItem("Uid",response.data.uid);
-      localStorage.setItem("address",response.data.address);
-      localStorage.setItem("order",response.data.order);
-      console.log(localStorage.getItem("email"));
-      console.log(localStorage.getItem("password"));
-      console.log(localStorage.getItem("address"));
+      
+      localStorage.setItem("user",JSON.stringify(response.data));
+      console.log(JSON.parse(localStorage.getItem("user")).email);
+      history.push('/');
 
     }).catch(error => {
-      //setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);
       else setError("Invalid credentials ");
     });

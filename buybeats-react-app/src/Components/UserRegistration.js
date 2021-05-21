@@ -3,7 +3,7 @@ import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 import '../CSS/RegistrationForm.css';
 import Button from './Button.js';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 function UserRegistration(props) {
   const [loading, setLoading] = useState(false);
@@ -15,6 +15,7 @@ function UserRegistration(props) {
   const confirmPassword = useFormInput('');
  const [error, setError] = useState(null);
 
+ let history = useHistory();
 
   const SignUp = () => {
     setError(null);
@@ -26,6 +27,7 @@ function UserRegistration(props) {
       setLoading(false);
       setUserSession(response.data.token, response.data.email);
       setError("Registered");
+      history.push('/login');
     }).catch(error => {
       setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);
@@ -58,13 +60,13 @@ function UserRegistration(props) {
       </tr>
       <tr>
           <td><label className='labels'>Password:</label></td>
-        <td><input id="password"  className="inputs" type="password" {...password}
+        <td><input id="password"  className="inputs" type="password" {...password} pattern=".{6,}"
         autoComplete="new-password"/></td>
       </tr>
       <tr>
           <td><label className='labels'>Confirm Password:</label></td>
         <td><input  id="confirm"
-        className="inputs"  type="password" {...confirmPassword} autoComplete="new-password"/></td>
+        className="inputs"  type="password" {...confirmPassword} pattern=".{6,}" autoComplete="new-password"/></td>
       </tr>
       <tr><td colspan="2" className="centreit">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}
       </td></tr>
