@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { useHistory } from "react-router";
 import AdminService from "../Services/AdminService";
 import Button from "./Button.js"
-import UpdateProduct from './UpdateProduct.js'
+import UpdateProduct from './UpdateProduct.js';
+import '../CSS/ProductSearch.css';
 
 
 class AdminPidSearch extends Component {
@@ -133,9 +134,10 @@ class AdminPidSearch extends Component {
       <>
       
     <form onSubmit={this.handleSearchChange}>
-    <div style={{ marginTop: "3em", textAlign: "center" }}>
+    <div style={{ marginTop: "5em", textAlign: "center" }}>
       <input
-        style={{ width: "20%", height: "1rem" }}
+       className="search-input"
+        style={{ width: "20%", height: "2rem" }}
         type="number"
         placeholder="Search By pid"
         name="keyword"
@@ -146,40 +148,41 @@ class AdminPidSearch extends Component {
       </button>
     </div>
     </form>
-    <br/>
-    {(this.state.status=="notFound")&&<center><h4>Wrong PID</h4></center>}
+    <br/><br />
+    {(this.state.status=="notFound")&&<center><h4 style={{ color: 'red' }}>Wrong PID</h4></center>}
     
 <center>
-<table>
+<table className="tableitems">
   <tbody>
   {(this.state.status=="found"||this.state.status=="update")&&
   <tr>
-    <td>PID </td>
-    <td>NAME </td>
-    <td>CATEGORY </td>
-    <td>BRAND </td>
-    <td>STOCK </td>
-    <td>PRICE</td>
-    <td>SIZE</td>
-    <td>COLOUR</td>
-    <td>BODY Material</td>
-    <td>String Material</td>
+    <td className="header">PID </td>
+    <td className="header">NAME </td>
+    <td className="header">CATEGORY </td>
+    <td className="header">BRAND </td>
+    <td className="header">STOCK </td>
+    <td className="header">PRICE</td>
+    <td className="header">SIZE</td>
+    <td className="header">COLOUR</td>
+    <td className="header">BODY Material</td>
+    <td className="header">String Material</td>
+    <td className="header">Action</td>
     </tr>
     }
   {
     
       <tr>
-      <td>{this.state.pid}</td>
-      <td>{this.state.productName}</td>
-      <td>{this.state.category}</td>
-      <td>{this.state.brand}</td>
-      <td>{this.state.stock}</td>
-      <td>{this.state.price}</td>
-      <td>{this.state.size}</td>
-      <td>{this.state.colour}</td>
-      <td>{this.state.bodyMaterial}</td>
-      <td>{this.state.stringMaterial}</td>
-      {(this.state.status=="found")&&<td><Button onClick={() => this.updateProduct()} >Update</Button></td>}
+      <td className='data'>{this.state.pid}</td>
+      <td className='data'>{this.state.productName}</td>
+      <td className='data'>{this.state.category}</td>
+      <td className='data'>{this.state.brand}</td>
+      <td className='data'>{this.state.stock}</td>
+      <td className='data'>{this.state.price}</td>
+      <td className='data'>{this.state.size}</td>
+      <td className='data'>{this.state.colour}</td>
+      <td className='data'>{this.state.bodyMaterial}</td>
+      <td className='data'>{this.state.stringMaterial}</td>
+      {(this.state.status=="found")&&<td className="data"><Button onClick={() => this.updateProduct()} >Update</Button></td>}
       </tr>
       
     

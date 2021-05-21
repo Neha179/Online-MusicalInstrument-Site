@@ -117,10 +117,10 @@ function AddProduct() {
               <tr>
                   <td><label className="labels" >String Material:</label></td>
                 <td><input  id="stringMaterial" type="text" {...stringMaterial} required/></td>
-              </tr>
+              </tr><br />
               <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
               </td></tr>
-              <tr>
+              <tr> 
               <td className="centreit"> <Button buttonStyle={"btn--danger--solid"} 
             buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
             <td className="centreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 

@@ -7,16 +7,19 @@
 
 .data{
   border: 1px solid black;
-    border-collapse: collapse;
+  border-collapse: collapse;
   text-align: centre !important;
   padding: 10px;
   color: black !important;
+  text-align: center;
 }
 
 .header{
   border: 1px solid black;
-    border-collapse: collapse;
+  border-collapse: collapse;
   height: 50px;
-  color: black !important
-
+  color: black !important;
+  background-color: #a6d394;
+    font-family: crimson sans-serif;
+    font-weight: bolder;
 }

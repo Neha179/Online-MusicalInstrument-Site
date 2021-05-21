@@ -1,4 +1,5 @@
-import React from 'react';
+ import React from 'react';
+ import '../CSS/Searchbar.css';
 
 function Searchbar(props){
     return(<React.StrictMode>

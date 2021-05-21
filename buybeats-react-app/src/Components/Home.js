@@ -13,17 +13,15 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className=".home">
-                {/* <Navbar /> */}
+            <div>
+                 <Navbar />
                 <br />
-                <Searchbar />
-                <h1>{localStorage.getItem("email")}</h1>
+                <div className="search">   
+                    <Searchbar />
+                </div>
                 <br />
-                <Gif />
-        </div>
+                <Gif className="gif" />
+            </div>
         );
-    }
-
-
-
+}
 }

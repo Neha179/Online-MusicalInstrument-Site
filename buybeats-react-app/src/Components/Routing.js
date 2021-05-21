@@ -35,12 +35,17 @@ export default class Routing extends React.Component {
       <Route exact path="/adminLogin">
         <AdminLogin />
       </Route>
-
       <Route exact path="/viewProfile">
         <ViewUserProfile />
       </Route>
       <Route exact path="/register">
         <UserRegistration />
+      </Route>
+      <Route exact path="/home">
+        <Home />
+      </Route>
+      <Route exact path="/navbar">
+        <Navbar />
       </Route>
 
       </Switch>

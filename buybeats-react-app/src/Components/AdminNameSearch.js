@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { Component } from "react";
 import AdminServices from "../Services/AdminService";
-import Button from "../Components/Button.js"
+import Button from "../Components/Button.js";
+import '../CSS/ProductSearch.css';
+
 let products=[];
 class AdminNameSearch extends Component {
     constructor(props){
@@ -38,11 +40,12 @@ class AdminNameSearch extends Component {
       <>
       
     <form onSubmit={this.handleSearchChange}>
-    <div style={{ marginTop: "3em", textAlign: "center" }}>
-      <input
-        style={{ width: "20%", height: "1rem" }}
+    <div style={{ marginTop: "5em", textAlign: "center" }}>
+      <input 
+        className="search-input"
+        style={{ width: "20%", height: "2rem" }}
         type="text"
-        placeholder="Search By name"
+        placeholder="Search By Name"
         name="keyword"
         required
       />
@@ -52,23 +55,28 @@ class AdminNameSearch extends Component {
     </div>
     </form>
     <br/>
-    {(this.state.status=="notFound")&&<center><h4>Product not found</h4></center>}
+    {(this.state.status=="notFound")&&<center><h4 style={{ color: 'red' }}>Product not found</h4></center>}
     
 <center>
-<table>
+<table className="tableitems">
 <tbody>
 {(this.state.status=="found")&&
-<tr><td>PID </td><td>NAME </td><td>CATEGORY </td><td>BRAND </td><td>STOCK </td></tr>
+<tr><td className="header">PID </td>
+    <td className="header">NAME </td>
+    <td className="header">CATEGORY </td>
+    <td className="header">BRAND </td>
+    <td className="header">STOCK </td>
+</tr>
   }
 {
    this.state.products.map(
     products =>
     <tr>
-    <td>{products.pid}</td>
-    <td>{products.productName}</td>
-    <td>{products.category}</td>
-    <td>{products.brand}</td>
-    <td>{products.stock}</td>
+    <td className='data'>{products.pid}</td>
+    <td className='data'>{products.productName}</td>
+    <td className='data'>{products.category}</td>
+    <td className='data'>{products.brand}</td>
+    <td className='data'>{products.stock}</td>
     </tr>
   )
 }

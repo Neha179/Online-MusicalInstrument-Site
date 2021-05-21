@@ -1,26 +1,21 @@
 .fcentreit{
-    align-items: center !important;
-    text-align: center !important;
-    left: 50%;
-    color: rgb(102, 154, 233);
-    font-weight: bold;
+    color: #1a28f0;
+    font-weight: bolder;
     font-size: 30px;
+    font-family: crimson sans-serif;
+    text-align: center;
   }
-
-
   .fcentre{
-    align-items: center !important;
-    position: relative;
-    left: 50% !important;
-    /* padding-top: 100px; */
-    transform: translate(-50%, 0);
-    border:1px solid white;
-    /* padding: 3rem; */
-    background-color: rgb(238, 238, 238);
+     background-color: rgb(226, 206, 208);
+     width: 350px;
+     margin-left: 450px;
+     border:1px solid rgb(1, 15, 19);
   }
 
   .labels{
-      color: rgb(133, 46, 46);
+      color: rgb(170, 49, 49);
+      font-family: crimson sans-serif;
+      margin-left: 20px;
   }
 
   .link {
