@@ -1,0 +1,86 @@
+/* Split the screen in half */
+.splitDetail {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 90;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .leftDetail {
+    left: 0;
+  
+  }
+  
+  /* Control the right side */
+  .rightDetail {
+    right: 0;
+    background-color: #f2f2f2
+  
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centeredDetail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the image inside the centered container, if needed */
+  .centered {
+    align-items: centre;
+  
+  }
+  
+  .box{
+    border: 1px solid black;
+  }
+  
+  .imgset{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left:20%;
+  
+  }
+  
+  
+  .tableitems{
+    font-family:Crimson sans-serif !important ;
+    color: black !important;
+    text-align: left;
+    
+  }
+  
+  .datas{
+    padding-right: 10px;
+    font-family:Crimson sans-serif !important ;
+    font-size: large;
+    align-items: left !important;
+    padding-bottom: 10px;
+    column-width: 300px;
+    border-color: black;
+    text-align: center;
+  }
+  
+  .data{
+    font-family:Crimson sans-serif !important ;
+    font-size: large;
+    align-items: left !important;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    column-width: 300px;
+    
+    
+  }
+  
+  .inputbar{
+    box-sizing: border-box;
+    font-size: large;
+    width:70px;
+  }
