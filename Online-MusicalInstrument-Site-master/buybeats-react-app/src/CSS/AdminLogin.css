@@ -1,0 +1,54 @@
+.adminlogin{
+  background-image: url('../Images/template.jpg');
+  background-size: cover;
+  opacity: 1;
+  /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+    img.bg {
+    left: 50%;
+     margin-left: -512px;   /* 50% */
+    }
+}
+.centre{
+  align-items: center !important;
+  position: fixed;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, 0);
+  border:1px solid white;
+  padding: 3rem;
+}
+
+.tableitems{
+  align-items: right;
+  color: #fff;
+  border: 3 px solid white !important;
+  font-family: crimson sans-serif;
+}
+
+.labels{
+  padding-right: 3px;
+  text-align: left;
+}
+
+.inputs{
+  margin-bottom: 0.3rem;
+}
+
+.centreit{
+  align-items: center !important;
+  text-align: center !important;
+}

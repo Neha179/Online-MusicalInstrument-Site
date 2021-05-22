@@ -1,0 +1,47 @@
+.split{
+    height: 100%;
+      position: fixed;
+      z-index: 1;
+      top: 90px;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .left {
+        left: 0;
+        background-color: white;
+        width: 40%;
+      }
+      
+      .right {
+        right: 0;
+        background-color: #d4d4d4;
+        width: 60%;
+      }
+      .centered{
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .centered img {
+        width: 140px;
+        border-radius: 50%;
+      }
+      .table{
+          margin-top: 50px;
+          margin-left: 28%; 
+          font-family: crimson sans-serif;
+          font-size: 20px;
+      }
+      .table td input{
+          width: 200px;
+          height: 25px;
+      }
+
+      .head {
+        text-align: center;
+        color: cadetblue;
+        
+        font-weight: bold;
+      }

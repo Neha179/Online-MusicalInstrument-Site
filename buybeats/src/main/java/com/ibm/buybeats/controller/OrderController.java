@@ -31,7 +31,7 @@ import com.ibm.buybeats.service.OrderService;
  * This class represents controller for Order
  * @author Arya P Menon
  * @author Darshan Kansara
- * @author Monalisa
+ * @author Neha Gupta
  * @version 1.0
  */
 
@@ -87,21 +87,18 @@ public class OrderController {
 		List<Address> addresses = orderService.viewAddress(uid);
 		if(addresses!=null)
 			return new ResponseEntity<List<Address>>(addresses,HttpStatus.OK);
-		throw new NoAddressFound("No Address found. Add one!");
-	}
-	
-	@GetMapping(value = "/viewCards", produces = "application/json")
-	public ResponseEntity<?> viewCard(HttpSession session) {
-		User user = (User) session.getAttribute("USER");
-		if(user!=null) {
-			try {
-				return new ResponseEntity<List<CardDetails>>(orderService.viewCard(user.getUid()),HttpStatus.OK);
-			} catch (NoCardsFound e) {
-				e.printStackTrace();
-				return new ResponseEntity<String>("No Card found. Add one!", HttpStatus.BAD_REQUEST);
-			}
+		else
+			return new ResponseEntity<String>("Address not found", HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+	
+	@GetMapping(value = "/viewCards/{uid}", produces = "application/json")
+	public ResponseEntity<?> viewCard(@PathVariable int uid) throws NoCardsFound {
+		if(uid!=0) {
+				return new ResponseEntity<List<CardDetails>>(orderService.viewCard(uid),HttpStatus.OK);
+			}else {
+				
+				return new ResponseEntity<String>("User not logged in", HttpStatus.NOT_FOUND);
+			}
 	}
 	
 	@PostMapping(value="/confirmOrder/{oid}",produces="application/json")

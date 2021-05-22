@@ -7,6 +7,7 @@ import R from './Components/Routing'
 // import Thank from './Components/Thank';
 import Show from './Components/ShowProduct'
 import AdminFullSearch from './Components/AdminFullSearch'
+import Payment from './Components/PaymentValidate'
 
 
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <div>
       <R />
+      
     </div>
   );
 }

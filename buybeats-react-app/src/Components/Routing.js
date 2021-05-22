@@ -11,6 +11,8 @@ import AdminFullSearch from './AdminFullSearch';
 import ShowProduct from './ShowProduct.js';
 import AddProduct from './AddProduct.js';
 import ViewUserProfile from './ViewUserProfile';
+import Payment from './PaymentValidate';
+
 export default class Routing extends React.Component {
   render(){
     return(
@@ -42,7 +44,13 @@ export default class Routing extends React.Component {
       <Route exact path="/register">
         <UserRegistration />
       </Route>
-
+      
+      <Route exact path="/payment">
+        <Payment />
+      </Route>
+      <Route exact path="/thank">
+        <Thank />
+      </Route>
       </Switch>
 
       </BrowserRouter>
