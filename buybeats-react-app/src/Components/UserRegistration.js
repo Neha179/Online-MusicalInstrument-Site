@@ -76,7 +76,7 @@ function UserRegistration(props) {
         Sign Up</Button>
     </td>
     </tr><br/>
-    <tr><td className="centreit" colspan="2">Already have account?<Link to="/">Login here</Link></td></tr>
+    <tr><td className="centreit" colspan="2">Already have account?<Link to="/login">Login here</Link></td></tr>
     </table>
     </form>
     </div>

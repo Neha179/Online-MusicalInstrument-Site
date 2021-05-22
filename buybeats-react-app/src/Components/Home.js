@@ -1,5 +1,4 @@
 import React,{ Component } from "react";
-import Navbar from "./Navbar";
 import Searchbar from "./Searchbar";
 import Gif from "./Gif";
 import "../CSS/Home.css"
@@ -13,11 +12,10 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className=".home">
-                
+            <div className="home">
                 {/* <Navbar /> */}
                 <br />
-                <Searchbar /> 
+                <Searchbar />
                 <br />
                 <Gif />
         </div>

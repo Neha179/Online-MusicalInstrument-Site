@@ -11,8 +11,7 @@ import AdminFullSearch from './AdminFullSearch';
 import ShowProduct from './ShowProduct.js';
 import AddProduct from './AddProduct.js';
 import ViewUserProfile from './ViewUserProfile';
-import UpdateProduct from './UpdateProduct';
-import UpdateProfile from './UpdateProfile';
+import ViewAddress from './ViewAddress.js';
 import ProductList from './Product_list';
 import ProductDetails from './ProductDetails';
 import CartProductDetails from './CartProductDetails'
@@ -55,9 +54,7 @@ export default class Routing extends React.Component {
       <Route path="/profile">
         <ViewUserProfile />
       </Route>
-      {/* <Route path="/updateProfile">
-        <UpdateProfile />
-      </Route> */}
+      <Route path="/viewAddress"><ViewAddress /></Route>
       <Route exact path="/register">
         <UserRegistration />
       </Route>

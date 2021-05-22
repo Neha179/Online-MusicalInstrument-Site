@@ -61,11 +61,11 @@ export default class Navbar extends Component {
                         onClick={this.handleClick} alt='User'></img>
                     {this.state.open && (
                         <div class="dropdown" onClick={this.handleClick}>
-                            <ul>
-                                <li><Link to="/profile" className="link" >View Profile</Link></li>
-                                <li><Link to="/cart" className="link" >Cart</Link></li>
-                                <li><Link to="/order" className="link" >Order</Link></li>
-                                <li><Link to="/login" className="link" >Logout</Link></li>
+                            <ul className="ulist">
+                                <li className="list"><Link to="/profile" className="link" >View Profile</Link></li>
+                                <li className="list"><Link to="/cart" className="link" >Cart</Link></li>
+                                <li className="list"><Link to="/order" className="link" >Order</Link></li>
+                                <li className="list"><Link to="/login" className="link" >Logout</Link></li>
                             </ul>
                         </div>
                     )}
