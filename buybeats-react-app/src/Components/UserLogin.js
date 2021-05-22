@@ -24,8 +24,9 @@ function UserLogin(props) {
       
       localStorage.setItem("user",JSON.stringify(response.data));
       console.log(JSON.parse(localStorage.getItem("user")).email);
+      console.log(JSON.parse(localStorage.getItem("user")).uid);
       history.push('/');
-
+      
     }).catch(error => {
       if (error.response.status === 401) setError(error.response.data.message);
       else setError("Invalid credentials ");
