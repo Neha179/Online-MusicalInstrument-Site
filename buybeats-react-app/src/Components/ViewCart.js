@@ -16,20 +16,33 @@ class ViewCart extends React.Component{
     }
   }
 
- 
 
- 
+
+
 
 
 onSelect=()=>{
-
-
-
-this.setState({showDetails:true})
-console.log(this.state.selectedPid);
+  console.log("button selected")
+  localStorage.setItem("entryid",this.props.entryId);
+  localStorage.setItem("quantity",this.props.quantity)
+  localStorage.setItem("cpid",this.props.pid);
+  localStorage.setItem("cpname", this.props.pname);
+  localStorage.setItem("cprice", this.props.price);
+  localStorage.setItem("cbrand", this.props.brand);
+  localStorage.setItem("ccolour", this.props.colour);
+  localStorage.setItem("csize", this.props.size);
+  localStorage.setItem("ccategory", this.props.title);
+  localStorage.setItem("cbodyMaterial", this.props.bodyMaterial);
+  localStorage.setItem("cstringMaterial", this.props.pname);
+  localStorage.setItem("cstock", this.props.stock);
+  console.log(localStorage.getItem("cprice"));
+  console.log(localStorage.getItem("quantity"));
+  this.props.history.push("/cartdetails");
+//this.setState({showDetails:true})
+//console.log(this.state.selectedPid);
 }
 
- 
+
 
 
 render(){
@@ -48,14 +61,15 @@ render(){
       </div>
           <Button type="button" buttonStyle={"btn--danger--solid"}  key={this.props.pid}
               onClick={() => this.onSelect(this.props)}> Remove </Button>
-
+            <Button type="button"   key={this.props.pid}
+                  onClick={() => this.onSelect(this.props)}> See Details </Button>
           </article>
-  
-
-  
 
 
- 
+
+
+
+
 
 </>
 );
@@ -63,7 +77,7 @@ render(){
 
 }
 
- 
+
 
   }
 

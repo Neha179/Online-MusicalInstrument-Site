@@ -7,6 +7,7 @@ import UpdateProfile from './UpdateProfile';
 import {useHistory} from "react-router-dom";
 import UserLogin from './UserLogin';
 import CartList from './CartList';
+import CartProductDetails from './CartProductDetails'
 
 export default class Navbar extends Component {
     // constructor(props){
@@ -20,13 +21,13 @@ export default class Navbar extends Component {
     state = {
         open : false
     }
-    
+
 
     handleClick = () => {
         this.setState({ open: !this.state.open })
     }
 
-   
+
 
     componentDidMount() {
         document.addEventListener("mousedown", this.handleClickOutside);
@@ -52,12 +53,12 @@ export default class Navbar extends Component {
                    <Link to='/' >
                        <img  className="navbar-home" src="../../images/home.png" alt='Home'></img>
                     </Link>
-                    
+
                     <img src="../../images/LOGO.PNG" alt="Buy Beats"></img>
 
                     <div ref={this.container}>
-                    <img className = "navbar-user" src="../../images/man-user.png" 
-                        onClick={this.handleClick} alt='User'></img> 
+                    <img className = "navbar-user" src="../../images/man-user.png"
+                        onClick={this.handleClick} alt='User'></img>
                     {this.state.open && (
                         <div class="dropdown" onClick={this.handleClick}>
                             <ul>
@@ -67,9 +68,9 @@ export default class Navbar extends Component {
                                 <li><Link to="/login" className="link" >Logout</Link></li>
                             </ul>
                         </div>
-                    )}  
+                    )}
                     </div>
-                </nav>                   
+                </nav>
 
                     <Switch>
                         <Route exact path="/"><Home/></Route>
@@ -79,11 +80,12 @@ export default class Navbar extends Component {
                         <Route path="/cart"><CartList/></Route>
                         <Route path="/login"><UserLogin /></Route>
                         <Route path="/updateprofile"><UpdateProfile/></Route>
-                        
+                        <Route path="/cartdetails"><CartProductDetails/></Route>
+
                     </Switch>
                 </Router>
-            
-           
+
+
         )
     }
 }
@@ -102,5 +104,3 @@ function Cart() {
         <h2>Cart Component</h2>
     );
 }
-
-
