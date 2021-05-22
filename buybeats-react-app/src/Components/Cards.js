@@ -46,7 +46,7 @@ render(){
 {  !this.state.showDetails &&
     <article className="card">
         <picture className="thumbnail">
-              <img className="category__01" src={`./images/${this.props.pname}${this.props.pid}.jpg`} alt="noimg"  />
+              <img className="category__01 imgs" src={`./images/${this.props.pname}${this.props.pid}.jpg`} alt="noimg"  />
         </picture>
         <div className="card-content">
           <p className="category category__01">₹ {this.props.price}</p>

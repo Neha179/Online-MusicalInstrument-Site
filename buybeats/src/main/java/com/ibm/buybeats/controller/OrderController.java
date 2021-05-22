@@ -83,11 +83,16 @@ public class OrderController {
 	}
 	
 	@GetMapping(value = "/viewAddress/{uid}", produces = "application/json")
-	public ResponseEntity<?> viewAddress(@PathVariable int uid) throws NoAddressFound{
-		List<Address> addresses = orderService.viewAddress(uid);
-		if(addresses!=null)
+	public ResponseEntity<?> viewAddress(@PathVariable int uid) {
+		List<Address> addresses;
+		try {
+			addresses = orderService.viewAddress(uid);
 			return new ResponseEntity<List<Address>>(addresses,HttpStatus.OK);
-		throw new NoAddressFound("No Address found. Add one!");
+		} catch (NoAddressFound e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ResponseEntity<String>("No address found",HttpStatus.OK);
+		}		
 	}
 	
 	@GetMapping(value = "/viewCards", produces = "application/json")

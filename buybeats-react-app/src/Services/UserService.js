@@ -7,6 +7,11 @@ class UserService{
     updateProfile(user) {
         return axios.post(USER_REST_API_URL+"/profile/update",user);
       }
+
+    saveAddress(address) {
+      const email =JSON.parse(localStorage.getItem("user")).email;
+      return axios.post(USER_REST_API_URL+"/addAddress/"+email,address);
+    }
 }
 
 export default new UserService()
