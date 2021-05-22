@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.buybeats.entity.Cart;
@@ -122,11 +123,10 @@ public class ShoppingController {
     }
 	
 	@PostMapping(value="/cart/add/{pid}", produces = "application/json")
-	public ResponseEntity<?> addToCart(@RequestBody Cart cart,@PathVariable int pid, HttpSession session) {
-		User user = (User) session.getAttribute("USER");
-		if(user!=null)
-			return new ResponseEntity<Cart>(shoppingService.addToCart(cart, pid, user.getUid()),HttpStatus.OK);
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+	public ResponseEntity<?> addToCart(@RequestBody Cart cart,@PathVariable int pid,@RequestParam int uid) {
+		
+			return new ResponseEntity<Cart>(shoppingService.addToCart(cart, pid, uid),HttpStatus.OK);
+		
 	}
 	
 	@PostMapping(value="/cart/remove/{entryId}", produces = "application/json")
