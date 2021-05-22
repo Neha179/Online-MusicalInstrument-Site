@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "./Button.js";
-import '../CSS/ProductSearch.css';
+import '../CSS/PidSearch.css';
 
 export default class UpdateProduct extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ export default class UpdateProduct extends React.Component {
         return (
             // <table>
                <tr>
-                <td><input className="input" name="pid" value={this.state.pid} required readOnly /></td>
+                <td><input className="input-update" name="pid" value={this.state.pid} required readOnly /></td>
                 <td><input className="inputs-1" name="productName" value={this.state.productName} required onChange={this.handleInput}/></td>
                 <td><input className="inputs-1"  name="category" value={this.state.category} required onChange={this.handleInput}/></td>
                 <td><input className="inputs-1"  name="brand" value={this.state.brand} required onChange={this.handleInput}/></td>

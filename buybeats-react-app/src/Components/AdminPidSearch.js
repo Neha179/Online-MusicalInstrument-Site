@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import AdminService from "../Services/AdminService";
 import Button from "./Button.js"
 import UpdateProduct from './UpdateProduct.js';
-import '../CSS/ProductSearch.css';
+import '../CSS/PidSearch.css';
 
 
 class AdminPidSearch extends Component {
@@ -152,37 +152,37 @@ class AdminPidSearch extends Component {
     {(this.state.status=="notFound")&&<center><h4 style={{ color: 'red' }}>Wrong PID</h4></center>}
     
 <center>
-<table className="tableitems">
+<table className="tableitems-id">
   <tbody>
   {(this.state.status=="found"||this.state.status=="update")&&
   <tr>
-    <td className="header">PID </td>
-    <td className="header">NAME </td>
-    <td className="header">CATEGORY </td>
-    <td className="header">BRAND </td>
-    <td className="header">STOCK </td>
-    <td className="header">PRICE</td>
-    <td className="header">SIZE</td>
-    <td className="header">COLOUR</td>
-    <td className="header">BODY Material</td>
-    <td className="header">String Material</td>
-    <td className="header">Action</td>
+    <td className="header-id">PID </td>
+    <td className="header-id">NAME </td>
+    <td className="header-id">CATEGORY </td>
+    <td className="header-id">BRAND </td>
+    <td className="header-id">STOCK </td>
+    <td className="header-id">PRICE</td>
+    <td className="header-id">SIZE</td>
+    <td className="header-id">COLOUR</td>
+    <td className="header-id">BODY Material</td>
+    <td className="header-id">String Material</td>
+    <td className="header-id">Action</td>
     </tr>
     }
   {
     
       <tr>
-      <td className='data'>{this.state.pid}</td>
-      <td className='data'>{this.state.productName}</td>
-      <td className='data'>{this.state.category}</td>
-      <td className='data'>{this.state.brand}</td>
-      <td className='data'>{this.state.stock}</td>
-      <td className='data'>{this.state.price}</td>
-      <td className='data'>{this.state.size}</td>
-      <td className='data'>{this.state.colour}</td>
-      <td className='data'>{this.state.bodyMaterial}</td>
-      <td className='data'>{this.state.stringMaterial}</td>
-      {(this.state.status=="found")&&<td className="data"><Button onClick={() => this.updateProduct()} >Update</Button></td>}
+      <td className='data-id'>{this.state.pid}</td>
+      <td className='data-id'>{this.state.productName}</td>
+      <td className='data-id'>{this.state.category}</td>
+      <td className='data-id'>{this.state.brand}</td>
+      <td className='data-id'>{this.state.stock}</td>
+      <td className='data-id'>{this.state.price}</td>
+      <td className='data-id'>{this.state.size}</td>
+      <td className='data-id'>{this.state.colour}</td>
+      <td className='data-id'>{this.state.bodyMaterial}</td>
+      <td className='data-id'>{this.state.stringMaterial}</td>
+      {(this.state.status=="found")&&<td className="data-id"><Button onClick={() => this.updateProduct()} >Update</Button></td>}
       </tr>
       
     

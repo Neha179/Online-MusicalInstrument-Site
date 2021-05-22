@@ -29,19 +29,19 @@ class ShowProduct extends React.Component{
     return(
       <>
       <form>
-        <table className='tableitems'>
+        <table className='tableitems-all'>
           <thead>
             <tr>
-              <th className='header'>ID</th>
-              <th className='header'>Name</th>
-              <th className='header'>Price</th>
-              <th className='header'>Stock</th>
-              <th className='header'>Category</th>
-              <th className='header'>Color</th>
-              <th className='header'>Brand</th>
-              <th className='header'>Size</th>
-              <th className='header'>Body Material</th>
-              <th className='header'>String Material</th>
+              <th className='header-all'>ID</th>
+              <th className='header-all'>Name</th>
+              <th className='header-all'>Price</th>
+              <th className='header-all'>Stock</th>
+              <th className='header-all'>Category</th>
+              <th className='header-all'>Color</th>
+              <th className='header-all'>Brand</th>
+              <th className='header-all'>Size</th>
+              <th className='header-all'>Body Material</th>
+              <th className='header-all'>String Material</th>
             </tr>
           </thead>
             <tbody>
@@ -50,16 +50,16 @@ class ShowProduct extends React.Component{
               this.state.products.map(
                 prod =>
                 <tr >
-                <td className='data'>{prod.pid}</td>
-                <td className='data'>{prod.productName}</td>
-                <td className='data'>{prod.price}</td>
-                <td className='data'>{prod.stock}</td>
-                <td className='data'>{prod.category}</td>
-                <td className='data'>{prod.colour}</td>
-                <td className='data'>{prod.brand}</td>
-                <td className='data'>{prod.size}</td>
-                <td className='data'>{prod.bodyMaterial}</td>
-                <td className='data'>{prod.stringMaterial}</td>
+                <td className='data-all'>{prod.pid}</td>
+                <td className='data-all'>{prod.productName}</td>
+                <td className='data-all'>{prod.price}</td>
+                <td className='data-all'>{prod.stock}</td>
+                <td className='data-all'>{prod.category}</td>
+                <td className='data-all'>{prod.colour}</td>
+                <td className='data-all'>{prod.brand}</td>
+                <td className='data-all'>{prod.size}</td>
+                <td className='data-all'>{prod.bodyMaterial}</td>
+                <td className='data-all'>{prod.stringMaterial}</td>
 
                 </tr>
               )

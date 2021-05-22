@@ -19,25 +19,31 @@ export default function AdminFullSearch(){
        <Link></Link>
     }
     return(
-    <div className="background">
-        <br />
-        <button className="logout-button" onClick={redirectTo}>Logout</button>
-          <Router>
+    <div>
+        <div className="navbar-admin">
+            <img className="left-admin" src="../../images/admin.png" height="75px" width="120px"/>
+            <img className="center-admin" src="../../images/LOGO.PNG" alt="Buy-Beats"  />
+            <Link to="/adminLogin"><img className="right-admin" src="../../images/adminlogout.png" height="70px" width="70px" /></Link>
+        </div>
+        <div className="background-admin">
+        <Router className="route-content">
         <ul>
-            <li><Link to="/ByName"><button className="button">Search By Name</button></Link></li>
-            <li><Link to="/ByPid"><button className="button">Search and Update By Pid</button></Link></li>
-            <li><Link to="/showProduct"><button className="button">Show All Products</button></Link></li>
-            <li><Link to="/addProduct"><button className="button">Add New Product</button></Link></li>
-        </ul>
-        <br /><br /><br />
-          <Switch>
-            <Route path="/ByName"><AdminNameSearch/></Route>
-            <Route path="/ByPid"><AdminPidSearch/></Route>
-            <Route path="/showProduct"><ShowProduct/></Route>
-            <Route path="/addProduct"><AddProduct/></Route>
-        </Switch>
-    </Router>
-    </div>
+            <li className="namesearch"><Link to="/ByName"><button className="button">Search By Name</button></Link></li>
+            <li className="namesearch"><Link to="/ByPid"><button className="button">Search and Update By Pid</button></Link></li>
+            <li className="namesearch"><Link to="/showProduct"><button className="button">Show All Products</button></Link></li>
+            <li className="namesearch"><Link to="/addProduct"><button className="button">Add New Product</button></Link></li>
+        </ul><br /><br /><br />
+        <Switch>
+                    <Route path="/ByName" className="search-routing"><AdminNameSearch/></Route>
+                    <Route path="/ByPid"><AdminPidSearch/></Route>
+                    <Route path="/showProduct"><ShowProduct/></Route>
+                    <Route path="/addProduct"><AddProduct/></Route>
+         </Switch>
+         </Router>
+        </div>
+       
+         </div>
+
     );
 }
 

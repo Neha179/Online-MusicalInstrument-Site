@@ -50,7 +50,6 @@ export default class Routing extends React.Component {
       <Route exact path="/thank">
         <Thank />
       </Route>
-
       </Switch>
 
       </BrowserRouter>

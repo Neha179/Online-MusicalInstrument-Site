@@ -2,39 +2,49 @@
 {
     border: none;
     color: white;
-    padding: 20px 32px;
+    padding: 20px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 40px;
     margin-left: 70px;
-    background-color: #1a1ca5d0;
+    background-color: #095f6e;
     cursor: pointer;
     border-radius: 20px;
+    font-family: Crimson sans-serif;
+    font-weight: bolder;
 }
-.logout-button
+.background-admin
 {
-    color: white;
-    margin-left: 1180px;
-    background-color: #4e0ffdc4;
-    padding: 12px;
-    font-size: 15px;
-    font-family: crimson sans-serif;
-    border-radius: 10px;
-    text-decoration: none;
+    background-image: url("../Animation/adminback.gif");
+    background-size: 100% 100%;
+    height: 600px;
 }
-ul li{
+  
+.namesearch{
     display: inline;
     text-decoration: none;
 }
-ul li :hover
+.navbar-admin
 {
-    text-decoration: none;
+    height: 90px;
+    background-color: #48316d;
 }
-.background
+.left-admin
 {
-    height: 600px;
-    background-image: url('../Images/bg.jpg');
-    background-size: cover;
+    margin-left: 30px;
+    margin-top: 10px;
 }
+.center-admin{
+        margin-left: 350px;
+}
+.right-admin
+{
+    margin-left: 370px;
+}
+.route-content
+{
+    justify-content: center;
+    align-items: center;
+} 
