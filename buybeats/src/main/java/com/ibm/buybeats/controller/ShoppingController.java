@@ -107,20 +107,20 @@ public class ShoppingController {
     }
 	
 	
-	@GetMapping(value="/cart", produces = "application/json")
-    public ResponseEntity<?> showCart(HttpSession session) {
-        User user = (User) session.getAttribute("USER");
-        if(user!=null) {
-        	try {
-				return new ResponseEntity<Set<Cart>>(shoppingService.showCart(user.getUid()), HttpStatus.OK);
-			} catch (CartEmptyException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return new ResponseEntity<String>("Cart is Empty",HttpStatus.BAD_REQUEST);
-			}
-        }
-        return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
-    }
+	@GetMapping(value="/cart/{uid}", produces = "application/json")
+    public ResponseEntity<?> showCart(@PathVariable int uid) {
+        
+		
+		try {
+			return new ResponseEntity<Set<Cart>>(shoppingService.showCart(uid), HttpStatus.OK);
+		} catch (CartEmptyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ResponseEntity<String>("Cart is Empty", HttpStatus.OK);
+		}
+		
+			
+	}
 	
 	@PostMapping(value="/cart/add/{pid}", produces = "application/json")
 	public ResponseEntity<?> addToCart(@RequestBody Cart cart,@PathVariable int pid,@RequestParam int uid) {

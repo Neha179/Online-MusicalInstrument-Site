@@ -6,6 +6,7 @@ import ViewUserProfile from './ViewUserProfile';
 import UpdateProfile from './UpdateProfile';
 import {useHistory} from "react-router-dom";
 import UserLogin from './UserLogin';
+import CartList from './CartList';
 
 export default class Navbar extends Component {
     // constructor(props){
@@ -75,9 +76,10 @@ export default class Navbar extends Component {
                         <Route path="/profile"><ViewUserProfile/></Route>
                         <Route path="/userprofile"><ViewUserProfile/></Route>
                         <Route path="/order"><Order/></Route>
-                        <Route path="/cart"><Cart/></Route>
+                        <Route path="/cart"><CartList/></Route>
                         <Route path="/login"><UserLogin /></Route>
                         <Route path="/updateprofile"><UpdateProfile/></Route>
+                        
                     </Switch>
                 </Router>
             

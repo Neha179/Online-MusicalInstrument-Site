@@ -14,9 +14,10 @@ export default class Home extends Component {
     render() {
         return (
             <div className=".home">
+                
                 {/* <Navbar /> */}
                 <br />
-                <Searchbar />
+                <Searchbar /> 
                 <br />
                 <Gif />
         </div>
