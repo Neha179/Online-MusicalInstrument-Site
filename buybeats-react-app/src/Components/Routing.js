@@ -15,6 +15,7 @@ import UpdateProduct from './UpdateProduct';
 import UpdateProfile from './UpdateProfile';
 import ProductList from './Product_list';
 import ProductDetails from './ProductDetails';
+import CartProductDetails from './CartProductDetails'
 
 
 export default class Routing extends React.Component {
@@ -46,6 +47,9 @@ export default class Routing extends React.Component {
       </Route>
       <Route exact path="/productDetails">
         <ProductDetails />
+      </Route>
+      <Route  exact path="/cartdetails" >
+        <CartProductDetails/>
       </Route>
 
       <Route path="/profile">
