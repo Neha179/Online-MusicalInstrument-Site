@@ -8,30 +8,34 @@
   {
     border: 3px solid #10bdeb;
   }
-.tableitems{
-    border: 1px solid black;  
+.tableitems-id{
+     border: 1px solid black;
+     border-collapse: collapse;
+     width: 80%;
   }
   
-  .data{
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: centre !important;
-    padding: 10px;
-    color: black !important;
-    text-align: center;
+  .data-id{
+    border: 1px solid white;
+    border-collapse: collapse; 
+     text-align: centre !important;
+     padding: 10px;
+     color: white !important;
+     text-align: center;
+     background-color: rgb(7, 74, 136);
+     font-family: crimson sans-serif;
   }
   
-  .header{
+  .header-id{
     border: 1px solid black;
     border-collapse: collapse;
     height: 50px;
     color: black !important;
     text-align: center;
-    background-color: #086305;
+    background-color: #b8b0e9;
     font-family: crimson sans-serif;
     font-weight: bolder;
   }
-  .input
+  .input-update
   {
     width: 30px;
   }

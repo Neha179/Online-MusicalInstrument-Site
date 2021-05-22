@@ -1,22 +1,26 @@
 .fcentreit{
-  color: #1a28f0;
   font-weight: bolder;
-  font-size: 30px;
-  font-family: crimson sans-serif;
+  color: rgb(4, 72, 104);
   text-align: center;
-  margin-left: 70px;
+  font-size: 25px;
 }
 .fcentre{
-   background-color: rgb(226, 206, 208);
-   width: 350px;
+   width: 450px;
    margin-left: 450px;
-   border:1px solid rgb(1, 15, 19);
+   background-color: thistle;
 }
 
-.labels{
+.labels-add{
     color: rgb(170, 49, 49);
     font-family: crimson sans-serif;
-    margin-left: 30px;
+    margin-left: 50px;
+    font-size: 20px;
+}
+.input-add
+{
+  height: 24px;
+  width: 220px;
+  padding-bottom: 14px;
 }
 
 .link {

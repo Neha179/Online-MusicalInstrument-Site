@@ -76,47 +76,48 @@ function AddProduct() {
         return (
           <div>
             <form onSubmit={Add} className="fcentre">
-              <table >
-                <tr><td colspan="2" className="fcentreit">New Product</td></tr><br />
+                <br/>
+                <h1 className="fcentreit">New Product</h1><br />
+                <table >
               <tr>
-                <td ><label className="labels">Name:</label></td>
-                <td><input id="productName" type="text" {...productName} 
+                <td ><label className="labels-add">Name:</label></td>
+                <td><input className="input-add" id="productName" type="text" {...productName} 
                 required/></td>
               </tr>
               <tr>
-                  <td><label className="labels" >Brand:</label></td>
-                <td><input   id="brand" type="text" {...brand}
+                  <td><label className="labels-add" >Brand:</label></td>
+                <td><input  className="input-add" id="brand" type="text" {...brand}
                 required /></td>
               </tr>
               <tr>
-                  <td><label className="labels">Price:</label></td>
-                <td><input  id="price"  type="number" {...price} required/></td>
+                  <td><label className="labels-add">Price:</label></td>
+                <td><input className="input-add"  id="price"  type="number" {...price} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels">Stock:</label></td>
-                <td><input id="stock" type="number" {...stock} required/></td>
+                  <td><label className="labels-add">Stock:</label></td>
+                <td><input className="input-add" id="stock" type="number" {...stock} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels">Category:</label></td>
-                <td><input id="category"   type="text" {...category}
+                  <td><label className="labels-add">Category:</label></td>
+                <td><input className="input-add" id="category"   type="text" {...category}
                 required/></td>
               </tr>
               <tr>
-                  <td><label className="labels" >Colour:</label></td>
-                <td><input  id="color"  type="text" {...colour} required/></td>
+                  <td><label className="labels-add" >Colour:</label></td>
+                <td><input className="input-add" id="color"  type="text" {...colour} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels">Size:</label></td>
-                <td><input id="size" type="number" {...size} required/></td>
+                  <td><label className="labels-add">Size:</label></td>
+                <td><input className="input-add" id="size" type="number" {...size} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels">Body Material:</label></td>
-                <td><input id="bodyMaterial" type="text" {...bodyMaterial}
+                  <td><label className="labels-add">Body Material:</label></td>
+                <td><input className="input-add" id="bodyMaterial" type="text" {...bodyMaterial}
                 required/></td>
               </tr>
               <tr>
-                  <td><label className="labels" >String Material:</label></td>
-                <td><input  id="stringMaterial" type="text" {...stringMaterial} required/></td>
+                  <td><label className="labels-add" >String Material:</label></td>
+                <td><input className="input-add"  id="stringMaterial" type="text" {...stringMaterial} required/></td>
               </tr><br />
               <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
               </td></tr>

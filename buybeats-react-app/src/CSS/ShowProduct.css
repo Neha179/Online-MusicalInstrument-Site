@@ -1,22 +1,29 @@
-.tableitems{
+.tableitems-all{
   border: 1px solid black;
   border-collapse: collapse;
-  width: 100%;
-
+  width: 90%;
+  margin-left: 70px;
 }
 
-.data{
-  border: 1px solid black;
-    border-collapse: collapse;
-  text-align: centre !important;
-  padding: 10px;
-  color: black !important;
+.data-all{
+  border: 1px solid white;
+  border-collapse: collapse; 
+   text-align: centre !important;
+   padding: 10px;
+   color: white !important;
+   text-align: center;
+   background-color: rgb(7, 74, 136);
+   font-family: crimson sans-serif;
 }
 
-.header{
+.header-all{
   border: 1px solid black;
-    border-collapse: collapse;
+  border-collapse: collapse;
   height: 50px;
-  color: black !important
+  color: black !important;
+  text-align: center;
+  background-color: #b8b0e9;
+  font-family: crimson sans-serif;
+  font-weight: bolder;
 
 }
