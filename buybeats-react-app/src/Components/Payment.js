@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from '../Images/payment-logo.jpg'
 import Button from './Button'
 import '../CSS/Payment.css'
+import {withRouter} from "react-router-dom";
 
-export default class Payment extends Component {
+class Payment extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +25,8 @@ export default class Payment extends Component {
     }
 
     onCancel() {
-        this.props.onCancel();
+        this.props.history.push({pathname:"/thank"})
+        
     }
 
     onSave() {
@@ -41,20 +43,24 @@ export default class Payment extends Component {
             <table className="jumbotron">
                 <br />
                 <tr><td className="control-label">Card Number</td>
-                    <td><input name="cardNumber" value={this.state.cardNumber} pattern="[1-9][0-9]{15}" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputs" name="cardNumber" value={this.state.cardNumber} placeholder="****************" pattern="[1-9][0-9]{15}" required onChange={this.handleInput} /></td></tr>
                 <br/>
                 <tr><td className="control-label">CVV</td>
-                    <td><input name="cvv" value={this.state.cvv} pattern="[0-9]{3}" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputs" name="cvv" value={this.state.cvv} placeholder="***" pattern="[0-9]{3}" required onChange={this.handleInput} /></td></tr>
                 <br/>
                 <tr><td className="control-label">Expiry Date</td>
-                    <td><input name="expDate" value={this.state.expDate} pattern= "(0[1-9]|10|11|12)/20[1-9]{2}$" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputs" name="expDate" value={this.state.expDate} placeholder="MM/YYYY" pattern= "(0[1-9]|10|11|12)/20[1-9]{2}$" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td><Button class="btn btn-primary" type="submit">Proceed</Button></td>
-                    <td><Button class="btn btn-warning" onClick={() => this.onCancel()}>Cancel Payment</Button></td></tr>
+                <tr><td><Button buttonStyle={"btn--danger--solid"} 
+            buttonSize={"btn--large"}  type="submit">Proceed</Button></td>
+                    <td><Button buttonStyle={"btn--danger--solid"} 
+            buttonSize={"btn--large"} 
+            onClick={() => this.onCancel()}>Cancel Payment</Button></td></tr>
             </table>
             </form></div></center>
             </div>
         )
     }
 }
+export default withRouter(Payment);
 

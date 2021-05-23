@@ -1,7 +1,7 @@
 .payment{
-    background-image: url('../Images/payment-bg.jpg');
+    background-image: url('../Images/back1.png');
     background-size: 100% 100%;
-    opacity: 0.8;
+    opacity: 0.9;
     /* Set rules to fill background */
       min-height: 100%;
       min-width: 1024px;
