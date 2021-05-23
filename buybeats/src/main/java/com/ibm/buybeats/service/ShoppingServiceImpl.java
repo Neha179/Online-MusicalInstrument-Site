@@ -96,7 +96,7 @@ public class ShoppingServiceImpl implements ShoppingService {
 	// so make sure make an entry in order first before remove from cart
 
 	@Override
-	public boolean removeFromCart(User user, int entryId) {
+	public boolean removeFromCart(int uid, int entryId) {
 
 //		for (Cart c : user.getCart()) {
 //			System.out.println("cart's product_id : " + c.getProduct().getPid());//commment this
@@ -114,6 +114,7 @@ public class ShoppingServiceImpl implements ShoppingService {
 //
 //		return false;
 		Cart cart = cartRepo.findById(entryId).get();
+		User user = userRepo.findById(uid).get();
 		user.getCart().remove(cart);
 		cartRepo.delete(cart);
 		return true;

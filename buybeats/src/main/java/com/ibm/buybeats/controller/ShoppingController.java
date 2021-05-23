@@ -130,15 +130,12 @@ public class ShoppingController {
 	}
 	
 	@PostMapping(value="/cart/remove/{entryId}", produces = "application/json")
-	public ResponseEntity<?> removeFromCart(@PathVariable int entryId,HttpSession session) {
-		User user = (User) session.getAttribute("USER");
-		if(user!=null) {
-			 if(shoppingService.removeFromCart(user, entryId))
+	public ResponseEntity<?> removeFromCart(@PathVariable int entryId, @RequestParam int uid) {
+			 if(shoppingService.removeFromCart(uid, entryId))
 				 return new ResponseEntity<String>("Product removed from cart", HttpStatus.OK);
 			 else
-				 return new ResponseEntity<String>("Product is not removed from cart", HttpStatus.BAD_REQUEST);
-		}
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+				 return new ResponseEntity<String>("Product is not removed from cart", HttpStatus.OK);
+		
 	}
 	
 	@PostMapping(value="/wish/cart/{wid}", produces = "application/json", consumes = "application/json")

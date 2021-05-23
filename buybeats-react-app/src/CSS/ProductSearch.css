@@ -1,0 +1,42 @@
+.search-button{
+    top:10px;
+    left:30px;
+    background-color: white;
+    height: 2rem;
+    width: 30px;
+    border: 3px solid #10bdeb;
+  }
+  .search-input
+  {
+    border: 3px solid #10bdeb;
+  }
+.tableitems{
+    border: 1px solid black;
+  }
+
+  .data{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: centre !important;
+    padding: 10px;
+    color: black !important;
+    text-align: center;
+  }
+
+  .header{
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 50px;
+    color: black !important;
+    text-align: center;
+    background-color: #086305;
+    font-family: crimson sans-serif;
+    font-weight: bolder;
+  }
+  .input
+  {
+    width: 30px;
+  }
+  .inputs-1{
+    width: 120px;
+  }
