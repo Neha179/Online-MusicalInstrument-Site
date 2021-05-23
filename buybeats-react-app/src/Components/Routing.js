@@ -15,6 +15,8 @@ import ViewAddress from './ViewAddress.js';
 import ProductList from './Product_list';
 import ProductDetails from './ProductDetails';
 import CartProductDetails from './CartProductDetails'
+import ConfirmOrder from './ConfirmOrder';
+import CartList from './CartList';
 
 
 export default class Routing extends React.Component {
@@ -47,8 +49,14 @@ export default class Routing extends React.Component {
       <Route exact path="/productDetails">
         <ProductDetails />
       </Route>
+      <Route  exact path="/cart" >
+        <CartList/>
+      </Route>
       <Route  exact path="/cartdetails" >
         <CartProductDetails/>
+      </Route>
+      <Route  exact path="/confirmOrder" >
+        <ConfirmOrder/>
       </Route>
 
       <Route path="/profile">

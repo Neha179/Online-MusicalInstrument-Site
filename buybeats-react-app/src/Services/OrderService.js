@@ -11,4 +11,11 @@ export default class OrderService {
         const uid =JSON.parse(localStorage.getItem("user")).uid;
         return axios.get(this.uri+"/viewAddress/"+uid);
     }
+
+    confirmation(oid,code){
+        
+        return axios.get(this.uri+"/confirmOrder/"+oid+"?code="+code);
+    }
+
+    
 }
