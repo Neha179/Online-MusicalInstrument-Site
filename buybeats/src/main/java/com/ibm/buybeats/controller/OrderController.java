@@ -58,19 +58,18 @@ public class OrderController {
 	}
 	
 	@GetMapping(value = "/placeOrder/{aid}", produces = "application/json")
-	public ResponseEntity<?> placeOrder(@PathVariable int aid,HttpSession session){
-		User user = (User) session.getAttribute("USER");
-		if(user!=null) {
-			try {
-				orderService.placeOrder(user.getUid(), aid);				
-				return new ResponseEntity<String>("Order is placed, verfication code sent.", HttpStatus.OK);
+	public ResponseEntity<?> placeOrder(@PathVariable int aid,@RequestParam int uid){
+		
+		
+			try {  
+				Order order=orderService.placeOrder(uid, aid);				
+				return new ResponseEntity<Order>(order, HttpStatus.OK);
 			} catch (StockNotAvaialble e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return new ResponseEntity<String>("Stock not available for some requested products", HttpStatus.OK);
 			}
-		}
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+		
 		
 	}
 	
@@ -109,12 +108,11 @@ public class OrderController {
 		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
 	}
 	
-	@PostMapping(value="/confirmOrder/{oid}",produces="application/json")
-	public ResponseEntity<?> confirmOrder(@PathVariable int oid,@RequestParam int code,HttpSession session){
-		User user = (User) session.getAttribute("USER");
-		if(user!=null)
+	@GetMapping(value="/confirmOrder/{oid}",produces="application/json")
+	public ResponseEntity<?> confirmOrder(@PathVariable int oid,@RequestParam int code){
+		
 			return new ResponseEntity<String>(orderService.confirmOrder(oid, code), HttpStatus.OK);
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+		
 	}
 	
 	
