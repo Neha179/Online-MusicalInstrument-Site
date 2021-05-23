@@ -1,26 +1,6 @@
-.newaddress{
-    background-image: url('../Images/payment-bg.jpg');
-    background-size: 100% 100%;
-    opacity: 0.8;
-    /* Set rules to fill background */
-      min-height: 100%;
-      min-width: 1024px;
-  
-      /* Set up proportionate scaling */
-      width: 100%;
-      height: auto;
-  
-      /* Set up positioning */
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-  
-    @media screen and (max-width: 1024px) { /* Specific to this particular image */
-      img.bg {
-      left: 50%;
-       margin-left: -512px;   /* 50% */
-      }
+
+  .form{
+    display: inline;
   }
     .bigblue {
     color: black;
@@ -36,7 +16,14 @@
     border: solid #8f9add 10px;
     padding: 5px;
 } */
-
+.select {
+  width: 80%;
+  padding: 18px 22px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;  
+}
 .control-label{
     color: black;
     font-family: crimson sans-serif;
@@ -49,13 +36,17 @@
 }
 .box{
   background-color: rgb(250, 242, 242);
+  
   width: 600px;
   height: 700px;
   border: 15px solid rgb(55, 109, 106);
   padding: 50px;
   align-items: center;
+  resize: horizontal;
   align-self: center;
   margin: 22px;
+  margin-top: 50px;
+  
 }
 .labels
 {
@@ -66,4 +57,30 @@ color: black;
 .payment-logo{
     margin-left: 150px;
     height: 50px;
+}
+
+.table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 3px;
+  border-color: rgb(72, 71, 153);
+}
+
+.thh,.tdd{
+  text-align: left;
+  padding: 16px;
+
+}
+
+.trr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
