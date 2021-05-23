@@ -1,6 +1,7 @@
 package com.ibm.buybeats.service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -100,7 +101,9 @@ public class OrderServiceImpl implements OrderService {
 		if (orders.size() == 0)
 			throw new NoOrderFoundException("No orders found..!");
 		else
+		{    Collections.sort(orders, Collections.reverseOrder());
 			return orders;
+		}
 	}
 
 	@Override
