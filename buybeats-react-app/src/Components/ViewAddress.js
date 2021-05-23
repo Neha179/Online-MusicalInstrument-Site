@@ -5,6 +5,7 @@ import AddressDetails from './AddressDetails.js'
 import Button  from './Button';
 import NewAddress from './NewAddress.js';
 import UserService from '../Services/UserService.js';
+import '../CSS/ViewAddress.css'
 
 export default class ViewAddress extends Component {
     constructor(props) {
@@ -79,16 +80,20 @@ export default class ViewAddress extends Component {
         // );
         
         return(
-            <div class="jumbotron">
+            <div>
                 <Navbar/>
+                <div id="grad1" className="colorcorrector">
+                
                 {
                     this.state.stat && 
-                    <div>
-                    <h1>List of Address</h1>
-                    <ul class="list-group">
+                    <div >
+                        <div className="listShow">
+                            <h1 className="labels-listaddress">List of Address</h1>
+                        </div>
+                    <ul>
                     {this.state.addresses.map((x) => 
-                    <li style={{"display" : "list-item"}} key={x.aid} onClick={() => this.onSelect(x)} 
-                        class="list-group-item">House Number : {x.houseNumber}</li>)}
+                    <li key={x.aid} onClick={() => this.onSelect(x)} 
+                         ><button className="button-address">House Number : {x.houseNumber}</button></li>)}
                     </ul>
                     </div>
                 }
@@ -96,8 +101,10 @@ export default class ViewAddress extends Component {
                     !this.state.stat &&
                     <h2>No address found ! Add one to proceed</h2>
                 }
-                <br />
-                <Button  onClick={() => this.onNewAddress() } >Add New Address</Button>
+                <br /><br />
+                <div className="addnewbutton">
+                <Button buttonStyle={"btn--danger-solid"} buttonSize={"btn--large"} onClick={() => this.onNewAddress()  } >Add New Address</Button>
+                </div>
                 <br />
                 <br />
                 {   
@@ -108,7 +115,7 @@ export default class ViewAddress extends Component {
                     this.state.newAddress && 
                     <NewAddress onSubmit={this.onCreateAddress} onCancel={this.onCancel} />
                 }
-            </div>
+            </div></div>
         )
     }
 }

@@ -1,0 +1,70 @@
+
+.button-address{
+    border: none;
+      color: white;
+      padding: 10px 15px; 
+      margin-bottom: -15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      margin-top: 30px;
+      margin-left: 50px;
+      background-color: #aa1f6b;
+      cursor: pointer;
+      border-radius: 20px;
+      font-family: Crimson sans-serif;
+      font-weight: bolder;
+      width: 300px;
+  }
+  
+  .details-address{
+    display: inline;
+    text-decoration: none;
+  }
+  
+  .labels-listaddress{
+    margin-left: 60px;
+    margin-top: 20px;
+    font-family:  Crimson sans-serif;
+    font-weight: bolder;
+  }
+  .add-address-button
+  {
+    margin-left: 530px;
+  }
+  
+  #grad1{
+    
+    height: 1000px;
+    background-image: linear-gradient( #a1c4fd ,#c2e9fb);
+      }
+  
+      .colorcorrector{
+        top:90px;
+        margin:0px;
+        padding: 0px;
+        background-size: cover;
+  opacity: 1;
+  /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    
+    top: 90;
+    left: 0;
+      }
+
+
+      .listShow{
+        background-color: gold;
+        width: 22rem;
+        
+      }
+    
+  

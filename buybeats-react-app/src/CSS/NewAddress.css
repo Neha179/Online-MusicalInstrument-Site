@@ -1,61 +1,47 @@
-.newaddress{
-    background-image: url('../Images/payment-bg.jpg');
-    background-size: 100% 100%;
-    opacity: 0.8;
-    /* Set rules to fill background */
-      min-height: 100%;
-      min-width: 1024px;
-  
-      /* Set up proportionate scaling */
-      width: 100%;
-      height: auto;
-  
-      /* Set up positioning */
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-  
-    @media screen and (max-width: 1024px) { /* Specific to this particular image */
-      img.bg {
-      left: 50%;
-       margin-left: -512px;   /* 50% */
-      }
+
+  .form{
+    display: inline;
   }
-    .bigblue {
+    .bigblue-addForm {
     color: black;
     padding: 40px;
     font-family: crimson sans-serif;
     text-align: center;
     font-weight: bolder;
   }
-/* .box{
-    box-sizing: border-box;
-    width: 200%;
-    
-    border: solid #8f9add 10px;
-    padding: 5px;
-} */
 
-.control-label{
+.select {
+  width: 80%;
+  padding: 18px 22px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;  
+}
+.label-addressForm{
     color: black;
     font-family: crimson sans-serif;
     font-size: 22px;
 }
-.inputs
+.inputs-addressForm
 {
     height: 30px;
     width: 230px;
 }
 .box{
-  background-color: rgb(250, 242, 242);
+  background-color: rgb(235, 231, 231);
+  margin-left: 500px;
   width: 600px;
-  height: 700px;
-  border: 15px solid rgb(55, 109, 106);
+  height: 800px;
+  border: 15px solid rgb(54, 13, 92);
   padding: 50px;
   align-items: center;
+  resize: horizontal;
   align-self: center;
   margin: 22px;
+  margin-top: 50px;
+  
+  
 }
 .labels
 {
@@ -67,3 +53,16 @@ color: black;
     margin-left: 150px;
     height: 50px;
 }
+
+.table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 3px;
+  border-color: rgb(52, 52, 100);
+}
+
+
+.addnewbutton{
+  margin-left: 60px;
+}
+
