@@ -15,6 +15,9 @@ import ViewAddress from './ViewAddress.js';
 import ProductList from './Product_list';
 import ProductDetails from './ProductDetails';
 import CartProductDetails from './CartProductDetails'
+import Payment from './Payment';
+import AddressDetails from './AddressDetails';
+import NewAddress from './NewAddress'
 
 
 export default class Routing extends React.Component {
@@ -55,11 +58,16 @@ export default class Routing extends React.Component {
         <ViewUserProfile />
       </Route>
       <Route path="/viewAddress"><ViewAddress /></Route>
+      <Route path="/AddressDetails"><AddressDetails /></Route>
+      <Route path="/newAddress"><NewAddress /></Route>
       <Route exact path="/register">
         <UserRegistration />
       </Route>
       <Route exact path="/thank">
         <Thank />
+      </Route>
+      <Route exact path="/payment">
+        <Payment />
       </Route>
       </Switch>
 
