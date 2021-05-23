@@ -33,27 +33,27 @@ function UserLogin(props) {
     });
   }
   return (
-    <div className='bgimage'>
-    <span className='centre'>
-    <table className="tableitems">
-      <tr><th colspan="2" className="centreit">Welcome to Buybeats</th></tr><br/>
-      <tr><th colspan="2" className="centreit">Login</th></tr><br /><br />
+    <div className='bgimage-userLog'>
+    <span className='centre-userLog'>
+    <table className="tableitems-userLog">
+      <tr><th colspan="2" className="centreit-userLog">Welcome to Buybeats</th></tr><br/>
+      <tr><th colspan="2" className="centreit-userLogin">Login</th></tr><br /><br />
       <tr>
-        <td className='labels'>Email:</td>
-        <td><input className='inputs' type="text" {...email} autoComplete="new-password" /></td>
+        <td className='labels-userLog'>Email:</td>
+        <td><input className='inputs-userLog' type="text" {...email} autoComplete="new-password" /></td>
       </tr>
       <tr>
-        <td className='labels'>Password:</td>
-        <td><input type="password" {...password} autoComplete="new-password" /></td>
+        <td className='labels-userLog'>Password:</td>
+        <td><input  className="inputs-userLog" type="password" {...password} autoComplete="new-password" /></td>
       </tr>
       <tr>
-    <td colspan='2' className="centreit">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}</td>
+    <td colspan='2' className="centreit-userLog">{error && <><small style={{ color: 'white' }}>{error}</small><br /></>}</td>
     </tr><br/>
     <tr>
       <td colspan="2" className="centreit"><Button  onClick={Login}
       buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}>Login</Button></td>
     </tr><br />
-    <tr><td className="centreit" colspan="2">Don't have an account?<Link to="/register">SignUp</Link></td></tr>
+    <tr><td className="centreit-userLog" colspan="2">Don't have an account?<Link to="/register">SignUp</Link></td></tr>
     </table>
   </span>
     </div>

@@ -1,4 +1,4 @@
-.button
+.button-admin
 {
     border: none;
     color: white;
@@ -23,7 +23,7 @@
 }
   
 .namesearch{
-    display: inline;
+     display: inline; 
     text-decoration: none;
 }
 .navbar-admin
