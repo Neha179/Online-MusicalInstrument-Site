@@ -18,7 +18,7 @@ export default class CartList extends React.Component {
 
 
     componentDidMount()
-    {     
+    {
 
             ProductSearchService.viewCart()
         .then((res) => {
@@ -36,26 +36,27 @@ export default class CartList extends React.Component {
             this.setState({ cart:[] });
           }
 
-          
 
-          
+
+
         })
-            
+
 
     }
+    
 
     render() {
-        
+
       return (
 
         <>
         {(this.state.stat=="notFound")&&<center><img  src="./images/NoProductFound.png" style={{width:"60%",marginTop:"60px"}} alt="NoImage"></img></center>}
 
     <div className="cards">
-         
+
           { this.state.cart.map(prod => (
                 <div>
-                
+
               <ViewCart
                 entryID={prod.entryID}
                 title={prod.product.category}
@@ -76,7 +77,7 @@ export default class CartList extends React.Component {
 
           ))}
           </div>
-    
+
         </>
       )
     }

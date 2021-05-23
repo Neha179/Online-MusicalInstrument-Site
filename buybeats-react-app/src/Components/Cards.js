@@ -16,9 +16,9 @@ class Card extends React.Component{
     }
   }
 
- 
 
- 
+
+
 
 
 onSelect=()=>{
@@ -33,17 +33,19 @@ localStorage.setItem("bodyMaterial", this.props.bodyMaterial);
 localStorage.setItem("stringMaterial", this.props.pname);
 localStorage.setItem("stock", this.props.stock);
 this.props.history.push("/ProductDetails");
-this.setState({showDetails:true})
-console.log(this.state.selectedPid);
+//this.setState({showDetails:true})
+console.log(this.props.pname)
+console.log(localStorage.getItem("pname"))
+//console.log(this.state.selectedPid);
 }
 
- 
+
 
 
 render(){
   return(
     <>
-{  !this.state.showDetails &&
+
     <article className="card">
         <picture className="thumbnail">
               <img className="category__01 imgs" src={`./images/${this.props.pname}${this.props.pid}.jpg`} alt="noimg"  />
@@ -58,25 +60,9 @@ render(){
               onClick={() => this.onSelect(this.props)}> See Details </Button>
 
           </article>
-  }
 
-{
-                this.state.showDetails &&  <ProductDetails
-                  title={this.props.title}
-                  pname={this.props.pname} //productName is the coming from backend entity
-                  price={this.props.price}
-                  pid={this.props.pid} ///we can have pid from here
-                  stock={this.props.stock}
-                  brand={this.props.brand}
-                  bodyMaterial={this.props.bodyMaterial}
-                  stringMaterial={this.props.stringMaterial}
-                  colour={this.props.colour}
-                  size={this.props.size}
 
-                />
-}
 
- 
 
 </>
 );
@@ -84,7 +70,7 @@ render(){
 
 }
 
- 
+
 
   }
 

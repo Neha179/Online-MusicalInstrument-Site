@@ -8,7 +8,12 @@ import {useHistory} from "react-router-dom";
 import UserLogin from './UserLogin';
 import CartList from './CartList';
 import CartProductDetails from './CartProductDetails'
+
+import AllProducts from './AllProducts'
+import ProductDetails from './ProductDetails'
+
 import confirmOrder from './ConfirmOrder';
+
 
 export default class Navbar extends Component {
     // constructor(props){
@@ -74,7 +79,7 @@ export default class Navbar extends Component {
                 </nav>
 
                     <Switch>
-                        <Route exact path="/"><Home/></Route>
+                        <Route exact path="/"><AllProducts/></Route>
                         <Route path="/profile"><ViewUserProfile/></Route>
                         <Route path="/userprofile"><ViewUserProfile/></Route>
                         <Route path="/order"><Order/></Route>
@@ -82,7 +87,10 @@ export default class Navbar extends Component {
                         <Route path="/login"><UserLogin /></Route>
                         <Route path="/updateprofile"><UpdateProfile/></Route>
                         <Route path="/cartdetails"><CartProductDetails/></Route>
-                        
+
+                        <Route path="/ProductDetails"><ProductDetails/></Route>
+
+
                     </Switch>
                 </Router>
 

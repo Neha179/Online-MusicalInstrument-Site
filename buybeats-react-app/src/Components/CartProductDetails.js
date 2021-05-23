@@ -1,7 +1,33 @@
 import React from 'react'
+import Button from './Button'
+import service from '../Services/ProductSearchService'
+import { withRouter, Redirect } from 'react-router-dom';
 
 
-export default class CartProductDetails extends React.Component{
+class CartProductDetails extends React.Component{
+
+  onRemove = () =>{
+    console.log("entered remove function")
+    console.log(localStorage.getItem("entryid"))
+    service.removeFromCart(localStorage.getItem("entryid"))
+    .then((response)=>{
+        console.log("response here")
+        console.log(response)
+        setTimeout(() => this.props.history.push('/cart', 10000));
+    }).catch(error=>{
+      console.log(error)
+      console.log("error came")
+      //console.log(error.response.status)
+    })
+    //setTimeout(() => this.props.history.push('/cart', 10000));
+
+    console.log("service callled")
+
+    //window.location.reload(false);
+    //this.props.history.push("/cart");
+  }
+
+
   render(){
 
     console.log("I reached cart product details page");
@@ -48,6 +74,9 @@ export default class CartProductDetails extends React.Component{
                 <td className="data">{localStorage.getItem("quantity")}</td>
               </tr>
             </table>
+            <Button   buttonStyle={"btn--danger--solid"} key={this.props.pid}
+                  onClick={() => this.onRemove(this.props)}> Remove </Button>
+
           </span>
         </div>
 
@@ -56,3 +85,5 @@ export default class CartProductDetails extends React.Component{
     );
   }
 }
+
+export default  withRouter (CartProductDetails);

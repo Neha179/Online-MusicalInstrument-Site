@@ -1,46 +1,43 @@
 import React from 'react';
 import Card from './Cards.js';
 import '../CSS/Card.css'
-import ProductSearchService from '../Services/ProductSearchService'
+import Service from '../Services/AdminService'
 import '../CSS/Searchbar.css';
 import Searchbar from './Searchbar.js';
-export default class Product_list extends React.Component {
+import ProductList from './Product_list'
+export default class AllProduct extends React.Component {
   constructor(props){
     super(props)
     this.state ={
       prod_list : [],
       query:'',
-      selected:false,
-   status:''
+      searched:false,
+     status:''
     }
 
-    localStorage.setItem("selected",this.state.selected);
 
     }
 
-    searchProduct=(e)=>
-    {    e.preventDefault ();
+
+    componentDidMount()
+    {    //e.preventDefault ();
         console.log(this.state.prod_list);
-        let k=e.target.elements.keyword.value;
+        //let k=e.target.elements.keyword.value;
 
-            ProductSearchService.getProducts(k)
+            Service.getProducts()
         .then(res => {
           console.log("HELLO"+res.data);
+          console.log(res.data);
           console.log(res.data[0]);
-          if(res.data!="Product not found") //coming from backend
-          {
            this.setState({ prod_list:res.data });
            console.log(this.state.prod_list);
-           this.setState({status:"found"});
+           //this.setState({status:"found"});
+          //  this.setState({status:"notFound"});
+            //this.setState({ prod_list:[] });
           }
+        )
 
-          else{
-            this.setState({status:"notFound"});
-            this.setState({ prod_list:[] });
-          }
-        })
-this.setState({"selected":true})
-localStorage.setItem("selected",this.state.selected);
+
     }
 
     render() {
@@ -48,21 +45,15 @@ localStorage.setItem("selected",this.state.selected);
       return (
 
         <>
+          {<ProductList/>}
 
 
 
 
-           <Searchbar onSearch={this.searchProduct}/>
-
-
-
-
-{(this.state.status=="notFound")&&<center><img  src="./images/NoProductFound.png"
-  style={{width:"60%",marginTop:"60px"}}></img></center>}
-
-
-
-         <div className="cards">
+{
+  <div>
+      <div><h3> Our Best Products</h3></div>
+        <div className="cards">
           { this.state.prod_list.map(prod => (
 
 
@@ -77,13 +68,14 @@ localStorage.setItem("selected",this.state.selected);
                 stringMaterial={prod.stringMaterial}
                 colour={prod.colour}
                 size={prod.size}
-
-
               />
 
           ))}
           </div>
+        </div>
+        }
         </>
+
       )
     }
   }
