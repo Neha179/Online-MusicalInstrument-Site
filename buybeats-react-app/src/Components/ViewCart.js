@@ -5,6 +5,7 @@ import Button from './Button'
 //import AdminService from '../Services/AdminService'
 import ProductDetails from './ProductDetails'
 import { withRouter, Redirect } from 'react-router-dom';
+import service from '../Services/ProductSearchService'
 
 class ViewCart extends React.Component{
 
@@ -21,9 +22,10 @@ class ViewCart extends React.Component{
 
 
 
+
 onSelect=()=>{
   console.log("button selected")
-  localStorage.setItem("entryid",this.props.entryId);
+  localStorage.setItem("entryid",this.props.entryID);
   localStorage.setItem("quantity",this.props.quantity)
   localStorage.setItem("cpid",this.props.pid);
   localStorage.setItem("cpname", this.props.pname);
@@ -37,9 +39,31 @@ onSelect=()=>{
   localStorage.setItem("cstock", this.props.stock);
   console.log(localStorage.getItem("cprice"));
   console.log(localStorage.getItem("quantity"));
+  console.log(localStorage.getItem("entryid"));
   this.props.history.push("/cartdetails");
 //this.setState({showDetails:true})
 //console.log(this.state.selectedPid);
+}
+
+
+onRemove = () =>{
+  console.log("entered remove function")
+  console.log(this.props.entryID)
+  service.removeFromCart(this.props.entryID)
+  .then((response)=>{
+      console.log("response here")
+      console.log(response)
+      this.props.history.push("/cart");
+  }).catch(error=>{
+    console.log(error)
+    console.log("error came")
+    //console.log(error.response.status)
+  })
+
+  console.log("service callled")
+
+  //window.location.reload(false);
+  //this.props.history.push("/");
 }
 
 
@@ -59,10 +83,9 @@ render(){
           <h2>{this.props.pname}</h2>
 
       </div>
-          <Button type="button" buttonStyle={"btn--danger--solid"}  key={this.props.pid}
-              onClick={() => this.onSelect(this.props)}> Remove </Button>
-            <Button type="button"   key={this.props.pid}
-                  onClick={() => this.onSelect(this.props)}> See Details </Button>
+            <br/>
+              <Button    key={this.props.pid}
+                  onClick={() => this.onSelect(this.props)}> Details </Button>
           </article>
 
 

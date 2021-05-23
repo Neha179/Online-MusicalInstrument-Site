@@ -1,9 +1,9 @@
-.bgimage{
-  background-image: url('../Images/ur.jpg');
+ .bgimage-userRegd{
+  background-image: url('../Images/user4.jpg');
   background-size: cover;
   opacity: 1;
   /* Set rules to fill background */
-    min-height: 100%;
+     min-height: 100%;
     min-width: 1024px;
 
     /* Set up proportionate scaling */
@@ -13,47 +13,57 @@
     /* Set up positioning */
     position: fixed;
     top: 0;
-    left: 0;
-  }
+    left: 0; 
+ }
 
-  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+  /* @media screen and (max-width: 1024px) { /* Specific to this particular image */
     img.bg {
     left: 50%;
      margin-left: -512px;   /* 50% */
     }
-}
-.centre{
+/* .bgimage-userRegd
+{
+  background-image: url('../Images/user1.jpg');
+  background-size: cover;
+} */
+.centre-userForm{
   align-items: center !important;
   position: fixed;
   left: 50% !important;
   top: 5% !important;
   transform: translate(-50%, 0);
-  border:1px solid white;
+  border:1px solid black;
   padding: 3rem;
 }
 
-.tableitems{
+.tableitems-userRegd{
   align-items: right;
   color:black;
-  border: 3 px solid white !important;
+  border: 3 px solid wheat !important;
   font-family: crimson sans-serif;
 }
 
-.labels{
+.labels-userForm{
   padding-right: 2px!important;
   text-align: left;
+  padding-bottom: 8px;
+  color: maroon;
 }
 
-.inputs{
+.inputs-userForm{
   margin-bottom: 0.3rem;
   padding-left: 0px;
+  padding-bottom: 8px;
+  width: 190px;
 }
 
 input:focus{
   background-color:#BDB76B;
 }
 
-.centreit{
+.centreit-userForm{
   align-items: center !important;
   text-align: center !important;
+  color: #082708;
+  font-weight: bolder;
 }

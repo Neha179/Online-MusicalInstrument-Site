@@ -5,6 +5,8 @@ import Button from './Button'
 
 
 
+
+
 export default class NewAddress extends Component {
     constructor(props) {
         super(props);
@@ -56,39 +58,40 @@ export default class NewAddress extends Component {
                 <center><div className="box">
                 <h1 className="bigblue">New Address</h1>
             <form  onSubmit={() => this.onSave()}>
-            <table className="jumbotron">
-                <tr><td className="control-label">House Number</td>
-                    <td><input className="inputs" name="houseNumber"  value={this.state.houseNumber} pattern="[A-Z][a-zA-Z\s]*([\d]*)\/?([\d]*)?" required onChange={this.handleInput} /></td></tr>
+            <table>
+                <tr><td className="label-addressForm">House Number</td>
+                    <td><input className="inputs-addressForm" name="houseNumber"  value={this.state.houseNumber} pattern="[A-Z][a-zA-Z\s]*([\d]*)\/?([\d]*)?" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td className="control-label">Street</td>
-                    <td><input className="inputs"  name="street"  value={this.state.street} pattern="[A-Z][a-zA-Z\s]*([\d]*)\/?([\d]*)?" required onChange={this.handleInput} /></td></tr>
+                <tr><td className="label-addressForm">Street</td>
+                    <td><input className="inputs-addressForm"  name="street"  value={this.state.street} pattern="[A-Z][a-zA-Z\s]*([\d]*)\/?([\d]*)?" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td className="control-label">City</td>
-                    <td><input className="inputs" name="city"  value={this.state.city} pattern="[A-Z][a-z]{3,}" required onChange={this.handleInput} /></td></tr>
+                <tr><td className="label-addressForm">City</td>
+                    <td><input className="inputs-addressForm" name="city"  value={this.state.city} pattern="[A-Z][a-z]{3,}" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td className="control-label">State</td>
-                    <td><input className="inputs" name="state"  value={this.state.state} pattern="[A-Z][a-z]{4,}" required onChange={this.handleInput} /></td></tr>
+                <tr><td className="label-addressForm">State</td>
+                    <td><input className="inputs-addressForm" name="state"  value={this.state.state} pattern="[A-Z][a-z]{4,}" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td className="control-label">PIN</td>
-                    <td><input className="inputs" name="pinCode"  value={this.state.pinCode} pattern="[0-9]{6}" required onChange={this.handleInput} /></td></tr>
+                <tr><td className="label-addressForm">PIN</td>
+                    <td><input className="inputs-addressForm" name="pinCode"  value={this.state.pinCode} pattern="[0-9]{6}" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td className="control-label">Address Type</td>
+                <tr><td className="label-addressForm">Address Type</td>
                 
                 {/* <select className="control-label" value={this.state.addressType} required onChange={this.handleInput}>
                     <option>Home</option>
                     <option>Work</option>
                 </select> */}
-                <select className="inputs" value={this.state.addressType} onChange={this.handleChange}>
+                <select className="inputs-addressForm" value={this.state.addressType} onChange={this.handleChange}>
                     {this.state.options.map((option) => (
                         <option value={option.value}>{option.label}</option>
                       ))}
                 </select>
                     <td></td></tr>
                 <br />
-                <tr><td><Button buttonStyle={"btn--grey--solid"} 
-            buttonSize={"btn--medium"} type="submit">Save Address</Button></td>
-                    <td><Button buttonStyle={"btn--grey--solid"} 
-            buttonSize={"btn--medium"} onClick={() => this.onCancel()}>Cancel Address</Button></td></tr>
+               
+                <tr><td><Button buttonStyle={"btn--green--solid"} 
+            buttonSize={"btn--large"} type="submit">Save</Button></td>
+                    <td><Button buttonStyle={"btn--danger--solid"} 
+            buttonSize={"btn--large"} onClick={() => this.onCancel()}>Cancel</Button></td></tr>
             </table>
             </form></div></center>
             </div>

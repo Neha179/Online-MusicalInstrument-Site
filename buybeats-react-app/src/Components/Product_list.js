@@ -10,18 +10,18 @@ export default class Product_list extends React.Component {
     this.state ={
       prod_list : [],
       query:'',
-
+      selected:false,
    status:''
     }
 
+    localStorage.setItem("selected",this.state.selected);
 
     }
-
 
     searchProduct=(e)=>
     {    e.preventDefault ();
         console.log(this.state.prod_list);
-        let k=e.target.elements.keyword.value; 
+        let k=e.target.elements.keyword.value;
 
             ProductSearchService.getProducts(k)
         .then(res => {
@@ -39,8 +39,8 @@ export default class Product_list extends React.Component {
             this.setState({ prod_list:[] });
           }
         })
-
-
+this.setState({"selected":true})
+localStorage.setItem("selected",this.state.selected);
     }
 
     render() {
@@ -49,17 +49,18 @@ export default class Product_list extends React.Component {
 
         <>
 
- 
+
 
 
            <Searchbar onSearch={this.searchProduct}/>
 
- 
 
 
-{(this.state.status=="notFound")&&<center><img  src="./images/NoProductFound.png" style={{width:"60%",marginTop:"60px"}}></img></center>}
 
- 
+{(this.state.status=="notFound")&&<center><img  src="./images/NoProductFound.png"
+  style={{width:"60%",marginTop:"60px"}}></img></center>}
+
+
 
          <div className="cards">
           { this.state.prod_list.map(prod => (

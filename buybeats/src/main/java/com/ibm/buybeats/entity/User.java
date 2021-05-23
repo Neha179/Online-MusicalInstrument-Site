@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -65,7 +66,7 @@ public class User {
 
 	@JsonManagedReference(value = "user-cart")
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, orphanRemoval = true)
-	private Set<Cart> cart = new HashSet<Cart>();
+	private Set<Cart> cart = new TreeSet<Cart>();
 
 	@JsonManagedReference(value = "user-wish")
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, orphanRemoval = true)

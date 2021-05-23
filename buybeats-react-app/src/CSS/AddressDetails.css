@@ -1,0 +1,23 @@
+.shadow-address {
+    border-collapse: collapse;
+    font-family: crimson sans-serif;
+    min-width: 400px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 0 0 20px #051364e7;
+  }
+  .address-box
+  {     
+     margin-left: 400px;
+  }
+  .address-column
+  {
+     font-family: crimson sans-serif;
+     font-size: 20px;
+
+  }
+  .button-proceed
+  {
+      margin-left: 150px;
+  }
+  
