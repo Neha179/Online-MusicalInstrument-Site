@@ -1,0 +1,86 @@
+
+  .form{
+    display: inline;
+  }
+    .bigblue {
+    color: black;
+    padding: 40px;
+    font-family: crimson sans-serif;
+    text-align: center;
+    font-weight: bolder;
+  }
+/* .box{
+    box-sizing: border-box;
+    width: 200%;
+    
+    border: solid #8f9add 10px;
+    padding: 5px;
+} */
+.select {
+  width: 80%;
+  padding: 18px 22px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;  
+}
+.control-label{
+    color: black;
+    font-family: crimson sans-serif;
+    font-size: 22px;
+}
+.inputs
+{
+    height: 30px;
+    width: 230px;
+}
+.box{
+  background-color: rgb(250, 242, 242);
+  
+  width: 600px;
+  height: 700px;
+  border: 15px solid rgb(55, 109, 106);
+  padding: 50px;
+  align-items: center;
+  resize: horizontal;
+  align-self: center;
+  margin: 22px;
+  margin-top: 50px;
+  
+}
+.labels
+{
+    font-family: crimson sans-serif;
+color: black;
+}
+
+.payment-logo{
+    margin-left: 150px;
+    height: 50px;
+}
+
+.table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 3px;
+  border-color: rgb(72, 71, 153);
+}
+
+.thh,.tdd{
+  text-align: left;
+  padding: 16px;
+
+}
+
+.trr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
