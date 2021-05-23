@@ -31,7 +31,7 @@ import OrderService from "../Services/OrderService";
         
         console.log(localStorage.getItem("vcode"));
         this.setState({success:"verify"});
-     this.service.confirmation(18,localStorage.getItem("vcode")).then(res=>{
+     this.service.confirmation(localStorage.getItem("oid"),localStorage.getItem("vcode")).then(res=>{
                 console.log(res.data);
                 if(res.data=="Order successfull")
                 {
@@ -50,6 +50,8 @@ import OrderService from "../Services/OrderService";
                 <br/><br/><br/><br/><br/><br/>
             <center><form onSubmit={this.confirm}>
                 <table>
+                    <th><td>Total Amount: ₹</td><td>{localStorage.getItem("totalAmount")}</td></th>
+                    <tr><td>Verfication code sent to: {localStorage.getItem("user").uid}</td></tr>
                 <tr><td><label>Verfication code :     </label></td>
                 <td>
                     <input type="number" name="code" onChange={this.handleInput} required/><br/>

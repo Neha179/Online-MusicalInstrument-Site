@@ -81,30 +81,45 @@ function AddProduct() {
                 <table >
               <tr>
                 <td ><label className="labels-add">Name:</label></td>
-                <td><input className="input-add" id="productName" type="text" {...productName} 
-                required/></td>
+                <td>
+                
+                <select {...productName}>
+                    <option value="Guitar">Guitar</option>
+                    <option value="Sitar">Sitar</option>
+                    <option value="Ukulele">Ukulele</option>
+                    <option value="Violin">Violin</option>
+                  </select>
+                  </td>
               </tr>
               <tr>
                   <td><label className="labels-add" >Brand:</label></td>
-                <td><input  className="input-add" id="brand" type="text" {...brand}
+                <td><input  className="input-add" placeholder="Eg: Guild" id="brand" type="text" {...brand}
                 required /></td>
               </tr>
               <tr>
                   <td><label className="labels-add">Price:</label></td>
                 <td><input className="input-add"  id="price"  type="number" {...price} required/></td>
+                  
               </tr>
               <tr>
                   <td><label className="labels-add">Stock:</label></td>
-                <td><input className="input-add" id="stock" type="number" {...stock} required/></td>
+                <td><input className="input-add" placeholder="0" id="stock" type="number" {...stock} required/></td>
               </tr>
               <tr>
                   <td><label className="labels-add">Category:</label></td>
-                <td><input className="input-add" id="category"   type="text" {...category}
-                required/></td>
+                <td>
+                <select {...category}>
+                    <option value="Acoustic">Acoustic</option>
+                    <option value="Classical">Classical</option>
+                    <option value="Mini">Mini</option>
+                    <option value="Toy">Toy</option>
+                    <option value="Electrical">Electrical</option>
+                  </select>
+                </td>
               </tr>
               <tr>
                   <td><label className="labels-add" >Colour:</label></td>
-                <td><input className="input-add" id="color"  type="text" {...colour} required/></td>
+                <td><input className="input-add" placeholder="Eg: Black " id="color"  type="text" {...colour} required/></td>
               </tr>
               <tr>
                   <td><label className="labels-add">Size:</label></td>
@@ -112,12 +127,25 @@ function AddProduct() {
               </tr>
               <tr>
                   <td><label className="labels-add">Body Material:</label></td>
-                <td><input className="input-add" id="bodyMaterial" type="text" {...bodyMaterial}
-                required/></td>
+                <td>
+                <select {...bodyMaterial}>
+                    <option value="Wooden">Wooden</option>
+                    <option value="Plastic">Plastic</option>
+                    <option value="Metallic">Metallic</option>
+                
+                  </select>
+                </td>
               </tr>
               <tr>
                   <td><label className="labels-add" >String Material:</label></td>
-                <td><input className="input-add"  id="stringMaterial" type="text" {...stringMaterial} required/></td>
+                <td>
+                <select {...stringMaterial}>
+                    <option value="Thread">Thread</option>
+                    <option value="Nylon">Nylon</option>
+                    <option value="Plastic">Plastic</option>
+                
+                  </select>
+                </td>
               </tr><br />
               <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
               </td></tr>

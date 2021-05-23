@@ -9,6 +9,7 @@ import UserLogin from './UserLogin';
 import CartList from './CartList';
 import CartProductDetails from './CartProductDetails'
 import confirmOrder from './ConfirmOrder';
+import OrderHistory from './OrderHistory';
 
 export default class Navbar extends Component {
     // constructor(props){
@@ -77,7 +78,7 @@ export default class Navbar extends Component {
                         <Route exact path="/"><Home/></Route>
                         <Route path="/profile"><ViewUserProfile/></Route>
                         <Route path="/userprofile"><ViewUserProfile/></Route>
-                        <Route path="/order"><Order/></Route>
+                        <Route path="/order"><OrderHistory/></Route>
                         <Route path="/cart"><CartList/></Route>
                         <Route path="/login"><UserLogin /></Route>
                         <Route path="/updateprofile"><UpdateProfile/></Route>

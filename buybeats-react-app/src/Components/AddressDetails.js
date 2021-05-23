@@ -13,7 +13,7 @@ class AddressDetails extends Component {
     proceed = () => { 
         localStorage.setItem('aid',this.props.address.aid);
         console.log(localStorage.getItem('aid'));
-        this.props.history.push('/');
+        this.props.history.push('/payment');
     }
 
     render() {

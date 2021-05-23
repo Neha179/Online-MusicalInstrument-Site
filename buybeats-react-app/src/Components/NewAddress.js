@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../CSS/NewAddress.css'
 import OrderService from '../Services/OrderService.js';
 import Button from './Button'
-import Select from 'react-select';
+
 
 
 export default class NewAddress extends Component {
