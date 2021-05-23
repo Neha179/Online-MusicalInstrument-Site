@@ -27,7 +27,7 @@ public interface ShoppingService {
 
 	Cart addToCart(Cart cart, int pid, int uid);
 
-	boolean removeFromCart(User user, int pid);
+	boolean removeFromCart(int uid, int pid);
 
 	boolean removeFromWish(User user, int pid);
 
