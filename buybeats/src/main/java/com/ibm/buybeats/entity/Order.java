@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="order_table")
-public class Order {
+public class Order implements Comparable<Order> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int oid;
@@ -112,5 +112,9 @@ public class Order {
 	public void setOrderDetails(List<OrderDetails> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
-
+	@Override
+    public int compareTo(Order o) {
+		Integer oid=new Integer(this.getOid());
+        return oid.compareTo(o.getOid());
+    }
 }

@@ -42,19 +42,17 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
-	@GetMapping(value = "/viewOrders", produces = "application/json")
-	public ResponseEntity<?> showOrders(HttpSession session) {
-		User user = (User) session.getAttribute("USER");
-		if(user!=null) {
+	@GetMapping(value = "/viewOrders/{uid}", produces = "application/json")
+	public ResponseEntity<?> showOrders(@PathVariable int uid) {
+		
 			try {
-				return new ResponseEntity<List<Order>>(orderService.showOrders(user.getUid()),HttpStatus.OK);
+				return new ResponseEntity<List<Order>>(orderService.showOrders(uid),HttpStatus.OK);
 			} catch (NoOrderFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return new ResponseEntity<String>("No orders found", HttpStatus.BAD_REQUEST);
 			}
-		}
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+		
 	}
 	
 	@GetMapping(value = "/placeOrder/{aid}", produces = "application/json")
@@ -74,11 +72,11 @@ public class OrderController {
 	}
 	
 	@GetMapping(value = "/viewOrderDetails/{oid}", produces = "application/json")
-	public ResponseEntity<?> viewOrderDetails(@PathVariable int oid,HttpSession session){
-		User user = (User) session.getAttribute("USER");
-		if(user!=null)
+	public ResponseEntity<?> viewOrderDetails(@PathVariable int oid){
+		
+		
 			return new ResponseEntity<List<OrderDetails>>(orderService.viewOrderDetails(oid), HttpStatus.OK);
-		return new ResponseEntity<String>("User not logged in", HttpStatus.BAD_REQUEST);
+		
 	}
 	
 	@GetMapping(value = "/viewAddress/{uid}", produces = "application/json")

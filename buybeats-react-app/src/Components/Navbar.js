@@ -13,6 +13,7 @@ import AllProducts from './AllProducts'
 import ProductDetails from './ProductDetails'
 
 import confirmOrder from './ConfirmOrder';
+import OrderHistory from './OrderHistory';
 
 
 export default class Navbar extends Component {
@@ -82,7 +83,7 @@ export default class Navbar extends Component {
                         <Route exact path="/"><AllProducts/></Route>
                         <Route path="/profile"><ViewUserProfile/></Route>
                         <Route path="/userprofile"><ViewUserProfile/></Route>
-                        <Route path="/order"><Order/></Route>
+                        <Route path="/order"><OrderHistory/></Route>
                         <Route path="/cart"><CartList/></Route>
                         <Route path="/login"><UserLogin /></Route>
                         <Route path="/updateprofile"><UpdateProfile/></Route>
