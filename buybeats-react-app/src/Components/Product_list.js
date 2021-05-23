@@ -4,6 +4,7 @@ import '../CSS/Card.css'
 import ProductSearchService from '../Services/ProductSearchService'
 import '../CSS/Searchbar.css';
 import Searchbar from './Searchbar.js';
+import '../CSS/ProductList.css';
 export default class Product_list extends React.Component {
   constructor(props){
     super(props)
@@ -51,9 +52,9 @@ localStorage.setItem("selected",this.state.selected);
 
 
 
-
-           <Searchbar onSearch={this.searchProduct}/>
-
+          <div className="searchbarAlign">
+              <Searchbar onSearch={this.searchProduct}/>
+          </div>
 
 
 

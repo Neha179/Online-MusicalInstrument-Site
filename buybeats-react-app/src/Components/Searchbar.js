@@ -1,4 +1,5 @@
 import React from 'react';
+import '../CSS/Searchbar.css';
 
 function Searchbar(props){
     return(<React.StrictMode>
@@ -9,10 +10,10 @@ function Searchbar(props){
                 justifyContent: 'center',
             }}>
   <form onSubmit={props.onSearch}>
-   <div className="search-box" >
-      <input type="text" name="keyword" className="search-input" placeholder="Search.." required/>
+   <div className="searchbox" >
+      <input type="text" name="keyword" className="searchinput" placeholder="Search....." required/>
 
-      <button className="search-button" type="submit">
+      <button className="searchbutton" type="submit">
         <i className="fa fa-search"></i>
       </button>
    </div>
