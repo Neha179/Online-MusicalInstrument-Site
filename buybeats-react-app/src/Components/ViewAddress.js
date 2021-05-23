@@ -5,6 +5,7 @@ import AddressDetails from './AddressDetails.js'
 import Button  from './Button';
 import NewAddress from './NewAddress.js';
 import UserService from '../Services/UserService.js';
+import '../CSS/NewAddress.css'
 
 export default class ViewAddress extends Component {
     constructor(props) {
@@ -79,13 +80,13 @@ export default class ViewAddress extends Component {
         // );
         
         return(
-            <div class="jumbotron">
+            <div>
                 <Navbar/>
                 {
                     this.state.stat && 
                     <div>
-                    <h1>List of Address</h1>
-                    <ul class="list-group">
+                    <h1 className="labels">List of Address</h1>
+                    <ul className="select">
                     {this.state.addresses.map((x) => 
                     <li style={{"display" : "list-item"}} key={x.aid} onClick={() => this.onSelect(x)} 
                         class="list-group-item">House Number : {x.houseNumber}</li>)}

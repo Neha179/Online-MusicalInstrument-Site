@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
 import {withRouter} from 'react-router-dom';
+import '../CSS/NewAddress.css'
 
 class AddressDetails extends Component {
     constructor(props) {
@@ -17,7 +18,8 @@ class AddressDetails extends Component {
 
     render() {
         return (
-            <table>
+            <div>
+            <table className="styled-table">
                 <tr><td>House Number</td><td>{this.props.address.houseNumber}</td></tr>
                 <tr><td>Street</td><td>{this.props.address.street}</td></tr>
                 <tr><td>City</td><td>{this.props.address.city}</td></tr>
@@ -28,7 +30,7 @@ class AddressDetails extends Component {
                     <td><Button onClick={()=>this.proceed()}>Proceed</Button></td>
                     
                 </tr>
-            </table>
+            </table></div>
         )
     }
 }
