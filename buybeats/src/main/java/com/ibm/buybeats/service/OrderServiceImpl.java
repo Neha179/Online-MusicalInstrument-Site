@@ -144,13 +144,13 @@ public class OrderServiceImpl implements OrderService {
 			user.getCart().clear();
 			order.setPaymentStatus("Success");
 			emailService.sendConfirmationMail(user, oid);
-			return "Order successfull!";
+			return "Order successfull";
 		} else {
 			order.setPaymentStatus("Failed");
 			for (Cart c : user.getCart()) {
 				c.getProduct().setStock(c.getProduct().getStock()+c.getQuantity());
 			}			
-			return "Verification code mismatch, order failed!";
+			return "Order not successfull";
 		     }
 		
 		
