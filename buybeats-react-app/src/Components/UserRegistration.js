@@ -35,38 +35,39 @@ function UserRegistration(props) {
     });
   }
   return (
-    <div className="bgimage">
-    <form className="centre">
-      <table className="tableitems">
-        <tr><td colspan="2" className="centreit">Welcome to BuyBeats...!!!</td></tr><br />
+    <div className="bgimage-userRegd">
+    <form className="centre-userForm">
+      <table className="tableitems-userRegd">
+        <tr><td colspan="2" className="centreit-userForm">Welcome to BuyBeats...!!!</td></tr><br />
+      <br />
       <tr>
-        <td className='labels'><label>First Name:</label></td>
-        <td><input className="inputs" id="firstName" type="text" {...firstName}
-        autoComplete="new-password"/></td>
+        <td className='labels-userForm'><label>First Name:</label></td>
+        <td><input className="inputs-userForm" id="firstName" type="text" {...firstName}
+        autoComplete="new-password" pattern={"[A-Za-z]"} required/></td>
       </tr>
       <tr>
-          <td><label className='labels'>Last Name:</label></td>
-        <td><input  className="inputs" id="secondName" type="text" {...lastName}
-        autoComplete="new-password" /></td>
+          <td><label className='labels-userForm'>Last Name:</label></td>
+        <td><input  className="inputs-userForm" id="secondName" type="text" {...lastName}
+        autoComplete="new-password" pattern={"[A-Za-z]"}  required /></td>
       </tr>
       <tr>
-          <td><label className='labels'>Email:</label></td>
-        <td><input  id="email" className="inputs" type="email" {...email} autoComplete="new-password"/></td>
+          <td><label className='labels-userForm'>Email:</label></td>
+        <td><input  id="email" className="inputs-userForm" type="email" {...email} autoComplete="new-password" pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"} required/></td>
       </tr>
       <tr>
-          <td><label className='labels'>Phone Number</label></td>
+          <td><label className='labels-userForm'>Phone Number</label></td>
         <td><input id="phonenumber"
-        className="inputs" type="text" {...phoneNumber} autoComplete="new-password"/></td>
+        className="inputs-userForm" type="text" {...phoneNumber} autoComplete="new-password" pattern={"[789][0-9]{9}"} required/></td>
       </tr>
       <tr>
-          <td><label className='labels'>Password:</label></td>
-        <td><input id="password"  className="inputs" type="password" {...password} pattern=".{6,}"
-        autoComplete="new-password"/></td>
+          <td><label className='labels-userForm'>Password:</label></td>
+        <td><input id="password"  className="inputs-userForm" type="password" {...password} pattern={".{6,}"}
+        autoComplete="new-password" required/></td>
       </tr>
       <tr>
-          <td><label className='labels'>Confirm Password:</label></td>
+          <td><label className='labels-userForm'>Confirm Password:</label></td>
         <td><input  id="confirm"
-        className="inputs"  type="password" {...confirmPassword} pattern=".{6,}" autoComplete="new-password"/></td>
+        className="inputs-userForm"  type="password" {...confirmPassword} pattern={".{6,}"} autoComplete="new-password" required/></td>
       </tr>
       <tr><td colspan="2" className="centreit">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}
       </td></tr>
@@ -76,7 +77,7 @@ function UserRegistration(props) {
         Sign Up</Button>
     </td>
     </tr><br/>
-    <tr><td className="centreit" colspan="2">Already have account?<Link to="/login">Login here</Link></td></tr>
+    <tr><td className="centreit-userForm" colspan="2">Already have account?<Link to="/login">Login here</Link></td></tr>
     </table>
     </form>
     </div>

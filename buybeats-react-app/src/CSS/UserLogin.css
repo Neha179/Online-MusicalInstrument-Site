@@ -1,5 +1,5 @@
-.bgimage{
-  background-image: url('../Images/userlogin3.png');
+.bgimage-userLog{
+  background-image: url('../Images/user4.jpg');
   background-size: cover;
   opacity: 1;
   /* Set rules to fill background */
@@ -25,33 +25,43 @@
 
 }
 
-.tableitems{
+.tableitems-userLog{
   align-items: right;
   color: #fff;
   border: 3 px solid white !important;
   font-family: crimson sans-serif;
 }
 
-.centre{
+.centre-userLog{
   align-items: center;
   position: fixed;
    left: 50%;
    top: 15%;
    transform: translate(-50%, 0);
-    border:1px solid white;
+    border:1px solid black;
    padding: 3rem;
 }
 
-.labels{
+.labels-userLog{
     padding-right: 3px;
     text-align: left;
+    color: maroon;
 }
 
-.inputs{
+.inputs-userLog{
   margin-bottom: 0.3rem;
 }
 
-.centreit{
+.centreit-userLog{
   align-items: center !important;
   text-align: center !important;
+  color: #053005;
+  font-weight: bolder;
+}
+.centreit-userLogin
+{
+  align-items: center !important;
+  text-align: center !important;
+  color: #044404;
+  font-weight: bold;
 }

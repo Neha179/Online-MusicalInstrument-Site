@@ -51,10 +51,11 @@ export default class Routing extends React.Component {
       </Route>
       <Route exact path="/productDetails">
         <ProductDetails />
-      </Route>
+      </Route> 
       <Route  exact path="/cart" >
         <CartList/>
       </Route>
+
       <Route  exact path="/cartdetails" >
         <CartProductDetails/>
       </Route>

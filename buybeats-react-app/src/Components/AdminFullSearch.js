@@ -28,10 +28,10 @@ export default function AdminFullSearch(){
         <div className="background-admin">
         <Router className="route-content">
         <ul>
-            <li className="namesearch"><Link to="/ByName"><button className="button">Search By Name</button></Link></li>
-            <li className="namesearch"><Link to="/ByPid"><button className="button">Search and Update By Pid</button></Link></li>
-            <li className="namesearch"><Link to="/showProduct"><button className="button">Show All Products</button></Link></li>
-            <li className="namesearch"><Link to="/addProduct"><button className="button">Add New Product</button></Link></li>
+            <li className="namesearch"><Link to="/ByName"><button className="button-admin">Search By Name</button></Link></li>
+            <li className="namesearch"><Link to="/ByPid"><button className="button-admin">Search and Update By Pid</button></Link></li>
+            <li className="namesearch"><Link to="/showProduct"><button className="button-admin">Show All Products</button></Link></li>
+            <li className="namesearch"><Link to="/addProduct"><button className="button-admin">Add New Product</button></Link></li>
         </ul><br /><br /><br />
         <Switch>
                     <Route path="/ByName" className="search-routing"><AdminNameSearch/></Route>
