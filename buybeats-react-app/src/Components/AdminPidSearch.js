@@ -182,7 +182,7 @@ class AdminPidSearch extends Component {
       <td className='dataAdminId'>{this.state.colour}</td>
       <td className='dataAdminId'>{this.state.bodyMaterial}</td>
       <td className='dataAdminId'>{this.state.stringMaterial}</td>
-      {(this.state.status=="found")&&<td className="dataAdminId"><Button onClick={() => this.updateProduct()} >Update</Button></td>}
+      {(this.state.status=="found")&&<td className="dataAdminId"><Button onClick={() => this.updateProduct()} >Edit</Button></td>}
       </tr>
       
     
