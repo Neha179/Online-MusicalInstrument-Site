@@ -1,4 +1,4 @@
- .bgimage-userRegd{
+ .bgimageuserRegd{
   background-image: url('../Images/user4.jpg');
   background-size: cover;
   opacity: 1;
@@ -26,7 +26,7 @@
   background-image: url('../Images/user1.jpg');
   background-size: cover;
 } */
-.centre-userForm{
+.centreuserForm{
   align-items: center !important;
   position: fixed;
   left: 50% !important;
@@ -36,32 +36,34 @@
   padding: 3rem;
 }
 
-.tableitems-userRegd{
+.tableitemsuserRegd{
   align-items: right;
   color:black;
   border: 3 px solid wheat !important;
   font-family: crimson sans-serif;
 }
 
-.labels-userForm{
+.labelsuserForm{
   padding-right: 2px!important;
   text-align: left;
   padding-bottom: 8px;
   color: maroon;
 }
 
-.inputs-userForm{
+.inputsuserForm{
   margin-bottom: 0.3rem;
   padding-left: 0px;
-  padding-bottom: 8px;
+  margin-bottom: 8px;
   width: 190px;
+  text-align: start;
+  height: 28px;
 }
 
 input:focus{
   background-color:#BDB76B;
 }
 
-.centreit-userForm{
+.centreituserForm{
   align-items: center !important;
   text-align: center !important;
   color: #082708;

@@ -1,4 +1,4 @@
-.bgimage-userLog{
+.bgimageuserLog{
   background-image: url('../Images/user4.jpg');
   background-size: cover;
   opacity: 1;
@@ -25,14 +25,14 @@
 
 }
 
-.tableitems-userLog{
+.tableitemsuserLog{
   align-items: right;
   color: #fff;
   border: 3 px solid white !important;
   font-family: crimson sans-serif;
 }
 
-.centre-userLog{
+.centreuserLog{
   align-items: center;
   position: fixed;
    left: 50%;
@@ -42,23 +42,23 @@
    padding: 3rem;
 }
 
-.labels-userLog{
+.labelsuserLog{
     padding-right: 3px;
     text-align: left;
     color: maroon;
 }
 
-.inputs-userLog{
+.inputsuserLog{
   margin-bottom: 0.3rem;
 }
 
-.centreit-userLog{
+.centreituserLog{
   align-items: center !important;
   text-align: center !important;
   color: #053005;
   font-weight: bolder;
 }
-.centreit-userLogin
+.centreituserLogin
 {
   align-items: center !important;
   text-align: center !important;
