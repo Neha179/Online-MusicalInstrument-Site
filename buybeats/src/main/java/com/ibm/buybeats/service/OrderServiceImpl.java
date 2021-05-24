@@ -85,6 +85,7 @@ public class OrderServiceImpl implements OrderService {
 		order.setAddress(address);
 		order.setDateTime(LocalDateTime.now());
 		order.setTotalAmount(totalAmount);
+		order.setPaymentStatus("Failed");
 
 		user.setVerficationCode(emailService.sendVerificationCode(user));
 		
