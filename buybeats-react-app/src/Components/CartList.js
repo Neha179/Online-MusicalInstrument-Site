@@ -64,7 +64,7 @@ class CartList extends React.Component {
                 title={prod.product.category}
                 pname={prod.product.productName} //productName is the coming from backend entity
                 price={prod.product.price}
-                pid={prod.pid} ///we can have pid from here
+                pid={prod.product.pid} ///we can have pid from here
                 stock={prod.product.stock}
                 brand={prod.product.brand}
                 bodyMaterial={prod.product.bodyMaterial}
@@ -75,12 +75,20 @@ class CartList extends React.Component {
 
 
               />
+
+              
               </div>
-
-          ))}
+            
+          ))
+          
+          }
           </div>
-          <Button onClick={()=>{this.props.history.push("/viewAddress")}}>Place Order</Button>
-
+          <br/><br/>
+          <center>
+          {(this.state.stat=="found")&&
+            <Button onClick={()=>{this.props.history.push("/viewAddress")}}>Place Order</Button>
+          }
+        </center>
         </>
       )
     }

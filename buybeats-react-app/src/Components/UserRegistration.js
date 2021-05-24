@@ -17,7 +17,8 @@ function UserRegistration(props) {
 
  let history = useHistory();
 
-  const SignUp = () => {
+  const SignUp = (e) => {
+    e.preventDefault();
     setError(null);
     setLoading(true);
     axios.post('http://localhost:8870/users/register',
@@ -48,7 +49,7 @@ function UserRegistration(props) {
       <tr>
           <td><label className='labelsuserForm'>Last Name:</label></td>
         <td><input  className="inputsuserForm" id="secondName" type="text" {...lastName}
-        autoComplete="new-password" pattern="[A-Za-z]{4,}" required /></td>
+        autoComplete="new-password" pattern="[A-Za-z]{1,}" required /></td>
       </tr>
       <tr>
           <td><label className='labelsuserForm'>Email:</label></td>

@@ -12,10 +12,11 @@ import CartProductDetails from './CartProductDetails'
 import AllProducts from './AllProducts'
 import ProductDetails from './ProductDetails'
 
-import confirmOrder from './ConfirmOrder';
+import ConfirmOrder from './ConfirmOrder';
 import OrderHistory from './OrderHistory';
 import ViewAddress from './ViewAddress'
 import Payment from './Payment'
+import Thank from './Thank.js'
 
 
 
@@ -91,10 +92,11 @@ export default class Navbar extends Component {
                         <Route path="/login"><UserLogin /></Route>
                         <Route path="/updateprofile"><UpdateProfile/></Route>
                         <Route path="/cartdetails"><CartProductDetails/></Route>
-                          <Route path="/viewAddress"><ViewAddress/></Route>
+                        <Route path="/viewAddress"><ViewAddress/></Route>
                         <Route path="/ProductDetails"><ProductDetails/></Route>
                         <Route path="/payment"><Payment/></Route>
-                        <Route path="/confirmOrder"><confirmOrder/></Route>
+                        <Route path="/confirmOrder"><ConfirmOrder/></Route>
+                        <Route path="/thank"><Thank/></Route>
 
 
 

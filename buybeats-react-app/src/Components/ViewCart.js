@@ -37,7 +37,7 @@ onSelect=()=>{
   localStorage.setItem("cbodyMaterial", this.props.bodyMaterial);
   localStorage.setItem("cstringMaterial", this.props.pname);
   localStorage.setItem("cstock", this.props.stock);
-  console.log(localStorage.getItem("cprice"));
+  console.log(localStorage.getItem("cpid"));
   console.log(localStorage.getItem("quantity"));
   console.log(localStorage.getItem("entryid"));
   this.props.history.push("/cartdetails");

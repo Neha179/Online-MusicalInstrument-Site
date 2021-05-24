@@ -27,7 +27,7 @@ class Payment extends Component {
     }
 
     onCancel() {
-        this.props.history.push({pathname:"/thank"})
+        this.props.history.push({pathname:"/cart"})
         
     }
 

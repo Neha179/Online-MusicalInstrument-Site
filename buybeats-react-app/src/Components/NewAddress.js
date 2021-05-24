@@ -60,13 +60,13 @@ export default class NewAddress extends Component {
             <form  onSubmit={() => this.onSave()}>
             <table>
                 <tr><td className="label-addressForm">House Number</td>
-                    <td><input className="inputs-addressForm" name="houseNumber"  value={this.state.houseNumber} pattern="[A-Z][a-zA-Z\s]*([\d]*)\/?([\d]*)?" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputs-addressForm" name="houseNumber"  value={this.state.houseNumber} pattern="[a-zA-Z1-9]{1,}" required onChange={this.handleInput} /></td></tr>
                 <br />
                 <tr><td className="label-addressForm">Street</td>
                     <td><input className="inputs-addressForm"  name="street"  value={this.state.street} pattern="[A-Z][a-zA-Z\s]*([\d]*)\/?([\d]*)?" required onChange={this.handleInput} /></td></tr>
                 <br />
                 <tr><td className="label-addressForm">City</td>
-                    <td><input className="inputs-addressForm" name="city"  value={this.state.city} pattern="[A-Z][a-z]{3,}" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputs-addressForm" name="city"  value={this.state.city} pattern="[A-Z][a-z]{4,}" required onChange={this.handleInput} /></td></tr>
                 <br />
                 <tr><td className="label-addressForm">State</td>
                     <td><input className="inputs-addressForm" name="state"  value={this.state.state} pattern="[A-Z][a-z]{4,}" required onChange={this.handleInput} /></td></tr>
