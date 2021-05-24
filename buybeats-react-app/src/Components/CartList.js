@@ -3,7 +3,9 @@ import Card from './Cards.js';
 import '../CSS/Card.css'
 import ProductSearchService from '../Services/ProductSearchService'
 import ViewCart from './ViewCart.js';
-export default class CartList extends React.Component {
+import Button from './Button.js'
+import { withRouter } from 'react-router-dom'
+class CartList extends React.Component {
   constructor(props){
     super(props)
     this.state ={
@@ -43,7 +45,7 @@ export default class CartList extends React.Component {
 
 
     }
-    
+
 
     render() {
 
@@ -77,9 +79,12 @@ export default class CartList extends React.Component {
 
           ))}
           </div>
+          <Button onClick={()=>{this.props.history.push("/viewAddress")}}>Place Order</Button>
 
         </>
       )
     }
 
   }
+
+  export  default withRouter (CartList)

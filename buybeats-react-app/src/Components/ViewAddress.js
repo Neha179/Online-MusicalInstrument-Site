@@ -34,7 +34,7 @@ export default class ViewAddress extends Component {
             }
             else
                 this.setState({address:null})
-            
+
         });
     }
 
@@ -68,7 +68,7 @@ export default class ViewAddress extends Component {
             showDetails:false,
             selectedAddress:null,
             newAddress:null,
-            
+
         });
     }
 
@@ -76,23 +76,23 @@ export default class ViewAddress extends Component {
         // if(!this.state.addresses)
         //     return null;
 
-        // const addressList = 
+        // const addressList =
         // );
-        
+
         return(
             <div>
-                <Navbar/>
+              
                 <div id="grad1" className="colorcorrector">
-                
+
                 {
-                    this.state.stat && 
+                    this.state.stat &&
                     <div >
                         <div className="listShow">
                             <h1 className="labels-listaddress">List of Address</h1>
                         </div>
                     <ul>
-                    {this.state.addresses.map((x) => 
-                    <li key={x.aid} onClick={() => this.onSelect(x)} 
+                    {this.state.addresses.map((x) =>
+                    <li key={x.aid} onClick={() => this.onSelect(x)}
                          ><button className="button-address">House Number : {x.houseNumber}</button></li>)}
                     </ul>
                     </div>
@@ -107,12 +107,12 @@ export default class ViewAddress extends Component {
                 </div>
                 <br />
                 <br />
-                {   
+                {
                     this.state.showDetails && this.state.selectedAddress &&
                     < AddressDetails address={this.state.selectedAddress} />
                 }
-                {   
-                    this.state.newAddress && 
+                {
+                    this.state.newAddress &&
                     <NewAddress onSubmit={this.onCreateAddress} onCancel={this.onCancel} />
                 }
             </div></div>
