@@ -25,6 +25,22 @@ export default class ProductDetails extends React.Component{
 }
 
     addToCart = () =>{
+      if(localStorage.getItem("user")==null){
+        store.addNotification({
+          title: ' ',   //dont remove this as the library req it
+          message: 'Login to purchase', //the message to do be displayed on notification
+          type:'warning',  //color of the notification you can only have values like 'default', 'success', 'info', 'warning'
+          container: 'top-left',                // where to position the notifications
+          animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+          animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+    
+          dismiss: {
+            duration: 3000
+          }
+        })
+      }
+          
+      else {
       let quant=this.state.inputValue
       service.addToCart(localStorage.getItem("pid"),{"quantity":quant});
       //calling notifications
@@ -40,6 +56,7 @@ export default class ProductDetails extends React.Component{
         duration: 3000
       }
     })
+      }
     }
   render(){
     return(
