@@ -80,7 +80,7 @@ export default class ViewAddress extends Component {
         // );
 
         return(
-            <div>
+            <div className="viewAddressbg">
               
                 <div id="grad1" className="colorcorrector">
 

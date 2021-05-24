@@ -54,17 +54,17 @@ class Payment extends Component {
             <table className="jumbotron">
                 <br />
                 <tr><td className="control-label">Card Number</td>
-                    <td><input className="inputs" name="cardNumber" value={this.state.cardNumber} placeholder="Enter 16 Digit card number" pattern="[1-9][0-9]{15}" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputspay" name="cardNumber" value={this.state.cardNumber} placeholder="Enter 16 Digit card number" pattern="[1-9][0-9]{15}" required onChange={this.handleInput} /></td></tr>
                 <br/>
                 <tr><td className="control-label">CVV</td>
-                    <td><input className="inputs" type="password"name="cvv" value={this.state.cvv} placeholder="***" pattern="[0-9]{3}" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputspay" type="password"name="cvv" value={this.state.cvv} placeholder="***" pattern="[0-9]{3}" required onChange={this.handleInput} /></td></tr>
                 <br/>
                 <tr><td className="control-label">Expiry Date</td>
-                    <td><input className="inputs" name="expDate" value={this.state.expDate} placeholder="MM/YYYY" pattern= "(0[1-9]|10|11|12)/20[2-9][1-9]$" required onChange={this.handleInput} /></td></tr>
+                    <td><input className="inputspay" name="expDate" value={this.state.expDate} placeholder="MM/YYYY" pattern= "(0[1-9]|10|11|12)/20[2-9][1-9]$" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td><Button buttonStyle={"btn--danger--solid"} 
+                <tr><td className="buttonpay"><Button buttonStyle={"btn--danger--solid"} 
             buttonSize={"btn--large"}  type="submit">Proceed</Button></td>
-                    <td><Button buttonStyle={"btn--danger--solid"} 
+                    <td className="buttonpay"><Button buttonStyle={"btn--danger--solid"} 
             buttonSize={"btn--large"} 
             onClick={() => this.onCancel()}>Cancel Payment</Button></td></tr>
             {this.state.onpress=="pressed"&&<tr><td>Please wait..</td></tr>}

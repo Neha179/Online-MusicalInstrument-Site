@@ -1,5 +1,7 @@
 #grad2{
     
+    background-image: url('../Images/user3.jpg');
+    background-size: cover;
     /* height: 100px; */
     /* background-image: linear-gradient( #a1c4fd ,#c2e9fb); */
       }
@@ -22,6 +24,7 @@
     
     top: 90;
     left: 0;
+  
       }
 
 
