@@ -12,7 +12,7 @@
 
     /* Set up positioning */
     position: fixed;
-    top: 0;
+    top: 90px;
     left: 0;
   }
 
@@ -30,13 +30,14 @@
   color: #fff;
   border: 3 px solid white !important;
   font-family: crimson sans-serif;
+  top : 120px
 }
 
 .centreuserLog{
   align-items: center;
   position: fixed;
    left: 50%;
-   top: 15%;
+   top: 100px;
    transform: translate(-50%, 0);
     border:1px solid black;
    padding: 3rem;

@@ -5,7 +5,6 @@ import UserRegistration from './UserRegistration'
 import AdminLogin from './AdminLogin'
 import Home from './Home'
 import Navbar from './Navbar'
-import Thank from './Thank.js'
 import UserLogin from './UserLogin'
 import AdminFullSearch from './AdminFullSearch';
 import ShowProduct from './ShowProduct.js';
@@ -22,6 +21,7 @@ import AddressDetails from './AddressDetails';
 import NewAddress from './NewAddress'
 import OrderHistory from './OrderHistory';
 import OrderDetails from './OrderDetails';
+import Logout from './Logout';
 
 
 export default class Routing extends React.Component {
@@ -81,12 +81,14 @@ export default class Routing extends React.Component {
         <OrderDetails />
       </Route>
 
-      {/* <Route exact path="/thank">
-        <Thank />
-      </Route> */}
       <Route exact path="/payment">
         <Payment />
       </Route>
+
+      <Route exact path="/logout">
+        <Logout />
+      </Route>
+
       </Switch>
 
       </BrowserRouter>
