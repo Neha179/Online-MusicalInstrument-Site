@@ -25,10 +25,11 @@
   /* If you want the content centered horizontally and vertically */
   .centeredDetail {
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    box-shadow: 10px 10px 10px 10px rgb(206, 25, 100) ;
   }
   
   /* Style the image inside the centered container, if needed */
@@ -52,35 +53,34 @@
   
   .tableitems{
     font-family:Crimson sans-serif !important ;
-    color: black !important;
-    text-align: left;
-    
+    color: black !important;  
   }
   
-  .datas{
-    padding-right: 10px;
+   .datas{
+     padding-right: 10px; 
     font-family:Crimson sans-serif !important ;
     font-size: large;
-    align-items: left !important;
     padding-bottom: 10px;
     column-width: 300px;
     border-color: black;
-    text-align: center;
+     text-align: left;
   }
   
-  .data{
+   .data{
     font-family:Crimson sans-serif !important ;
     font-size: large;
-    align-items: left !important;
     padding-bottom: 10px;
     padding-right: 10px;
     column-width: 300px;
-    
-    
+    text-align: right;
   }
   
   .inputbar{
     box-sizing: border-box;
     font-size: large;
     width:70px;
+  }
+  .productCartButton
+  {
+    margin-left: 200px;
   }

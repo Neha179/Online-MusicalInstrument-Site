@@ -1,14 +1,14 @@
 
-  .search-box{
+  .searchbox{
     width: 100%;
     position: relative;
     display: flex;
   
   }
-  .search-input{
-    width: 100%;
+  .searchinput{
+    width: 420px;
     padding: 10px;
-    border: 4px solid #111d5e;
+    border: 4px solid #056481;
     border-radius:10px 0 0 10px ;
     border-right: none;
     outline: none;
@@ -17,19 +17,19 @@
     background: none;
     height: 35px;
   }
-  .search-button{
+  .searchbutton{
    text-align: center;
   height: 35px;
   width: 60px;
   outline: none;
   cursor: pointer;
-  border: 4px solid #111d5e;
+  border: 4px solid #056481;
    border-radius: 0 10px 10px 0 ;
   border-left: none;
   background: none;
   font-size: 18px;
-  border-left: 4px solid #111d5e;
-  color:#00FFFF;
+  border-left: 3px solid #056481;
+  color:#55057a;
   
   }
   

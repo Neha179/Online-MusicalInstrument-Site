@@ -51,41 +51,42 @@ export default class ProductDetails extends React.Component{
           <span className="centeredDetail">
             <table className="tableitems">
               <tr>
-                <th className="datas">Name</th>
+                <th className="datas">Name  :</th>
               <th className="data">{localStorage.getItem("pname")}</th>
               </tr>
 
               <tr>
-                <td className="datas">Category</td>
+                <td className="datas">Category  :</td>
                 <td className="data">{localStorage.getItem("category")}</td>
               </tr>
 
               <tr>
-                <td className="datas">Price</td>
+                <td className="datas">Price  :</td>
               <td className="data">{localStorage.getItem("price")}</td>
               </tr>
 
               <tr>
-                <td className="datas">Colour</td>
+                <td className="datas">Colour  :</td>
                 <td className="data">{localStorage.getItem("colour")}</td>
               </tr>
               <tr>
-                <td className="datas">Body Material</td>
+                <td className="datas">Body Material  :</td>
               <td className="data">{localStorage.getItem("bodyMaterial")}</td>
               </tr>
 
               <tr>
-                <td className="datas">String Material</td>
+                <td className="datas">String Material  :</td>
               <td className="data">{localStorage.getItem("stringMaterial")}</td>
               </tr>
               <tr>
-                <td className="datas">Quantity</td>
+                <td className="datas">Quantity  :</td>
               <td className="data"><input name="inputValue"  className="inputbar" min="1" id="quantity" type='number'
                 value={this.state.inputValue}  onChange={(event)=>{this.updateInputValue(event.target.value)}}
                 /></td>
               </tr>
+              <br />
               <tr>
-                <td className="datas" colSpan="2"><Button buttonStyle={"btn--green--solid"} onClick={()=>this.addToCart()}> Cart</Button></td>
+                <td className="productCartButton" colSpan="2"><Button buttonStyle={"btn--green--solid"} onClick={()=>this.addToCart()}> Cart</Button></td>
               </tr>
             </table>
           </span>

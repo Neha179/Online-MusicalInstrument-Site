@@ -4,7 +4,8 @@ import '../CSS/Card.css'
 import Service from '../Services/AdminService'
 import '../CSS/Searchbar.css';
 import Searchbar from './Searchbar.js';
-import ProductList from './Product_list'
+import ProductList from './Product_list';
+import '../CSS/AllProduct.css';
 export default class AllProduct extends React.Component {
   constructor(props){
     super(props)
@@ -52,7 +53,7 @@ export default class AllProduct extends React.Component {
 
 {
   <div>
-      <div><h3> Our Best Products</h3></div>
+      <div><h3 className="allProducthead">Our Best Products</h3></div>
         <div className="cards">
           { this.state.prod_list.map(prod => (
 
