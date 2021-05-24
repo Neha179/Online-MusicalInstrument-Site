@@ -75,15 +75,15 @@ function AddProduct() {
         }
         return (
           <div>
-            <form onSubmit={Add} className="fcentre">
+            <form onSubmit={Add} className="addfcentre">
                 <br/>
-                <h1 className="fcentreit">New Product</h1><br />
+                <h1 className="addfcentreit">New Product</h1><br />
                 <table >
               <tr>
-                <td ><label className="labels-add">Name:</label></td>
+                <td ><label className="addPlabels">Name:</label></td>
                 <td>
                 
-                <select {...productName}>
+                <select {...productName} className="addPselects">
                     <option value="Guitar">Guitar</option>
                     <option value="Sitar">Sitar</option>
                     <option value="Ukulele">Ukulele</option>
@@ -92,23 +92,23 @@ function AddProduct() {
                   </td>
               </tr>
               <tr>
-                  <td><label className="labels-add" >Brand:</label></td>
-                <td><input  className="input-add" placeholder="Eg: Guild" id="brand" type="text" {...brand}
+                  <td><label className="addPlabels" >Brand:</label></td>
+                <td><input  className="addPinputs" placeholder="Eg: Guild" id="brand" type="text" {...brand}
                 required /></td>
               </tr>
               <tr>
-                  <td><label className="labels-add">Price:</label></td>
-                <td><input className="input-add"  id="price"  type="number" {...price} required/></td>
+                  <td><label className="addPlabels">Price:</label></td>
+                <td><input className="addPinputs"  id="price"  type="number" {...price} required/></td>
                   
               </tr>
               <tr>
-                  <td><label className="labels-add">Stock:</label></td>
-                <td><input className="input-add" placeholder="0" id="stock" type="number" {...stock} required/></td>
+                  <td><label className="addPlabels">Stock:</label></td>
+                <td><input className="addPinputs" placeholder="0" id="stock" type="number" {...stock} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels-add">Category:</label></td>
+                  <td><label className="addPlabels">Category:</label></td>
                 <td>
-                <select {...category}>
+                <select {...category} className="addPselects">
                     <option value="Acoustic">Acoustic</option>
                     <option value="Classical">Classical</option>
                     <option value="Mini">Mini</option>
@@ -118,17 +118,17 @@ function AddProduct() {
                 </td>
               </tr>
               <tr>
-                  <td><label className="labels-add" >Colour:</label></td>
-                <td><input className="input-add" placeholder="Eg: Black " id="color"  type="text" {...colour} required/></td>
+                  <td><label className="addPlabels" >Colour:</label></td>
+                <td><input className="addPinputs" placeholder="Eg: Black " id="color"  type="text" {...colour} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels-add">Size:</label></td>
-                <td><input className="input-add" id="size" type="number" {...size} required/></td>
+                  <td><label className="addPlabels">Size:</label></td>
+                <td><input className="addPinputs" id="size" type="number" {...size} required/></td>
               </tr>
               <tr>
-                  <td><label className="labels-add">Body Material:</label></td>
+                  <td><label className="addPlabels">Body Material:</label></td>
                 <td>
-                <select {...bodyMaterial}>
+                <select {...bodyMaterial} className="addPselects">
                     <option value="Wooden">Wooden</option>
                     <option value="Plastic">Plastic</option>
                     <option value="Metallic">Metallic</option>
@@ -137,9 +137,9 @@ function AddProduct() {
                 </td>
               </tr>
               <tr>
-                  <td><label className="labels-add" >String Material:</label></td>
+                  <td><label className="addPlabels" >String Material:</label></td>
                 <td>
-                <select {...stringMaterial}>
+                <select {...stringMaterial} className="addPselects">
                     <option value="Thread">Thread</option>
                     <option value="Nylon">Nylon</option>
                     <option value="Plastic">Plastic</option>
@@ -150,9 +150,9 @@ function AddProduct() {
               <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
               </td></tr>
               <tr> 
-              <td className="centreit"> <Button buttonStyle={"btn--danger--solid"} 
+              <td className="addfcentreit"> <Button buttonStyle={"btn--danger--solid"} 
             buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
-            <td className="centreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 
+            <td className="addfcentreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 
             buttonSize={"btn--medium"}>Add Product</Button></td>
            
             </tr><br/>

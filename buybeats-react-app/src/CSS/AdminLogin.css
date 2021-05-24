@@ -22,7 +22,7 @@
      margin-left: -512px;   /* 50% */
     }
 }
-.centre{
+.centreAdmin{
   align-items: center !important;
   position: fixed;
   left: 50%;
@@ -32,23 +32,23 @@
   padding: 3rem;
 }
 
-.tableitems{
+.tableitemsAdminLogin{
   align-items: right;
   color: #fff;
   border: 3 px solid white !important;
   font-family: crimson sans-serif;
 }
 
-.labels{
+.labelsAdminLogin{
   padding-right: 3px;
   text-align: left;
 }
 
-.inputs{
+.inputsAdminLogin{
   margin-bottom: 0.3rem;
 }
 
-.centreit{
+.centreitAdminLogin{
   align-items: center !important;
   text-align: center !important;
 }

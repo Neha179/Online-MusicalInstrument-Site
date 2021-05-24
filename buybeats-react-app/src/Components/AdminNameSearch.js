@@ -41,14 +41,14 @@ class AdminNameSearch extends Component {
       <form onSubmit={this.handleSearchChange}>
      <div style={{ marginTop: "5em", textAlign: "center" }}>
       <input 
-        className="search-input"
+        className="searchInput"
         style={{ width: "20%", height: "2rem" }}
         type="text"
         placeholder="Search By Name"
         name="keyword"
         required
       />
-      <button className="search-button" type="submit">
+      <button className="searchButton" type="submit">
         <i className="fa fa-search"></i>
       </button>
     </div>
@@ -57,25 +57,25 @@ class AdminNameSearch extends Component {
     {(this.state.status=="notFound")&&<center><h4 style={{ color: 'red' }}>Product not found</h4></center>}
     
 <center>
-<table className="tableitems-name">
+<table className="tableitemsName">
 <tbody>
 {(this.state.status=="found")&&
-<tr><td className="header-name">PID </td>
-    <td className="header-name">NAME </td>
-    <td className="header-name">CATEGORY </td>
-    <td className="header-name">BRAND </td>
-    <td className="header-name">STOCK </td>
+<tr><td className="headerName">PID </td>
+    <td className="headerName">NAME </td>
+    <td className="headerName">CATEGORY </td>
+    <td className="headerName">BRAND </td>
+    <td className="headerName">STOCK </td>
 </tr>
   }
 {
    this.state.products.map(
     products =>
     <tr>
-    <td className='data-name'>{products.pid}</td>
-    <td className='data-name'>{products.productName}</td>
-    <td className='data-name'>{products.category}</td>
-    <td className='data-name'>{products.brand}</td>
-    <td className='data-name'>{products.stock}</td>
+    <td className='dataName'>{products.pid}</td>
+    <td className='dataName'>{products.productName}</td>
+    <td className='dataName'>{products.category}</td>
+    <td className='dataName'>{products.brand}</td>
+    <td className='dataName'>{products.stock}</td>
     </tr>
   )
 }
