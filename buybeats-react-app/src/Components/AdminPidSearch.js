@@ -136,14 +136,14 @@ class AdminPidSearch extends Component {
     <form onSubmit={this.handleSearchChange}>
     <div style={{ marginTop: "5em", textAlign: "center" }}>
       <input
-       className="search-input"
+       className="searchinputId"
         style={{ width: "20%", height: "2rem" }}
         type="number"
         placeholder="Search By pid"
         name="keyword"
         required
       />
-      <button className="search-button" type="submit">
+      <button className="searchbuttonId" type="submit">
         <i className="fa fa-search"></i>
       </button>
     </div>
@@ -152,37 +152,37 @@ class AdminPidSearch extends Component {
     {(this.state.status=="notFound")&&<center><h4 style={{ color: 'red' }}>Wrong PID</h4></center>}
     
 <center>
-<table className="tableitems-id">
+<table className="tableitemsAdminId">
   <tbody>
   {(this.state.status=="found"||this.state.status=="update")&&
   <tr>
-    <td className="header-id">PID </td>
-    <td className="header-id">NAME </td>
-    <td className="header-id">CATEGORY </td>
-    <td className="header-id">BRAND </td>
-    <td className="header-id">STOCK </td>
-    <td className="header-id">PRICE</td>
-    <td className="header-id">SIZE</td>
-    <td className="header-id">COLOUR</td>
-    <td className="header-id">BODY Material</td>
-    <td className="header-id">String Material</td>
-    <td className="header-id">Action</td>
+    <td className="headerAdminId">PID </td>
+    <td className="headerAdminId">NAME </td>
+    <td className="headerAdminId">CATEGORY </td>
+    <td className="headerAdminId">BRAND </td>
+    <td className="headerAdminId">STOCK </td>
+    <td className="headerAdminId">PRICE</td>
+    <td className="headerAdminId">SIZE</td>
+    <td className="headerAdminId">COLOUR</td>
+    <td className="headerAdminId">BODY Material</td>
+    <td className="headerAdminId">String Material</td>
+    <td className="headerAdminId">Action</td>
     </tr>
     }
   {
     
       <tr>
-      <td className='data-id'>{this.state.pid}</td>
-      <td className='data-id'>{this.state.productName}</td>
-      <td className='data-id'>{this.state.category}</td>
-      <td className='data-id'>{this.state.brand}</td>
-      <td className='data-id'>{this.state.stock}</td>
-      <td className='data-id'>{this.state.price}</td>
-      <td className='data-id'>{this.state.size}</td>
-      <td className='data-id'>{this.state.colour}</td>
-      <td className='data-id'>{this.state.bodyMaterial}</td>
-      <td className='data-id'>{this.state.stringMaterial}</td>
-      {(this.state.status=="found")&&<td className="data-id"><Button onClick={() => this.updateProduct()} >Update</Button></td>}
+      <td className='dataAdminId'>{this.state.pid}</td>
+      <td className='dataAdminId'>{this.state.productName}</td>
+      <td className='dataAdminId'>{this.state.category}</td>
+      <td className='dataAdminId'>{this.state.brand}</td>
+      <td className='dataAdminId'>{this.state.stock}</td>
+      <td className='dataAdminId'>{this.state.price}</td>
+      <td className='dataAdminId'>{this.state.size}</td>
+      <td className='dataAdminId'>{this.state.colour}</td>
+      <td className='dataAdminId'>{this.state.bodyMaterial}</td>
+      <td className='dataAdminId'>{this.state.stringMaterial}</td>
+      {(this.state.status=="found")&&<td className="dataAdminId"><Button onClick={() => this.updateProduct()} >Update</Button></td>}
       </tr>
       
     

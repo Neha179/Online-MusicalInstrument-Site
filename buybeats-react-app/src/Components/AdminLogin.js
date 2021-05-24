@@ -28,23 +28,23 @@ function AdminLogin(props) {
   }
   return (
   < div className='adminlogin'>
-      <span className="centre">
-            <table className="tableitems">
-            <tr ><th colspan="2" className="centreit">Welcome To BuyBeats</th></tr><br/>
-            <tr ><th colspan="2" className="centreit">Admin Login</th></tr><br/>
+      <span className="centreAdmin">
+            <table className="tableitemsAdminLogin">
+            <tr ><th colspan="2" className="centreitAdminLogin">Welcome To BuyBeats</th></tr><br/>
+            <tr ><th colspan="2" className="centreitAdminLogin">Admin Login</th></tr><br/>
                 <tr>
-                    <td><label className="labels">Email Id:</label></td>
-                    <td><input className="inputs" type="text" {...email} autoComplete="new-password" /></td>
+                    <td><label className="labelsAdminLogin">Email Id:</label></td>
+                    <td><input className="inputsAdminLogin" type="text" {...email} autoComplete="new-password" /></td>
                 </tr>
                 <tr>
-                    <td><label className="labels">Password:</label></td>
-                    <td><input type="password" {...password} autoComplete="new-password" /></td>
+                    <td><label className="labelsAdminLogin">Password:</label></td>
+                    <td><input className="inputsAdminLogin" type="password" {...password} autoComplete="new-password" /></td>
                 </tr>
                 <tr>
-                  <td colspan="2" className="centreit">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br /></td>
+                  <td colspan="2" className="centreitAdminLogin">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br /></td>
                 </tr>
                 <tr>
-                      <td colspan="2" className="centreit"><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}
+                      <td colspan="2" className="centreitAdminLogin"><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}
                         value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading}>
                             Login
                             </Button></td>

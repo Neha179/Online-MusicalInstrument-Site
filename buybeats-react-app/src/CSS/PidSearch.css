@@ -1,20 +1,20 @@
-.search-button{
+.searchbuttonId{
     background-color: white;
     height: 2rem;
     width: 30px;
     border: 3px solid #10bdeb;
   }
-  .search-input
+  .searchinputId
   {
     border: 3px solid #10bdeb;
   }
-.tableitems-id{
+.tableitemsAdminId{
      border: 1px solid black;
      border-collapse: collapse;
      width: 80%;
   }
   
-  .data-id{
+  .dataAdminId{
     border: 1px solid white;
     border-collapse: collapse; 
      text-align: centre !important;
@@ -25,7 +25,7 @@
      font-family: crimson sans-serif;
   }
   
-  .header-id{
+  .headerAdminId{
     border: 1px solid black;
     border-collapse: collapse;
     height: 50px;

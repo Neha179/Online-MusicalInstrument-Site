@@ -1,29 +1,31 @@
-.fcentreit{
+.addfcentreit{
   font-weight: bolder;
   color: rgb(4, 72, 104);
   text-align: center;
   font-size: 25px;
 }
-.fcentre{
+.addfcentre{
    width: 450px;
    margin-left: 450px;
    background-color: thistle;
 }
 
-.labels-add{
+.addPlabels{
     color: rgb(170, 49, 49);
     font-family: crimson sans-serif;
     margin-left: 50px;
     font-size: 20px;
 }
-.input-add
+.addPselects
+{
+  width: 220px;
+  height: 24px;
+  margin-bottom: 6px;
+}
+.addPinputs
 {
   height: 24px;
   width: 220px;
-  padding-bottom: 14px;
-}
-
-.link {
-  text-decoration: inherit;
-  color: black;
+  padding-block-start: 0px;
+  margin-bottom: 6px;
 }
