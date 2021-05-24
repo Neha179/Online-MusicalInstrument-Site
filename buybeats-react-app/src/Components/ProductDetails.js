@@ -8,6 +8,7 @@ import ReactNotifications from 'react-notifications-component';
 import 'animate.css';
 
 
+
 export default class ProductDetails extends React.Component{
     constructor(props){
       super(props);
