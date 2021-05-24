@@ -1,0 +1,69 @@
+#grad2{
+    
+    height: 1000px;
+    background-image: linear-gradient( #a1c4fd ,#c2e9fb);
+      }
+  
+      .colorcorrector{
+        top:90px;
+        margin:0px;
+        padding: 0px;
+        background-size: cover;
+  opacity: 1;
+  /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    
+    top: 90;
+    left: 0;
+      }
+
+
+.alignTexts{
+    margin-top: 200px;
+}
+
+.boxDetails{
+    
+        border-collapse: collapse;
+        font-family: crimson sans-serif;
+        min-width: 400px;
+        height: 200px;
+        background-color: white;
+        box-shadow: 0 0 30px #251625e7;
+      
+}
+
+.designTexts{
+    margin-left: 30px;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.totalText{
+    
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+
+}
+
+.barInput{
+    
+    height: 30px;
+    border-radius: 1px;
+    margin-right: 20px;
+    width: 230px;
+}
+
+.alignButtons{
+    margin-right: 20px;
+}

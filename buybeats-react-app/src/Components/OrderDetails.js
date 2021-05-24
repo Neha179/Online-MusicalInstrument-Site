@@ -27,7 +27,7 @@ class OrderDetails extends Component {
             <div>
                 
                 
-                {/* <ul className="select">
+                <ul className="select">
                     {this.state.ordersDetails.map((x) => 
                     <li style={{"display" : "list-item"}} key={x.odid} 
                         class="list-group-item">
@@ -41,7 +41,7 @@ class OrderDetails extends Component {
                     
                     </ul>
                 
-             */}
+            
             </div>
         )
     }
