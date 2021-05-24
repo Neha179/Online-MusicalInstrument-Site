@@ -48,11 +48,11 @@ import OrderService from "../Services/OrderService";
         return(
            
             <div id="grad2">
-                <br/><br/><br/><br/><br/><br/>
+                <br/>
             <center ><form className="alignTexts" onSubmit={this.confirm}>
                 <table className="boxDetails">
                     <th><td className="totalText">Total Amount: ₹</td><td>{localStorage.getItem("totalAmount")}</td></th>
-                    <tr><td className="designTexts">Verfication code sent to: {localStorage.getItem("user").uid}</td></tr>
+                    <tr><td className="designTexts">Verfication code sent to: </td><td>{JSON.parse(localStorage.getItem("user")).email}</td></tr>
                 <tr><td className="designTexts"><label>Verfication code :     </label></td>
                 <td>
                     <input className="barInput" type="number" name="code" onChange={this.handleInput} required/><br/>

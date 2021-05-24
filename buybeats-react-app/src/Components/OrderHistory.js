@@ -37,7 +37,7 @@ class OrderHistory extends Component{
             <>
             <ul className="select">
                     {this.state.orders.map((x) => 
-                    <li style={{"display" : "list-item"}} key={x.oid} onClick={() => this.onSelect(x)}
+                    <li style={{"display" : "list-item"}} key={x.oid}
                         class="list-group-item">
                             <table>
                                 <tr><td>Total Amount ₹ : {x.totalAmount}</td></tr>

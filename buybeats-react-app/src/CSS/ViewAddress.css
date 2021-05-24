@@ -26,7 +26,7 @@
   .labels-listaddress{
     margin-left: 60px;
     margin-top: 20px;
-    font-family:  Crimson sans-serif;
+    font-family:  rgb(0, 0, 0) sans-serif;
     font-weight: bolder;
   }
   .add-address-button
@@ -37,7 +37,7 @@
   #grad1{
     
     height: 1000px;
-    background-image: linear-gradient( #a1c4fd ,#c2e9fb);
+    
       }
   
       .colorcorrector{
@@ -62,7 +62,7 @@
 
 
       .listShow{
-        background-color: gold;
+        background-color: rgb(51, 160, 160);
         width: 22rem;
         
       }
