@@ -1,3 +1,12 @@
+.viewAddressbg
+{
+  background-image: url('../Animation/adminback.gif');
+  background-size: cover;
+   position: absolute;
+  top: 90;
+  left: 0;
+  right: 0;
+}
 
 .button-address{
     border: none;

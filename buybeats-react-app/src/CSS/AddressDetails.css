@@ -3,19 +3,20 @@
     font-family: crimson sans-serif;
     min-width: 400px;
     height: 200px;
-    background-color: white;
-    box-shadow: 0 0 20px #051364e7;
+    background-color: #e7dddc;
   }
   .address-box
   {     
      margin-left: 400px;
+     box-shadow: 0 0 20px #051364e7;
+     width: 400px;
   }
   .address-column
   {
      font-family: crimson sans-serif;
      font-size: 20px;
-
-  }
+     margin-left: 80px;
+   }
   .button-proceed
   {
       margin-left: 150px;

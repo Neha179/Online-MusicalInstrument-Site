@@ -1,24 +1,24 @@
-
-    .bigblue {
+ .bigblue {
     color: black;
     padding: 40px;
     font-family: crimson sans-serif;
     text-align: center;
     font-weight: bolder;
   }
-.box{
+/* .box{
     box-sizing: border-box;
     width: 150%;
     border: solid #8f9add 10px;
     padding: 5px;
-}
+    margin-left: 200px;
+} */
 
 .control-label{
     color: black;
     font-family: crimson sans-serif;
     font-size: 22px;
 }
-.inputs
+.inputspay
 {
     height: 30px;
     width: 230px;
@@ -38,7 +38,14 @@
     font-family: crimson sans-serif;
 color: black;
 }
-
+.payment{
+    background-image: url('../Images/bgpay.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 90;
+    left: 0;
+    right: 0;
+}
 .payment-logo{
     margin-left: 150px;
     height: 50px;

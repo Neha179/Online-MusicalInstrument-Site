@@ -1,0 +1,25 @@
+.orderbg
+{
+    background-image: url('../Animation/adminback.gif');
+    background-size: cover;
+    height: 600px;
+}
+.detailsButton
+{
+    border: none;
+    color: white;
+    padding: 10px 15px; 
+    margin-bottom: -15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 50px;
+    background-color: #aa1f6b;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: Crimson sans-serif;
+    font-weight: bolder;
+    width: 300px;
+}
