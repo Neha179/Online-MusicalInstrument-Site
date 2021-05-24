@@ -1,7 +1,8 @@
 
+import Button from './Button';
 import { Component } from "react";
 import { withRouter } from "react-router";
-
+import '../CSS/ConfirmOrder.css';
 import OrderService from "../Services/OrderService";
  
  
@@ -46,25 +47,25 @@ import OrderService from "../Services/OrderService";
     render(){
         return(
            
-            <div>
+            <div id="grad2">
                 <br/><br/><br/><br/><br/><br/>
-            <center><form onSubmit={this.confirm}>
-                <table>
-                    <th><td>Total Amount: ₹</td><td>{localStorage.getItem("totalAmount")}</td></th>
-                    <tr><td>Verfication code sent to: {localStorage.getItem("user").uid}</td></tr>
-                <tr><td><label>Verfication code :     </label></td>
+            <center ><form className="alignTexts" onSubmit={this.confirm}>
+                <table className="boxDetails">
+                    <th><td className="totalText">Total Amount: ₹</td><td>{localStorage.getItem("totalAmount")}</td></th>
+                    <tr><td className="designTexts">Verfication code sent to: {localStorage.getItem("user").uid}</td></tr>
+                <tr><td className="designTexts"><label>Verfication code :     </label></td>
                 <td>
-                    <input type="number" name="code" onChange={this.handleInput} required/><br/>
+                    <input className="barInput" type="number" name="code" onChange={this.handleInput} required/><br/>
                 </td>
                 </tr>
                 <br/>
                 <tr>
                     <td>
-                <button type="submit" >Confirm Order</button>
+                <Button buttonStyle={"btn--primary-solid"} buttonSize={"btn--large"} type="submit" >Confirm Order</Button>
                     </td>
-                    <td>
-                <button onClick={()=>{this.cancelOrder()}} >Cancel Order</button>
-                </td>
+                    <td><div className="alignButtons">
+                <Button buttonStyle={"btn--danger-solid"} buttonSize={"btn--large"} onClick={()=>{this.cancelOrder()}} >Cancel Order</Button>
+                </div></td>
                 </tr>
                 </table>
             </form>

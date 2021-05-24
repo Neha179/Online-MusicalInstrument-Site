@@ -20,6 +20,8 @@ import CartList from './CartList';
 import Payment from './Payment';
 import AddressDetails from './AddressDetails';
 import NewAddress from './NewAddress'
+import OrderHistory from './OrderHistory';
+import OrderDetails from './OrderDetails';
 
 
 export default class Routing extends React.Component {
@@ -72,6 +74,13 @@ export default class Routing extends React.Component {
       <Route exact path="/register">
         <UserRegistration />
       </Route>
+      <Route exact path="/orderHistory">
+        <OrderHistory />
+      </Route>
+      <Route exact path="/orderDetails">
+        <OrderDetails />
+      </Route>
+
       <Route exact path="/thank">
         <Thank />
       </Route>
