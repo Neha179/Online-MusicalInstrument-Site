@@ -22,7 +22,7 @@
      color: black !important;
      text-align: center;
      background-color:  #ffcccc;
-     font-family: crimson sans-serif;
+     font-family: inherit;
   }
   
   .headerAdminId{
@@ -32,7 +32,7 @@
     color: white !important;
     text-align: center;
     background-color: #022535;
-    font-family: crimson sans-serif;
+    font-family: inherit;
     font-weight: bold;
   }
   .input-update

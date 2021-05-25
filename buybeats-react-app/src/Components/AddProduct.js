@@ -141,9 +141,9 @@ function AddProduct() {
                         <td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}</td>
                       </tr>
                       <tr>
-                          <td className="addfcentreit"> <Button buttonStyle={"btn--danger--solid"}
+                          <td className="addfbutton"> <Button buttonStyle={"btn--danger--solid"}
                               buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
-                          <td className="addfcentreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"}
+                          <td className="addfbutton"> <Button buttonStyle={"btn--primary--solid"} type={"submit"}
                               buttonSize={"btn--medium"}>Add Product</Button></td>
                       </tr><br/>
                 </table>

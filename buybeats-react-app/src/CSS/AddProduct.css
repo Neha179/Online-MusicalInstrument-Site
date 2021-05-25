@@ -3,29 +3,35 @@
   color: rgb(4, 72, 104);
   text-align: center;
   font-size: 25px;
+  font-family: inherit;
 }
 .addfcentre{
-   width: 450px;
+   width: 550px;
    margin-left: 450px;
    background-color: thistle;
+   border: 10px solid rgb(5, 82, 82);
 }
 
 .addPlabels{
     color: rgb(170, 49, 49);
-    font-family: crimson sans-serif;
-    margin-left: 50px;
+    font-family: inherit;
+    margin-left: 80px;
     font-size: 20px;
 }
 .addPselects
 {
   width: 220px;
-  height: 24px;
-  margin-bottom: 6px;
+  height: 30px;
+  margin-top: 6px;
 }
 .addPinputs
 {
-  height: 24px;
+  height: 30px;
   width: 220px;
   padding-block-start: 0px;
-  margin-bottom: 6px;
+  margin-top: 6px;
+}
+.addfbutton
+{
+  padding-left: 100px;
 }
