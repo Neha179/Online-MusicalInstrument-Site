@@ -6,14 +6,15 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 40px;
     margin-left: 70px;
     background:  linear-gradient(to bottom, #33ccff 0%, #ff5050 100%);
     cursor: pointer;
     border-radius: 20px;
-    font-family: Crimson sans-serif;
+    font-family: inherit;
     font-weight: bolder;
+
 }
 .backgroundadmin
 {
@@ -36,7 +37,7 @@
   
 .namesearch{
      display: inline; 
-    text-decoration: none;
+     text-decoration: none;
 }
 .navbaradmin
 {
