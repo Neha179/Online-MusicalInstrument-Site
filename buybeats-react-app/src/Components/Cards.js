@@ -17,10 +17,6 @@ class Card extends React.Component{
   }
 
 
-
-
-
-
 onSelect=()=>{
 localStorage.setItem("pid",this.props.pid);
 localStorage.setItem("pname", this.props.pname);
@@ -57,7 +53,7 @@ render(){
 
       </div>
           <Button type="button" className="btn btn-info"  key={this.props.pid}
-              onClick={() => this.onSelect(this.props)}> See Details </Button>
+              onClick={() => this.onSelect(this.props)}> Details </Button>
 
           </article>
 

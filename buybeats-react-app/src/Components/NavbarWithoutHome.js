@@ -3,21 +3,19 @@ import '../CSS/Navbar.css'
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 export default class NavbarWithoutHome extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  
 
     container= React.createRef();
     state = {
         open : false
     }
-    
+
 
     handleClick = () => {
         this.setState({ open: !this.state.open })
     }
 
-   
+
 
     componentDidMount() {
         document.addEventListener("mousedown", this.handleClickOutside);
@@ -40,14 +38,14 @@ export default class NavbarWithoutHome extends React.Component {
         return(
             <Router>
                 <nav className="navbar">
-                
+
                     <center><img src="../../images/LOGO.PNG" alt="Buy Beats" /></center>
-                 
-                    
+
+
 
                     <div ref={this.container}>
-                    <img className = "navbar-user" src="../../images/man-user.png" 
-                        onClick={this.handleClick} alt='User'></img> 
+                    <img className = "navbar-user" src="../../images/man-user.png"
+                        onClick={this.handleClick} alt='User'></img>
                     {this.state.open && (
                         <div class="dropdown" onClick={this.handleClick}>
                             <ul>
@@ -58,9 +56,9 @@ export default class NavbarWithoutHome extends React.Component {
                                 <li><Link to="/logout" className="link" >Logout</Link></li>
                             </ul>
                         </div>
-                    )}  
+                    )}
                     </div>
-                </nav>                   
+                </nav>
 
                     <Switch>
                         <Route path="/profile"><ViewProfile/></Route>
@@ -70,8 +68,8 @@ export default class NavbarWithoutHome extends React.Component {
                         <Route path="/logout"><Logout/></Route>
                     </Switch>
                 </Router>
-            
-           
+
+
         )
     }
 }
@@ -108,5 +106,3 @@ function Logout() {
         <h2>Logout Component</h2>
     )
 }
-
-    

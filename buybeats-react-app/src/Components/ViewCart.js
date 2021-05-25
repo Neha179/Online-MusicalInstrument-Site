@@ -88,12 +88,6 @@ render(){
                   onClick={() => this.onSelect(this.props)}> Details </Button>
           </article>
 
-
-
-
-
-
-
 </>
 );
 

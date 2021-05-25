@@ -11,7 +11,7 @@
 .button-address{
     border: none;
       color: white;
-      padding: 10px 15px; 
+      padding: 10px 15px;
       margin-bottom: -15px;
       text-align: center;
       text-decoration: none;
@@ -26,12 +26,12 @@
       font-weight: bolder;
       width: 300px;
   }
-  
+
   .details-address{
     display: inline;
     text-decoration: none;
   }
-  
+
   .labels-listaddress{
     margin-left: 60px;
     margin-top: 20px;
@@ -42,13 +42,13 @@
   {
     margin-left: 530px;
   }
-  
+
   #grad1{
-    
+
     height: 1000px;
-    
+
       }
-  
+
       .colorcorrector{
         top:90px;
         margin:0px;
@@ -64,16 +64,18 @@
     height: auto;
 
     /* Set up positioning */
-    
+
     top: 90;
     left: 0;
       }
 
 
-      .listShow{
-        background-color: rgb(51, 160, 160);
-        width: 22rem;
-        
-      }
-    
-  
+.listShow{
+    background-color: rgb(51, 160, 160);
+    width: 22rem;
+}
+
+
+.noaddress{
+  color:red;
+}

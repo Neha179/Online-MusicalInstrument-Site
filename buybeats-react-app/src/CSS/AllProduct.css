@@ -1,7 +1,18 @@
 .allProducthead
 {
     text-align: center;
-    color : crimson;
     font-size: 25px;
-    font-family: cursive;
+    font-family:fantasy;
+    color: black;
+    background-color:#a9a9a9;
+}
+
+.imggif{
+  height: 50px;
+
+}
+
+.headerline{
+  display: inline !important;
+  margin-left: 30px;
 }
