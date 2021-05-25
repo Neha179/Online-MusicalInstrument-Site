@@ -4,11 +4,11 @@ import { Component } from "react";
 import { withRouter } from "react-router";
 import '../CSS/ConfirmOrder.css';
 import OrderService from "../Services/OrderService";
- 
+
   class ConfirmOrder extends Component{
     constructor(props){
         super(props);
-        this.service=new OrderService(); 
+        this.service=new OrderService();
     this.state={
          success:""
       }
@@ -17,7 +17,7 @@ import OrderService from "../Services/OrderService";
         e.preventDefault();
         console.log(e.target.value);
         localStorage.setItem("vcode",e.target.value);
-       
+
     }
     cancelOrder(){
         console.log("cancel");
@@ -25,7 +25,7 @@ import OrderService from "../Services/OrderService";
     }
       confirm=(e)=>{
           e.preventDefault();
-        
+
         console.log(localStorage.getItem("vcode"));
         this.setState({success:"verify"});
      this.service.confirmation(localStorage.getItem("oid"),localStorage.getItem("vcode")).then(res=>{
@@ -38,11 +38,11 @@ import OrderService from "../Services/OrderService";
                 else{
                     this.setState({success:"fail"});
                 }
-        });        
+        });
     }
     render(){
         return(
-           
+
             <div id="grad2">
                 <br/>
             <center ><form className="alignTexts" onSubmit={this.confirm}>
@@ -67,13 +67,13 @@ import OrderService from "../Services/OrderService";
             </form>
             </center>
             <br/><br/>
-             <center>   
+             <center>
             {this.state.success=="success"&&<h1>Success</h1>}
-            {this.state.success=="fail"&&<h1>Order Fail</h1>}
-            {this.state.success=="verify"&&<h4>Verifying..</h4>}
+            {this.state.success=="fail"&&<h1>Incorrect OTP</h1>}
+            {this.state.success=="verify"&&<h4>Verifying.. Please don't refresh or cancel</h4>}
             </center>
             </div>
-            
+
         );
     }
  }

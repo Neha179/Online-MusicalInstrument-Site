@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 import '../CSS/AddProduct.css';
 import Button from './Button.js'
@@ -10,7 +9,6 @@ import 'animate.css';
 import 'react-notifications-component/dist/theme.css';
 
 function AddProduct() {
-
         const productName = useFormInput('');
         const brand = useFormInput('');
         const price = useFormInput();
@@ -33,9 +31,7 @@ function AddProduct() {
         };
 
        const [msg, setMsg] = useState(null);
-
        let history = useHistory();
-
         const redirect = () => {
             history.push('/adminHome')
         }
@@ -56,7 +52,7 @@ function AddProduct() {
                 container: 'bottom-left',                // where to position the notifications
                 animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
                 animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-    
+
                 dismiss: {
                   duration: 3000
                 }
@@ -68,10 +64,6 @@ function AddProduct() {
           });
 
 
-          
-
-
-
         }
         return (
           <div>
@@ -79,103 +71,100 @@ function AddProduct() {
                 <br/>
                 <h1 className="addfcentreit">New Product</h1><br />
                 <table >
-              <tr>
-                <td ><label className="addPlabels">Name:</label></td>
-                <td>
-                
-                <select {...productName} className="addPselects">
-                    <option value="Guitar">Guitar</option>
-                    <option value="Sitar">Sitar</option>
-                    <option value="Ukulele">Ukulele</option>
-                    <option value="Violin">Violin</option>
-                  </select>
-                  </td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels" >Brand:</label></td>
-                <td><input  className="addPinputs" placeholder="Eg: Guild" id="brand" type="text" {...brand}
-                required /></td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels">Price:</label></td>
-                <td><input className="addPinputs"  id="price"  type="number" {...price} required/></td>
-                  
-              </tr>
-              <tr>
-                  <td><label className="addPlabels">Stock:</label></td>
-                <td><input className="addPinputs" placeholder="0" id="stock" type="number" {...stock} required/></td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels">Category:</label></td>
-                <td>
-                <select {...category} className="addPselects">
-                    <option value="Acoustic">Acoustic</option>
-                    <option value="Classical">Classical</option>
-                    <option value="Mini">Mini</option>
-                    <option value="Toy">Toy</option>
-                    <option value="Electrical">Electrical</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels" >Colour:</label></td>
-                <td><input className="addPinputs" placeholder="Eg: Black " id="color"  type="text" {...colour} required/></td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels">Size:</label></td>
-                <td><input className="addPinputs" id="size" type="number" {...size} required/></td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels">Body Material:</label></td>
-                <td>
-                <select {...bodyMaterial} className="addPselects">
-                    <option value="Wooden">Wooden</option>
-                    <option value="Plastic">Plastic</option>
-                    <option value="Metallic">Metallic</option>
-                
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                  <td><label className="addPlabels" >String Material:</label></td>
-                <td>
-                <select {...stringMaterial} className="addPselects">
-                    <option value="Thread">Thread</option>
-                    <option value="Nylon">Nylon</option>
-                    <option value="Plastic">Plastic</option>
-                
-                  </select>
-                </td>
-              </tr><br />
-              <tr><td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}
-              </td></tr>
-              <tr> 
-              <td className="addfcentreit"> <Button buttonStyle={"btn--danger--solid"} 
-            buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
-            <td className="addfcentreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"} 
-            buttonSize={"btn--medium"}>Add Product</Button></td>
-           
-            </tr><br/>
-            </table>
-            
+                    <tr>
+                      <td ><label className="addPlabels">Name:</label></td>
+                      <td>
+                          <select {...productName} className="addPselects">
+                            <option value="Guitar">Guitar</option>
+                            <option value="Sitar">Sitar</option>
+                            <option value="Ukulele">Ukulele</option>
+                            <option value="Violin">Violin</option>
+                          </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label className="addPlabels" >Brand:</label></td>
+                      <td><input  className="addPinputs" placeholder="Eg: Guild" id="brand" type="text" {...brand}
+                          required /></td>
+                   </tr>
+                   <tr>
+                      <td><label className="addPlabels">Price:</label></td>
+                      <td><input className="addPinputs"  id="price"  type="number" {...price} required/></td>
+                  </tr>
+                  <tr>
+                      <td><label className="addPlabels">Stock:</label></td>
+                      <td><input className="addPinputs" placeholder="0" id="stock" type="number" {...stock} required/></td>
+                  </tr>
+                  <tr>
+                        <td><label className="addPlabels">Category:</label></td>
+                        <td>
+                          <select {...category} className="addPselects">
+                              <option value="Acoustic">Acoustic</option>
+                              <option value="Classical">Classical</option>
+                              <option value="Mini">Mini</option>
+                              <option value="Toy">Toy</option>
+                              <option value="Electrical">Electrical</option>
+                          </select>
+                        </td>
+                  </tr>
+                  <tr>
+                      <td><label className="addPlabels" >Colour:</label></td>
+                      <td><input className="addPinputs" placeholder="Eg: Black "
+                      id="color"  type="text" {...colour} required/></td>
+                  </tr>
+                  <tr>
+                        <td><label className="addPlabels">Size:</label></td>
+                        <td><input className="addPinputs" id="size" type="number" {...size} required/></td>
+                  </tr>
+                  <tr>
+                        <td><label className="addPlabels">Body Material:</label></td>
+                        <td>
+                            <select {...bodyMaterial} className="addPselects">
+                                <option value="Wooden">Wooden</option>
+                                <option value="Plastic">Plastic</option>
+                                <option value="Metallic">Metallic</option>
+
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label className="addPlabels" >String Material:</label></td>
+                        <td>
+                            <select {...stringMaterial} className="addPselects">
+                              <option value="Thread">Thread</option>
+                              <option value="Nylon">Nylon</option>
+                              <option value="Plastic">Plastic</option>
+                          </select>
+                        </td>
+                      </tr><br />
+                      <tr>
+                        <td colspan="2">{msg && <><small style={{ color: 'Green' }}>{msg}</small><br /></>}</td>
+                      </tr>
+                      <tr>
+                          <td className="addfcentreit"> <Button buttonStyle={"btn--danger--solid"}
+                              buttonSize={"btn--medium"} onClick={redirect}>Cancel</Button></td>
+                          <td className="addfcentreit"> <Button buttonStyle={"btn--primary--solid"} type={"submit"}
+                              buttonSize={"btn--medium"}>Add Product</Button></td>
+                      </tr><br/>
+                </table>
             </form>
 
-            <div>    <ReactNotifications className='centreit'/>    </div> 
-            </div>
+            <div><ReactNotifications className='centreit'/></div>
+      </div>
         );
       }
       const useFormInput = initialValue => {
-        const [value, setValue] = useState(initialValue);
+          const [value, setValue] = useState(initialValue);
 
-        const productChange = e => {
-          // e.preventDefault();
-          setValue(e.target.value);
-          // this.productName = "";
-        }
-        return {
-          value,
-          onChange: productChange
-        }
+          const productChange = e => {
+            // e.preventDefault();
+            setValue(e.target.value);
+            // this.productName = "";
+          }
+          return {
+            value,
+            onChange: productChange
+          }
 }
 
-export default AddProduct; 
+export default AddProduct;

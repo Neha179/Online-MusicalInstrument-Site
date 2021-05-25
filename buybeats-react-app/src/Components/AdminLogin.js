@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
 import '../CSS/AdminLogin.css'
 import Button from './Button'
@@ -18,7 +17,6 @@ function AdminLogin(props) {
     setLoading(true);
   axios.post('http://localhost:8870/admin/login', { email:email.value, password:password.value}).then((response) => {
       setLoading(false);
-      setUserSession(response.data.token, response.data.email);
       setTimeout(() => history.push('/adminHome'), 1000);
     }).catch(error => {
       setLoading(false);
@@ -44,10 +42,12 @@ function AdminLogin(props) {
                   <td colspan="2" className="centreitAdminLogin">{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br /></td>
                 </tr>
                 <tr>
-                      <td colspan="2" className="centreitAdminLogin"><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}
+                      <td colspan="2" className="centreitAdminLogin">
+                        <Button buttonStyle={"btn--green--solid"} buttonSize={"btn--medium"}
                         value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading}>
                             Login
-                            </Button></td>
+                          </Button>
+                      </td>
               </tr>
     </table>
     </span>

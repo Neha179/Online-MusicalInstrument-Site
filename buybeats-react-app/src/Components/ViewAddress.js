@@ -73,15 +73,10 @@ export default class ViewAddress extends Component {
     }
 
     render() {
-        // if(!this.state.addresses)
-        //     return null;
-
-        // const addressList =
-        // );
 
         return(
             <div className="viewAddressbg">
-              
+
                 <div id="grad1" className="colorcorrector">
 
                 {
@@ -99,7 +94,7 @@ export default class ViewAddress extends Component {
                 }
                 {
                     !this.state.stat &&
-                    <h2>No address found ! Add one to proceed</h2>
+                    <h2 className="noaddress">No address found ! Add one to proceed</h2>
                 }
                 <br /><br />
                 <div className="addnewbutton">

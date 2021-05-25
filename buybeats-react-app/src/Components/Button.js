@@ -17,6 +17,7 @@ const STYLES=[
 ];
 
 const SIZES =[
+"btn--extra",
 "btn--large",
 "btn--medium",
 "btn--small",

@@ -9,7 +9,6 @@ import {UseHistory} from 'react-router-dom';
 
 
 export default function AdminFullSearch(){
-
     let history = useHistory();
     const redirectTo = () =>
     {
@@ -41,12 +40,7 @@ export default function AdminFullSearch(){
          </Switch>
          </Router>
         </div>
-       
-         </div>
+  </div>
 
     );
 }
-
-
-
-

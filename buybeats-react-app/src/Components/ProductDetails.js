@@ -33,13 +33,13 @@ export default class ProductDetails extends React.Component{
           container: 'top-left',                // where to position the notifications
           animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
           animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-    
+
           dismiss: {
             duration: 3000
           }
         })
       }
-          
+
       else {
       let quant=this.state.inputValue
       service.addToCart(localStorage.getItem("pid"),{"quantity":quant});
@@ -104,7 +104,8 @@ export default class ProductDetails extends React.Component{
               </tr>
               <br />
               <tr>
-                <td className="productCartButton" colSpan="2"><Button buttonStyle={"btn--green--solid"} onClick={()=>this.addToCart()}> Cart</Button></td>
+                <td className="productCartButton" colSpan="2"><Button buttonStyle={"btn--green--solid"}  buttonSize={"btn--large"}
+                  onClick={()=>this.addToCart()}> Add to Cart</Button></td>
               </tr>
             </table>
           </span>

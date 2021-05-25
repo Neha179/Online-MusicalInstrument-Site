@@ -3,7 +3,7 @@ import '../CSS/Searchbar.css';
 
 function Searchbar(props){
     return(<React.StrictMode>
-      
+
       <div className="container" style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -20,18 +20,10 @@ function Searchbar(props){
    </form>
 </div>
 
-
-
-   
-            
-       
-       
-  
-     
     </React.StrictMode>
     );
-  
-  
+
+
   }
 
   export default Searchbar;
