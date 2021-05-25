@@ -1,3 +1,4 @@
+//Author : Monalisa
 import React from 'react';
 import '../CSS/ViewProfile.css';
 import Image from '../Images/userprofile.jpg';
@@ -14,7 +15,7 @@ class ViewProfile extends React.Component
             update : false
         }
 
-    
+
     }
     redirect = (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ class ViewProfile extends React.Component
         if(this.state.update)
         this.props.history.push('/updateprofile');
     }
-    
+
     render(){
         return(
             <>

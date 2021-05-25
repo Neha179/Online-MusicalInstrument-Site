@@ -1,3 +1,5 @@
+//Authors : Arya and Darshan
+
 import React, { Component } from 'react';
 import '../CSS/Navbar.css';
 import Home from './Home';
@@ -34,7 +36,7 @@ export default class Navbar extends Component {
         this.setState({ open: !this.state.open })
         if(localStorage.getItem("user")!=null)
             this.setState({user:true});
-        else 
+        else
             this.setState({user:false})
     }
 
@@ -42,12 +44,12 @@ export default class Navbar extends Component {
 
     componentDidMount() {
         document.addEventListener("mousedown", this.handleClickOutside);
-        
+
     }
 
     componentWillUnmount() {
       document.removeEventListener("mousedown", this.handleClickOutside);
-     
+
     }
 
 
@@ -56,7 +58,7 @@ export default class Navbar extends Component {
             this.setState({
                 open: false,
             });
-        
+
         }
     };
 
@@ -88,7 +90,7 @@ export default class Navbar extends Component {
                         <div class="dropdown" onClick={this.handleClick}>
                             <ul className="ulist">
                                 <li className="list" ><Link to="/login" className="link" >Login</Link></li>
-                                
+
                             </ul>
                         </div>
                     )}
@@ -118,5 +120,3 @@ export default class Navbar extends Component {
         )
     }
 }
-
-

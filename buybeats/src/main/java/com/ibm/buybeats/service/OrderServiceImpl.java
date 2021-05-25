@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
 		order.setDateTime(LocalDateTime.now());
 		order.setTotalAmount(totalAmount);
 		order.setPaymentStatus("Failed");
-
+		//OTP sent in Email
 		user.setVerficationCode(emailService.sendVerificationCode(user));
 		
 		System.out.println("code at "+user.getVerficationCode());
@@ -147,7 +147,7 @@ public class OrderServiceImpl implements OrderService {
 			}
 			user.getCart().clear();
 			order.setPaymentStatus("Success");
-			emailService.sendConfirmationMail(user, oid);
+			emailService.sendConfirmationMail(user, oid);   //Order Information sent to Email.
 			return "Order successfull";
 		} else {
 			order.setPaymentStatus("Failed");

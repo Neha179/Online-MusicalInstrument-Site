@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	public User saveUser(User u) throws EmailAlreadyExistsException {
 		User user = userRepo.findByEmail(u.getEmail());
 		BasicTextEncryptor key = new BasicTextEncryptor();
-		key.setPassword("BuyBeats");
+		key.setPassword("BuyBeats");   //Encryption key -BuyBeats
 		String encryptedPassword = key.encrypt(u.getPassword());
 		u.setPassword(encryptedPassword);
 		if(user==null)
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 		u.setPhoneNumber(user.getPhoneNumber());
 		if(!(user.getPassword().equals(u.getPassword()))){
 			BasicTextEncryptor key = new BasicTextEncryptor();
-			key.setPassword("BuyBeats");
+			key.setPassword("BuyBeats");   //Encryption key -BuyBeats
 			String encryptedPassword = key.encrypt(user.getPassword());
 			u.setPassword(encryptedPassword);
 		}
@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
 		User user = userRepo.findByEmail(login.getEmail());
 		if(user!=null) {
 			BasicTextEncryptor key = new BasicTextEncryptor();
-			key.setPassword("BuyBeats");
+			key.setPassword("BuyBeats");  //Decryption key -BuyBeats
 			String decryptedPassword = key.decrypt(user.getPassword());
 			if(decryptedPassword.equals(login.getPassword()))
 				return user;
