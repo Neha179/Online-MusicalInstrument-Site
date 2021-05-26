@@ -1,3 +1,4 @@
+//Authors : Arya and Darshan 
 import React, { Component } from 'react';
 
 import {withRouter} from 'react-router-dom';
@@ -20,28 +21,28 @@ class OrderDetails extends Component {
          });
     }
 
-    
+
 
     render() {
         return (
             <div>
-                
-                
+
+
                 <ul className="select">
-                    {this.state.ordersDetails.map((x) => 
-                    <li style={{"display" : "list-item"}} key={x.odid} 
+                    {this.state.ordersDetails.map((x) =>
+                    <li style={{"display" : "list-item"}} key={x.odid}
                         class="list-group-item">
                             <table>
                                 <tr><td>Pname  : {x.orderDetails.product.productName}</td></tr>
                                 <tr><td>Price : {x.orderDetails.price}</td></tr>
-                                
+
                                 <br/>
                             </table>
                             </li>)}
-                    
+
                     </ul>
-                
-            
+
+
             </div>
         )
     }

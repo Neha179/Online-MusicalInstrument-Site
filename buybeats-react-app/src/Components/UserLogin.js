@@ -1,3 +1,4 @@
+//Authors : Aakansha and Monalisa
 import React, { useState } from 'react';
 //import { setUserSession } from '../Utils/Common.js';
 import axios from 'axios';
@@ -21,12 +22,12 @@ function UserLogin(props) {
     axios.post('http://localhost:8870/users/login', { email:email.value, password:password.value}).then((response) => {
       setUser( response.data);
       console.log(user);
-      
+
       localStorage.setItem("user",JSON.stringify(response.data));
       console.log(JSON.parse(localStorage.getItem("user")).email);
       console.log(JSON.parse(localStorage.getItem("user")).uid);
       history.push('/');
-      
+
     }).catch(error => {
       if (error.response.status === 401) setError(error.response.data.message);
       else setError("Invalid credentials ");

@@ -1,3 +1,7 @@
+//Author : Neha  
+//Not using it
+
+
 import React from "react";
 import logo from "../Animation/home.gif";
 import '../CSS/AllProduct.css';

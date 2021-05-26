@@ -1,3 +1,5 @@
+//Authors : Arya and Neha
+
 import React, { Component } from 'react';
 import '../CSS/NewAddress.css'
 import OrderService from '../Services/OrderService.js';
@@ -49,11 +51,11 @@ export default class NewAddress extends Component {
     handleChange=(e)=>{
         this.setState({addressType:e.target.value})
     }
-    
+
 
     render () {
         return (
-            
+
             <div>
                 <center><div className="box">
                 <h1 className="bigblue">New Address</h1>
@@ -75,7 +77,7 @@ export default class NewAddress extends Component {
                     <td><input className="inputs-addressForm" name="pinCode"  value={this.state.pinCode} pattern="[0-9]{6}" required onChange={this.handleInput} /></td></tr>
                 <br />
                 <tr><td className="label-addressForm">Address Type</td>
-                
+
                 {/* <select className="control-label" value={this.state.addressType} required onChange={this.handleInput}>
                     <option>Home</option>
                     <option>Work</option>
@@ -87,10 +89,10 @@ export default class NewAddress extends Component {
                 </select>
                     <td></td></tr>
                 <br />
-               
-                <tr><td><Button buttonStyle={"btn--green--solid"} 
+
+                <tr><td><Button buttonStyle={"btn--green--solid"}
             buttonSize={"btn--large"} type="submit">Save</Button></td>
-                    <td><Button buttonStyle={"btn--danger--solid"} 
+                    <td><Button buttonStyle={"btn--danger--solid"}
             buttonSize={"btn--large"} onClick={() => this.onCancel()}>Cancel</Button></td></tr>
             </table>
             </form></div></center>

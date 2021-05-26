@@ -1,3 +1,5 @@
+//Authors :Aakansha and Darshan
+
 import React from 'react';
 import Card from './Cards.js';
 import '../CSS/Card.css'
@@ -76,11 +78,11 @@ class CartList extends React.Component {
 
               />
 
-              
+
               </div>
-            
+
           ))
-          
+
           }
           </div>
           <br/><br/>

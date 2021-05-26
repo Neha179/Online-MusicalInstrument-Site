@@ -1,3 +1,4 @@
+//Authors : Neha 
 import React, { Component } from 'react';
 import logo from '../Images/payment-logo.jpg'
 import Button from './Button'
@@ -28,7 +29,7 @@ class Payment extends Component {
 
     onCancel() {
         this.props.history.push({pathname:"/cart"})
-        
+
     }
 
     onSave(e) {
@@ -38,9 +39,9 @@ class Payment extends Component {
            console.log(res.data);
            localStorage.setItem("oid",res.data.oid);
            localStorage.setItem("totalAmount",res.data.totalAmount);
-           
+
            this.props.history.push("/confirmOrder");
-          
+
         });
     }
 
@@ -62,18 +63,17 @@ class Payment extends Component {
                 <tr><td className="control-label">Expiry Date</td>
                     <td><input className="inputspay" name="expDate" value={this.state.expDate} placeholder="MM/YYYY" pattern= "(0[1-9]|10|11|12)/20[2-9][1-9]$" required onChange={this.handleInput} /></td></tr>
                 <br />
-                <tr><td className="buttonpay"><Button buttonStyle={"btn--danger--solid"} 
+                <tr><td className="buttonpay"><Button buttonStyle={"btn--danger--solid"}
             buttonSize={"btn--large"}  type="submit">Proceed</Button></td>
-                    <td className="buttonpay"><Button buttonStyle={"btn--danger--solid"} 
-            buttonSize={"btn--large"} 
+                    <td className="buttonpay"><Button buttonStyle={"btn--danger--solid"}
+            buttonSize={"btn--large"}
             onClick={() => this.onCancel()}>Cancel Payment</Button></td></tr>
             {this.state.onpress=="pressed"&&<tr><td>Please wait..</td></tr>}
             </table>
-            
+
             </form></div></center>
             </div>
         )
     }
 }
 export default withRouter(Payment);
-

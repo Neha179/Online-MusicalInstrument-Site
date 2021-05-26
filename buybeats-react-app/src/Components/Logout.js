@@ -1,3 +1,5 @@
+//Author : Neha
+
 import React from "react";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
@@ -18,16 +20,16 @@ function Logout(props){
 
 
                 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <center><h1>You are successfully logout</h1></center>  
+                <center><h1>You are successfully logout</h1></center>
                 <br />
                 <br />
                 <center><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--large"}
                          onClick={redirect}  >
-                                Go back to Home   
+                                Go back to Home
                         </Button>
                 </center>
-                        
-                
+
+
                 </div>
 
         );

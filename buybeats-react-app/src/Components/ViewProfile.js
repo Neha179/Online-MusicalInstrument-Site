@@ -1,3 +1,4 @@
+//Not using it
 import { getUser } from '../Utils/Common.js';
 
 function Profile(props){

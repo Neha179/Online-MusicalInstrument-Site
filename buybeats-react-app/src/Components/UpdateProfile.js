@@ -1,3 +1,4 @@
+//Authors : Arya
 import React from 'react';
 import '../CSS/ViewProfile.css';
 import Image from '../Images/userprofile.jpg';
@@ -20,7 +21,7 @@ class UpdateProfile extends React.Component
         }
         console.log(this.state.password);
 
-    
+
     }
 
     handleInput = (event) => {
@@ -38,9 +39,9 @@ class UpdateProfile extends React.Component
         console.log(this.state.password)
         if(this.state.password=='')
             this.setState({password : JSON.parse(localStorage.getItem("user")).password})
-        UserService.updateProfile(this.state).then(res => 
+        UserService.updateProfile(this.state).then(res =>
             {console.log(res.data)
-                       
+
             if(res.data!="User not logined") //coming from backend
             {
                 localStorage.removeItem("user");
@@ -63,7 +64,7 @@ class UpdateProfile extends React.Component
         this.props.history.push('/profile');
     }
 
-    
+
     render(){
         return(
             <>
@@ -86,7 +87,7 @@ class UpdateProfile extends React.Component
                         <td><input type="text" name="lastName" value={this.state.lastName} onChange={this.handleInput}/></td>
                     </tr>
                     <br />
-                    
+
                     <tr>
                         <td><label>Phone Number:</label></td>
                         <td><input type="text" name="phoneNumber" value={this.state.phoneNumber} pattern="[7-9][0-9]{9}" onChange={this.handleInput}/> </td>

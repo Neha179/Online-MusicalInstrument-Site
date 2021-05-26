@@ -1,3 +1,4 @@
+//Author : Neha
 import React from "react";
 import Navbar from "./Navbar";
 import thanks from "../Images/thanks.jpg";
@@ -18,16 +19,18 @@ function Thank(props){
             <div centered={false}>
                 {/* <Navbar /> */}
                 <br />
-                <center><img src={thanks} height="450" width="550" alt="Thank you for your purchase" /></center>  
+                <center><img src={thanks} height="450" width="550" alt="Thank you for your purchase" /></center>
                 <br />
-                <br />
-                <center><Button buttonStyle={"btn--green--solid"} buttonSize={"btn--large"}
+                <center>
+                    <h3> Your  Order Will be delivered in 7 to 10 working days</h3><br/>
+                  <Button buttonStyle={"btn--green--solid"} buttonSize={"btn--large"}
                          onClick={redirect}  >
-                                Continue Shopping   
+                                Continue Shopping
                         </Button>
+
                 </center>
-                        
-                
+
+
                 </div>
 
         );

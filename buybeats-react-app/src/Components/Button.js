@@ -1,3 +1,5 @@
+//Author :Aakansha
+
 import React from 'react';
 import "../CSS/Button.css";
 
@@ -38,7 +40,7 @@ const checkButtonStyle = STYLES.includes(buttonStyle)?
 buttonStyle : STYLES[0];
 
 const checkButtonSize = SIZES.includes(buttonSize)?
-buttonSize : SIZES[1];
+buttonSize : SIZES[2];
 
   return(
     <button className ={`btn ${checkButtonStyle} ${checkButtonSize}`}onClick = {onClick}

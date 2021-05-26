@@ -1,3 +1,4 @@
+//Authors : Arya and Darshan
 import { Component } from "react";
 import { withRouter } from "react-router";
 import OrderService from "../Services/OrderService";
@@ -38,7 +39,7 @@ class OrderHistory extends Component{
             <>
             <div className="orderbg">
             <ul>
-                    {this.state.orders.map((x) => 
+                    {this.state.orders.map((x) =>
                     <li style={{"display" : "list-item"}} key={x.oid}>
                             <button className="detailsButton">
                              <table>
@@ -49,10 +50,10 @@ class OrderHistory extends Component{
                             </table>
                             </button>
                             </li>)}
-                    
+
                     </ul>
 
-                    {   
+                    {
                     this.state.showDetails && this.state.selectedOrder &&
                     <OrderDetails orderDetails={this.state.selectedOrder} />
                 }
@@ -60,7 +61,7 @@ class OrderHistory extends Component{
             </>
         );
     }
-    
+
 }
 
 // export default withRouter (OrderHistory);
