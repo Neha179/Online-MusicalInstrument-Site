@@ -38,7 +38,7 @@ class CartProductDetails extends React.Component{
       <>
       <article>
         <div className="splitDetail leftDetail ">
-           <img className="imgset" src={`./images/${localStorage.getItem("pname")}${localStorage.getItem("pid")}.jpg`} alt="noimg"/>
+           <img className="imgset" src={`./images/${localStorage.getItem("cpname")}${localStorage.getItem("cpid")}.jpg`} alt="noimg"/>
         </div>
         <div className="splitDetail rightDetail ">
           <span className="centeredDetail">

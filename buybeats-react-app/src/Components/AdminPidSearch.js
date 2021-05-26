@@ -148,20 +148,22 @@ class AdminPidSearch extends Component {
 
     <center>
       <table className="tableitemsAdminId">
+        <thead>
+          <td className="headerAdminId">PID </td>
+          <td className="headerAdminId">NAME </td>
+          <td className="headerAdminId">CATEGORY </td>
+          <td className="headerAdminId">BRAND </td>
+          <td className="headerAdminId">STOCK </td>
+          <td className="headerAdminId">PRICE</td>
+          <td className="headerAdminId">SIZE</td>
+          <td className="headerAdminId">COLOUR</td>
+          <td className="headerAdminId">BODY Material</td>
+          <td className="headerAdminId">String Material</td>
+          <td className="headerAdminId">Action</td>
+        </thead>
         <tbody>
           {(this.state.status=="found"||this.state.status=="update")&&
             <tr>
-              <td className="headerAdminId">PID </td>
-              <td className="headerAdminId">NAME </td>
-              <td className="headerAdminId">CATEGORY </td>
-              <td className="headerAdminId">BRAND </td>
-              <td className="headerAdminId">STOCK </td>
-              <td className="headerAdminId">PRICE</td>
-              <td className="headerAdminId">SIZE</td>
-              <td className="headerAdminId">COLOUR</td>
-              <td className="headerAdminId">BODY Material</td>
-              <td className="headerAdminId">String Material</td>
-              <td className="headerAdminId">Action</td>
           </tr>
     }
   {

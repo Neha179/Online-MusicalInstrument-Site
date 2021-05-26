@@ -13,10 +13,10 @@
      border-collapse: collapse;
      width: 80%;
   }
-  
+
   .dataAdminId{
     border: 1px solid black;
-    border-collapse: collapse; 
+    border-collapse: collapse;
      text-align: centre !important;
      padding: 10px;
      color: black !important;
@@ -24,7 +24,7 @@
      background-color:  #ffcccc;
      font-family: inherit;
   }
-  
+
   .headerAdminId{
     border: 1px solid white;
     border-collapse: collapse;
@@ -37,11 +37,13 @@
   }
   .input-update
   {
-    width: 30px;
+    width: 40px;
+    height: 40px;
+    font-size:15px;
   }
   .inputs-1{
     width: 120px;
+    height: 40px;
+    font-size:15px;
+    text-align: center;
   }
-
- 
-  
